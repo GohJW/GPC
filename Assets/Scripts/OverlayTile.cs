@@ -13,6 +13,7 @@ public class OverlayTile : MonoBehaviour
     public bool isEnemy = false;
     public bool isAlly = false;
     public OverlayTile previous;
+    public CharacterInfo character = null;
  
 
     public Vector3Int gridLocation;

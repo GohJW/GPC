@@ -16,9 +16,10 @@ public class MapManager : MonoBehaviour
     public GameObject obstaclePrefab2;
     private ObstacleInfo obstacle;
 
+    public GameObject CharacterPrefab1;
+    public GameObject CharacterPrefab2;
 
- 
-
+    private CharacterInfo character;
 
     public Dictionary<Vector2Int, OverlayTile> map;
     public Dictionary<Vector3Int, int> obstacles;
@@ -70,7 +71,22 @@ public class MapManager : MonoBehaviour
                     {
                         PositionObstacleOntile(overlayTile, obstacles[overlayTile.gridLocation]);
                         overlayTile.isObstacle = true;
-                    }                  
+                    }          
+                    
+                    if(overlayTile.gridLocation == new Vector3Int(-3,-3,0))
+                    {
+                        character = Instantiate(CharacterPrefab1).GetComponent<CharacterInfo>();
+                        PositionCharacterOntile(overlayTile);                   
+                        character.activeTile.isAlly = true;
+                        overlayTile.character = character;
+                    }
+                    if (overlayTile.gridLocation == new Vector3Int(-4, -3, 0))
+                    {
+                        character = Instantiate(CharacterPrefab2).GetComponent<CharacterInfo>();
+                        PositionCharacterOntile(overlayTile);
+                        character.activeTile.isAlly = true;
+                        overlayTile.character = character;
+                    }
 
                 }
 
@@ -148,7 +164,7 @@ public class MapManager : MonoBehaviour
             obstacle = Instantiate(obstaclePrefab1, obstacleContainer.transform).GetComponent<ObstacleInfo>();
 
             obstacle.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z);
-            obstacle.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
+            obstacle.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder;
             obstacle.activeTile = tile;
             
         }
@@ -167,6 +183,12 @@ public class MapManager : MonoBehaviour
 
     }
 
-    
+    private void PositionCharacterOntile(OverlayTile tile)
+    {
+        character.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z);
+        character.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
+        character.activeTile = tile;
+        character.activeTile.ShowTile();
+    }
 
 }

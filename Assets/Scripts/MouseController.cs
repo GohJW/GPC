@@ -7,7 +7,6 @@ using UnityEngine;
 public class MouseController : MonoBehaviour
 {
     public float speed;
-    public GameObject currentSelectedcharacter;
     private CharacterInfo character;
     public OverlayTile CurrentSelectedTile;
 
@@ -37,18 +36,23 @@ public class MouseController : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (character == null)
+                //if (character == null)
+                //{
+                //    character = Instantiate(currentSelectedcharacter).GetComponent<CharacterInfo>();
+                //    PositionCharacterOntile(overlayTile);
+                //    GetInRangeTiles();
+                //    character.activeTile.isAlly = true;
+                //}
+                if(overlayTile.isAlly == true)
                 {
-                    character = Instantiate(currentSelectedcharacter).GetComponent<CharacterInfo>();
-                    PositionCharacterOntile(overlayTile);
+                    character = overlayTile.character;
                     GetInRangeTiles();
-                    character.activeTile.isAlly = true;
                 }
-
                 else
                 {
-
+                    
                     path = pathfinder.FindPath(character.activeTile, overlayTile, inRangeTiles);
+                    //overlayTile.character.Equals(null);
                 }
                 
             }
@@ -80,6 +84,8 @@ public class MouseController : MonoBehaviour
         if(path.Count == 0)
         { 
             character.activeTile.isObstacle = true;
+            character.activeTile.isAlly = true;
+            character.activeTile.character = character;
             GetInRangeTiles();
         }
     }

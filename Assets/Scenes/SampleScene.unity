@@ -186,6 +186,8 @@ MonoBehaviour:
   obstacleContainer: {fileID: 745084920}
   obstaclePrefab1: {fileID: 4873257352821483164, guid: 4f0ac735f4e2cf24a8143258f17197e4, type: 3}
   obstaclePrefab2: {fileID: 770482183855394960, guid: f35032049f1731946b33607996371cb9, type: 3}
+  CharacterPrefab1: {fileID: 2194246102877866239, guid: 6fdad203d7b070a45860ab6893a57ab7, type: 3}
+  CharacterPrefab2: {fileID: 7641212942601949390, guid: 14fd8bff47eeadf44999d19ac983f444, type: 3}
 --- !u!1 &137949075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1408,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  currentSelectedcharacter: {fileID: 2194246102877866239, guid: 6fdad203d7b070a45860ab6893a57ab7, type: 3}
   CurrentSelectedTile: {fileID: 0}
 --- !u!212 &1129050689
 SpriteRenderer:
