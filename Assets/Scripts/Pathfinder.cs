@@ -30,7 +30,7 @@ public class Pathfinder
             
             foreach(var neighbour in neighbourTiles)
             {
-                if(neighbour.isObstacle == true || closedList.Contains(neighbour))
+                if(neighbour.isObstacle == true || closedList.Contains(neighbour) || neighbour.isEnemy == true || neighbour.isAlly == true)
                 {
                     continue;
                 }

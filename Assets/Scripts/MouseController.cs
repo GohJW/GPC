@@ -29,31 +29,30 @@ public class MouseController : MonoBehaviour
 
         if (focusedTile.HasValue)
         {
-            OverlayTile overlayTile = focusedTile.Value.collider.gameObject.GetComponent<OverlayTile>();
-            transform.position = overlayTile.transform.position;
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlayTile.GetComponent<SpriteRenderer>().sortingOrder;
+            OverlayTile overlaytile = focusedTile.Value.collider.gameObject.GetComponent<OverlayTile>();
+            transform.position = overlaytile.transform.position;
+            gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlaytile.GetComponent<SpriteRenderer>().sortingOrder;
 
 
             if (Input.GetMouseButtonDown(0))
-            {
-                //if (character == null)
-                //{
-                //    character = Instantiate(currentSelectedcharacter).GetComponent<CharacterInfo>();
-                //    PositionCharacterOntile(overlayTile);
-                //    GetInRangeTiles();
-                //    character.activeTile.isAlly = true;
-                //}
-                if(overlayTile.isAlly == true)
+            { 
+                CurrentSelectedTile = overlaytile;
+                if (CurrentSelectedTile.isAlly == true)
                 {
-                    character = overlayTile.character;
-                    GetInRangeTiles();
+                    character = CurrentSelectedTile.character;                   
+                    if (character.hasMoved == false)
+                    {        
+                        character.activeTile.ShowTile();
+                        GetInRangeTiles();
+                    }
                 }
-                else
+                else if (inRangeTiles.Contains(CurrentSelectedTile))
                 {
-                    
-                    path = pathfinder.FindPath(character.activeTile, overlayTile, inRangeTiles);
-                    //overlayTile.character.Equals(null);
+
+                    path = pathfinder.FindPath(character.activeTile, CurrentSelectedTile, inRangeTiles);
+
                 }
+                
                 
             }
 
@@ -63,9 +62,8 @@ public class MouseController : MonoBehaviour
 
         if(path.Count > 0)
         {
-            character.activeTile.isObstacle = false;
-            character.activeTile.isAlly = false;
-            MoveAlongPath();
+            character.activeTile.isAlly = false;           
+            MoveAlongPath();           
         }
     }
 
@@ -83,10 +81,15 @@ public class MouseController : MonoBehaviour
 
         if(path.Count == 0)
         { 
-            character.activeTile.isObstacle = true;
             character.activeTile.isAlly = true;
             character.activeTile.character = character;
-            GetInRangeTiles();
+            character.hasMoved = true;
+
+            foreach (var item in inRangeTiles)
+            {
+                item.HideTile();
+            }
+            inRangeTiles.Clear();                  
         }
     }
 
@@ -95,7 +98,10 @@ public class MouseController : MonoBehaviour
         character.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z);
         character.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
         character.activeTile = tile;
-       character.activeTile.ShowTile();
+        //if (character.hasMoved == false)
+        //{
+        //    character.activeTile.ShowTile();
+        //}
     }
 
     public RaycastHit2D? GetFocusedOnTile()
@@ -119,11 +125,11 @@ public class MouseController : MonoBehaviour
             item.HideTile();
         }
 
-        inRangeTiles = rangefinder.GetTilesInRange(character.activeTile, 3);
+        inRangeTiles = rangefinder.GetTilesInRange(character.activeTile, character.range);
 
-        foreach(var item in inRangeTiles)
-        {                       
-                item.ShowTile();            
+        foreach (var item in inRangeTiles)
+        {
+            item.ShowTile();
         }
     }
 

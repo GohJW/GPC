@@ -22,8 +22,18 @@ public class OverlayTile : MonoBehaviour
 
     
     public void ShowTile()
+    { 
+        if(isEnemy == true)
         {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
+        }else if(isAlly == true)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        }
     }
     public void HideTile()
     {

@@ -18,6 +18,7 @@ public class MapManager : MonoBehaviour
 
     public GameObject CharacterPrefab1;
     public GameObject CharacterPrefab2;
+    public GameObject Enemy;
 
     private CharacterInfo character;
 
@@ -76,16 +77,28 @@ public class MapManager : MonoBehaviour
                     if(overlayTile.gridLocation == new Vector3Int(-3,-3,0))
                     {
                         character = Instantiate(CharacterPrefab1).GetComponent<CharacterInfo>();
-                        PositionCharacterOntile(overlayTile);                   
-                        character.activeTile.isAlly = true;
+                        PositionCharacterOntile(overlayTile);
                         overlayTile.character = character;
+                        character.activeTile.isAlly = true;
+                      
                     }
                     if (overlayTile.gridLocation == new Vector3Int(-4, -3, 0))
                     {
                         character = Instantiate(CharacterPrefab2).GetComponent<CharacterInfo>();
                         PositionCharacterOntile(overlayTile);
-                        character.activeTile.isAlly = true;
                         overlayTile.character = character;
+                        character.activeTile.isAlly = true;
+                       
+                    }
+
+                    if (overlayTile.gridLocation == new Vector3Int(-3, -1, 0))
+                    {
+                        character = Instantiate(Enemy).GetComponent<CharacterInfo>();
+                        PositionCharacterOntile(overlayTile);
+                        overlayTile.character = character;
+                        character.activeTile.isEnemy = true;
+                       
+                       
                     }
 
                 }
@@ -187,8 +200,7 @@ public class MapManager : MonoBehaviour
     {
         character.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z);
         character.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
-        character.activeTile = tile;
-        character.activeTile.ShowTile();
+        character.activeTile = tile;     
     }
 
 }

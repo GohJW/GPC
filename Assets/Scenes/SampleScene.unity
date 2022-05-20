@@ -188,6 +188,7 @@ MonoBehaviour:
   obstaclePrefab2: {fileID: 770482183855394960, guid: f35032049f1731946b33607996371cb9, type: 3}
   CharacterPrefab1: {fileID: 2194246102877866239, guid: 6fdad203d7b070a45860ab6893a57ab7, type: 3}
   CharacterPrefab2: {fileID: 7641212942601949390, guid: 14fd8bff47eeadf44999d19ac983f444, type: 3}
+  Enemy: {fileID: 4938640777943149458, guid: f24e1fe4dccccf74084c3f6c63b336b1, type: 3}
 --- !u!1 &137949075
 GameObject:
   m_ObjectHideFlags: 0

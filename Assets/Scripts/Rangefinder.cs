@@ -20,8 +20,16 @@ public class Rangefinder
             var surroundingTiles = new List<OverlayTile>();
 
             foreach (var item in tileForPreviousStep)
-            {               
-                surroundingTiles.AddRange(MapManager.GetNeighbourTiles(item, new List<OverlayTile>()));                           
+            {
+                if (item.isEnemy == true)
+                {
+                    continue;
+                }
+                if(item.isAlly == true && item != startingTile)
+                {
+                    continue;
+                }
+                    surroundingTiles.AddRange(MapManager.GetNeighbourTiles(item, new List<OverlayTile>()));               
             }
 
             inRangeTiles.AddRange(surroundingTiles);
