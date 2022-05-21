@@ -54,7 +54,6 @@ public class MouseController : MonoBehaviour
                     character = CurrentSelectedTile.character;                   
                     if (character.hasMoved == false)
                     {        
-                        character.activeTile.ShowTile();
                         GetInRangeTiles();
                     }
                 }
