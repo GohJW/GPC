@@ -8,19 +8,23 @@ public class MouseController : MonoBehaviour
 {
     public float speed;
     private CharacterInfo character;
+    private Attackinfo attack;
     public OverlayTile CurrentSelectedTile;
     public Canvas CharacterStatUI;
 
     private Pathfinder pathfinder;
     private Rangefinder rangefinder;
+    private AttackRangefinder attackrangefinder;
     private List<OverlayTile> path = new List<OverlayTile>();
     private List<OverlayTile> inRangeTiles = new List<OverlayTile>();
+    private List<OverlayTile> inAttackRangeTiles = new List<OverlayTile>();
 
     // Start is called before the first frame update
     void Start()
     {
         pathfinder = new Pathfinder();
         rangefinder = new Rangefinder();
+        attackrangefinder = new AttackRangefinder();
     }
 
     // Update is called once per frame
@@ -36,9 +40,9 @@ public class MouseController : MonoBehaviour
 
 
             if (Input.GetMouseButtonDown(0))
-            {               
+            {
                 CurrentSelectedTile = overlaytile;
-                if(CurrentSelectedTile.isAlly == true || CurrentSelectedTile.isEnemy == true)
+                if (CurrentSelectedTile.isAlly == true || CurrentSelectedTile.isEnemy == true)
                 {
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
@@ -49,33 +53,35 @@ public class MouseController : MonoBehaviour
                     CharacterStatUI.GetComponent<Canvas>().enabled = false;
                 }
 
+
                 if (CurrentSelectedTile.isAlly == true)
                 {
-                    character = CurrentSelectedTile.character;                   
+                    character = CurrentSelectedTile.character;
                     if (character.hasMoved == false)
-                    {        
+                    {
                         GetInRangeTiles();
                     }
+                    else if (character.hasMoved == true)
+                    {
+                        GetInAttackRangeTiles();
+                    }
                 }
-                else if (inRangeTiles.Contains(CurrentSelectedTile))
+                if (inRangeTiles.Contains(CurrentSelectedTile))
                 {
-
                     path = pathfinder.FindPath(character.activeTile, CurrentSelectedTile, inRangeTiles);
-
                 }
-                
-                
+
             }
 
-
         }
-    
 
         if(path.Count > 0)
         {
-            character.activeTile.isAlly = false;           
-            MoveAlongPath();           
+            character.activeTile.isAlly = false;
+            MoveAlongPath();
         }
+        
+
     }
 
     private void MoveAlongPath()
@@ -144,6 +150,23 @@ public class MouseController : MonoBehaviour
         }
     }
 
+    private void GetInAttackRangeTiles()
+    {
+        foreach (var item in inAttackRangeTiles)
+        {
+            item.HideTile();
+        }
 
+        inAttackRangeTiles = attackrangefinder.GetTilesInAttackRange(character.activeTile, attack.AttackRange);
 
+        foreach (var item in inAttackRangeTiles)
+        {
+            item.ShowTile();
+        }
+    }
+
+    private void Attack()
+    {
+
+    }
 }

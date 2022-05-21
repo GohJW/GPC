@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Rangefinder 
+public class AttackRangefinder
 {
-  public List<OverlayTile> GetTilesInRange( OverlayTile startingTile, int range)
+    public List<OverlayTile> GetTilesInAttackRange(OverlayTile startingTile, int attackrange)
     {
         var inRangeTiles = new List<OverlayTile>();
         int stepCount = 0;
@@ -15,7 +15,7 @@ public class Rangefinder
         var tileForPreviousStep = new List<OverlayTile>();
         tileForPreviousStep.Add(startingTile);
 
-        while(stepCount < range)
+        while (stepCount < attackrange)
         {
             var surroundingTiles = new List<OverlayTile>();
 
@@ -23,13 +23,9 @@ public class Rangefinder
             {
                 if (item.isEnemy == true)
                 {
-                    continue;
-                }
-                if (item.isAlly == true && item != startingTile)
-                {
-                    continue;
-                }
-                    surroundingTiles.AddRange(MapManager.GetNeighbourTiles(item, new List<OverlayTile>()));               
+                    surroundingTiles.AddRange(MapManager.GetNeighbourTiles(item, new List<OverlayTile>())); ;
+                }           
+
             }
 
             inRangeTiles.AddRange(surroundingTiles);
@@ -40,5 +36,5 @@ public class Rangefinder
 
         return inRangeTiles.Distinct().ToList();
     }
-    
+
 }
