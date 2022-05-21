@@ -9,6 +9,7 @@ public class MouseController : MonoBehaviour
     public float speed;
     private CharacterInfo character;
     public OverlayTile CurrentSelectedTile;
+    public Canvas CharacterStatUI;
 
     private Pathfinder pathfinder;
     private Rangefinder rangefinder;
@@ -35,8 +36,19 @@ public class MouseController : MonoBehaviour
 
 
             if (Input.GetMouseButtonDown(0))
-            { 
+            {               
                 CurrentSelectedTile = overlaytile;
+                if(CurrentSelectedTile.isAlly == true || CurrentSelectedTile.isEnemy == true)
+                {
+                    CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
+                    CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
+                    CharacterStatUI.GetComponent<Canvas>().enabled = true;
+                }
+                else
+                {
+                    CharacterStatUI.GetComponent<Canvas>().enabled = false;
+                }
+
                 if (CurrentSelectedTile.isAlly == true)
                 {
                     character = CurrentSelectedTile.character;                   
@@ -132,5 +144,7 @@ public class MouseController : MonoBehaviour
             item.ShowTile();
         }
     }
+
+
 
 }

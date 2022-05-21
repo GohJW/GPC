@@ -99,3 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
   range: 2
+  CharacterHP: 1
+  hasMoved: 0
+  characterName: Character 1
