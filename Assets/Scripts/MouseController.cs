@@ -61,7 +61,7 @@ public class MouseController : MonoBehaviour
                     {
                         GetInRangeTiles();
                     }
-                    else if (character.hasMoved == true)
+                    if (character.hasMoved == true)
                     {
                         GetInAttackRangeTiles();
                     }
@@ -115,10 +115,6 @@ public class MouseController : MonoBehaviour
         character.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z);
         character.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
         character.activeTile = tile;
-        //if (character.hasMoved == false)
-        //{
-        //    character.activeTile.ShowTile();
-        //}
     }
 
     public RaycastHit2D? GetFocusedOnTile()
@@ -141,6 +137,10 @@ public class MouseController : MonoBehaviour
         {
             item.HideTile();
         }
+        foreach (var item in inAttackRangeTiles)
+        {
+            item.HideTile();
+        }
 
         inRangeTiles = rangefinder.GetTilesInRange(character.activeTile, character.range);
 
@@ -156,8 +156,12 @@ public class MouseController : MonoBehaviour
         {
             item.HideTile();
         }
+        foreach (var item in inRangeTiles)
+        {
+            item.HideTile();
+        }
 
-        inAttackRangeTiles = attackrangefinder.GetTilesInAttackRange(character.activeTile, attack.AttackRange);
+        inAttackRangeTiles = attackrangefinder.GetTilesInAttackRange(character.activeTile, 2);//hardcoded 2 for now, attackinfo dont work
 
         foreach (var item in inAttackRangeTiles)
         {

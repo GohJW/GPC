@@ -21,6 +21,7 @@ public class Rangefinder
 
             foreach (var item in tileForPreviousStep)
             {
+                //excludes nearby enemy and ally tiles
                 if (item.isEnemy == true)
                 {
                     continue;
