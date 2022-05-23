@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2194246102877866236}
   - component: {fileID: 2194246102877866237}
   - component: {fileID: -6685051112829749794}
+  - component: {fileID: 2441331489751741515}
   m_Layer: 0
   m_Name: Character1
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2194246102877866239}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.49, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -101,5 +102,29 @@ MonoBehaviour:
   movementrange: 1
   attackrange: 1
   CharacterHP: 1
+  Attack: 1
   hasMoved: 0
+  hasAttack: 0
   characterName: Character 1
+  rb: {fileID: 0}
+  animator: {fileID: 2441331489751741515}
+--- !u!95 &2441331489751741515
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2194246102877866239}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2abfa5d077646404b919edd9b430ec4d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

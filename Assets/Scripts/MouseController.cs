@@ -73,8 +73,9 @@ public class MouseController : MonoBehaviour
 
                 if(CurrentSelectedTile.isEnemy == true && inAttackRangeTiles.Contains(CurrentSelectedTile) && character.hasAttack == false) 
                 {
-                    CurrentSelectedTile.character.CharacterHP -= character.Attack;
-                    character.hasAttack = true;
+                    //CurrentSelectedTile.character.CharacterHP -= character.Attack;
+                    //character.hasAttack = true;
+                    Attack();
                     
                 }
 
@@ -94,6 +95,7 @@ public class MouseController : MonoBehaviour
 
     private void MoveAlongPath()
     {
+        character.moving = true;
         var step = speed * Time.deltaTime;
 
         character.transform.position = Vector2.MoveTowards(character.transform.position, path[0].transform.position, step);
@@ -114,7 +116,8 @@ public class MouseController : MonoBehaviour
             {
                 item.HideTile();
             }
-            inRangeTiles.Clear();          
+            inRangeTiles.Clear();
+            character.moving = false;
         }
     }
 
@@ -189,6 +192,20 @@ public class MouseController : MonoBehaviour
 
     private void Attack()
     {
+        CurrentSelectedTile.character.CharacterHP -= character.Attack;
+        character.hasAttack = true;
 
+        foreach (var item in inAttackRangeTiles)
+        {
+            item.HideTile();
+        }
+        inAttackRangeTiles.Clear();
+
+        if (CurrentSelectedTile.character.CharacterHP <= 0)
+        {
+            CurrentSelectedTile.character.GetComponent<SpriteRenderer>().enabled = false;
+            CurrentSelectedTile.isEnemy = false;
+            HideCharacterUI();
+        }
     }
 }

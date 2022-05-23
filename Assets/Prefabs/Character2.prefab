@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1957168475675826662}
   - component: {fileID: 6677757374381043144}
   - component: {fileID: 8489453035858243835}
+  - component: {fileID: 33218183}
   m_Layer: 0
   m_Name: Character2
   m_TagString: Untagged
@@ -101,5 +102,29 @@ MonoBehaviour:
   movementrange: 2
   attackrange: 2
   CharacterHP: 2
+  Attack: 2
   hasMoved: 0
+  hasAttack: 0
   characterName: Character 2
+  moving: 0
+  animator: {fileID: 33218183}
+--- !u!95 &33218183
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7641212942601949390}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f1c96e41473df3f4c9eca3579040af1e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
