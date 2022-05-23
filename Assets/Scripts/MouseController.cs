@@ -61,7 +61,7 @@ public class MouseController : MonoBehaviour
                     {
                         GetInRangeTiles();
                     }
-                    if (character.hasMoved == true)
+                    if (character.hasMoved == true && character.hasAttack == false)
                     {
                         GetInAttackRangeTiles();
                     }
@@ -69,6 +69,13 @@ public class MouseController : MonoBehaviour
                 if (inRangeTiles.Contains(CurrentSelectedTile))
                 {
                     path = pathfinder.FindPath(character.activeTile, CurrentSelectedTile, inRangeTiles);
+                }
+
+                if(CurrentSelectedTile.isEnemy == true && inAttackRangeTiles.Contains(CurrentSelectedTile) && character.hasAttack == false) 
+                {
+                    CurrentSelectedTile.character.CharacterHP -= 1;
+                    character.hasAttack = true;
+                    
                 }
 
             }
