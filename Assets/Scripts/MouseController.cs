@@ -73,7 +73,7 @@ public class MouseController : MonoBehaviour
 
                 if(CurrentSelectedTile.isEnemy == true && inAttackRangeTiles.Contains(CurrentSelectedTile) && character.hasAttack == false) 
                 {
-                    CurrentSelectedTile.character.CharacterHP -= 1;
+                    CurrentSelectedTile.character.CharacterHP -= character.Attack;
                     character.hasAttack = true;
                     
                 }

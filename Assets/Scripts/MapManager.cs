@@ -226,7 +226,8 @@ public class MapManager : MonoBehaviour
             item.HideTile();
             if (item.isAlly == true)
             {
-                item.character.hasMoved = false;               
+                item.character.hasMoved = false;
+                item.character.hasAttack = false;
             }
         }
     }
