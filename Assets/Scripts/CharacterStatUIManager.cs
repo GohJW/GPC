@@ -1,20 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class CharacterStatUIManager : MonoBehaviour
 {
     public OverlayTile currentSelectedTile;
-    public CharacterInfo characterinfo;
-    public Text CharacterName;
-    public Text CharacterHP;
-    public Text CharacterRange;
+    public TMP_Text CharacterName;
+    public TMP_Text CharacterHP;
+    public TMP_Text CharacterRange;
 
     private void Update()
     {
         CharacterName.text = currentSelectedTile.character.characterName;
         CharacterHP.text = "Health:" + currentSelectedTile.character.CharacterHP.ToString();
-        CharacterRange.text = "Range:" + currentSelectedTile.character.range.ToString();
+        CharacterRange.text = "Movement Range:" + currentSelectedTile.character.movementrange.ToString();
     }
 }

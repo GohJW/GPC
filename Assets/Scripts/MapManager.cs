@@ -104,10 +104,10 @@ public class MapManager : MonoBehaviour
                 }
 
             }
-        }     
+        }
 
+        NewTurn();
     }
-
     public static List<OverlayTile> GetNeighbourTiles(OverlayTile currentOverlayTile, List<OverlayTile> searchableTiles)
     {
         Dictionary<Vector2Int, OverlayTile> TiletoSearch = new Dictionary<Vector2Int, OverlayTile>();
@@ -203,4 +203,31 @@ public class MapManager : MonoBehaviour
         character.activeTile = tile;     
     }
 
+
+    //private bool AllMoved(OverlayTile[] container)
+    //{
+    //    foreach (var item in container)
+    //    {
+    //        if (item.isAlly == true && item.character.hasMoved == false)
+    //        {
+    //            return false;
+
+    //        }
+    //    }
+    //    return true;
+    //}
+
+    public void NewTurn()
+    {
+      OverlayTile[] container = overlayContainer.GetComponentsInChildren<OverlayTile>();
+
+        foreach (var item in container)
+        {
+            item.HideTile();
+            if (item.isAlly == true)
+            {
+                item.character.hasMoved = false;               
+            }
+        }
+    }
 }

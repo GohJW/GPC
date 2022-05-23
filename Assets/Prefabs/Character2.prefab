@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
-  range: 1
+  movementrange: 2
+  attackrange: 2
   CharacterHP: 2
   hasMoved: 0
   characterName: Character 2

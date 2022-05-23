@@ -46,11 +46,11 @@ public class MouseController : MonoBehaviour
                 {
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
-                    CharacterStatUI.GetComponent<Canvas>().enabled = true;
+                    ShowCharacterUI();
                 }
                 else
                 {
-                    CharacterStatUI.GetComponent<Canvas>().enabled = false;
+                    HideCharacterUI();
                 }
 
 
@@ -79,6 +79,7 @@ public class MouseController : MonoBehaviour
         {
             character.activeTile.isAlly = false;
             MoveAlongPath();
+            
         }
         
 
@@ -106,7 +107,7 @@ public class MouseController : MonoBehaviour
             {
                 item.HideTile();
             }
-            inRangeTiles.Clear();                  
+            inRangeTiles.Clear();          
         }
     }
 
@@ -142,12 +143,22 @@ public class MouseController : MonoBehaviour
             item.HideTile();
         }
 
-        inRangeTiles = rangefinder.GetTilesInRange(character.activeTile, character.range);
+        inRangeTiles = rangefinder.GetTilesInRange(character.activeTile, character.movementrange);
 
         foreach (var item in inRangeTiles)
         {
             item.ShowTile();
         }
+    }
+
+    public void HideCharacterUI()
+    {
+        CharacterStatUI.GetComponent<Canvas>().enabled = false;
+    }
+
+    public void ShowCharacterUI()
+    {
+        CharacterStatUI.GetComponent<Canvas>().enabled = true;
     }
 
     private void GetInAttackRangeTiles()
@@ -161,7 +172,7 @@ public class MouseController : MonoBehaviour
             item.HideTile();
         }
 
-        inAttackRangeTiles = attackrangefinder.GetTilesInAttackRange(character.activeTile, 2);//hardcoded 2 for now, attackinfo dont work
+        inAttackRangeTiles = attackrangefinder.GetTilesInAttackRange(character.activeTile, character.attackrange);//hardcoded 2 for now, attackinfo dont work
 
         foreach (var item in inAttackRangeTiles)
         {
