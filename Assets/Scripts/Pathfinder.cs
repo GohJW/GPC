@@ -26,11 +26,12 @@ public class Pathfinder
                 return GetFinishedList(start, end);
             }
 
+
             var neighbourTiles = MapManager.GetNeighbourTiles(currentOverlayTile, searchableTiles);
             
             foreach(var neighbour in neighbourTiles)
             {
-                if(neighbour.isObstacle == true || closedList.Contains(neighbour) || neighbour.isEnemy == true || neighbour.isAlly == true)
+                if(neighbour.isObstacle == true || closedList.Contains(neighbour) || neighbour.isEnemy == true || neighbour.isAlly == true || neighbour.isBarrel == true)
                 {
                     continue;
                 }
