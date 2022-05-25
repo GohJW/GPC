@@ -23,6 +23,8 @@ public class MapManager : MonoBehaviour
 
     private CharacterInfo character;
 
+    public Canvas TurnUI;
+
     public Dictionary<Vector2Int, OverlayTile> map;
     public Dictionary<Vector3Int, int> obstacles;
 
@@ -37,8 +39,6 @@ public class MapManager : MonoBehaviour
             _instance = this;
         }
     }
-
-    // Start is called before the first frame update
     void Start()
     {
         var tileMap = gameObject.GetComponentInChildren<Tilemap>();
@@ -115,7 +115,7 @@ public class MapManager : MonoBehaviour
             }
         }
 
-        NewTurn();
+        //NewTurn();
     }
     public static List<OverlayTile> GetNeighbourTiles(OverlayTile currentOverlayTile, List<OverlayTile> searchableTiles)
     {
@@ -228,16 +228,27 @@ public class MapManager : MonoBehaviour
 
     public void NewTurn()
     {
-      OverlayTile[] container = overlayContainer.GetComponentsInChildren<OverlayTile>();
+        //TurnUI.GetComponent<TurnUIScript>().ShowEnemyTurn();
+        OverlayTile[] container = overlayContainer.GetComponentsInChildren<OverlayTile>();
+        foreach (var item in container)
+        {
+            if (item.isEnemy == true && item.character.hasMoved == false)
+            {
+                //Execute Enemy AI actions here or create a new function for enemy turn movements
+            }
+        }
 
         foreach (var item in container)
         {
             item.HideTile();
-            if (item.isAlly == true)
+            if (item.isAlly == true || item.isEnemy == true)
             {
                 item.character.hasMoved = false;
                 item.character.hasAttack = false;
             }
         }
+
+       TurnUI.GetComponent<TurnUIScript>().ShowPlayerTurn();
+
     }
 }

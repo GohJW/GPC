@@ -10,6 +10,7 @@ public class CharacterInfo : MonoBehaviour
     public int attackrange;
     public int CharacterHP;
     public int Attack;
+    public int Defense;
     public bool hasMoved = false;
     public bool hasAttack = false;
     public string characterName;

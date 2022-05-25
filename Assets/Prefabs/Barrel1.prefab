@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7581061728795413802}
   - component: {fileID: 4940089109490522474}
   - component: {fileID: 8753715917323382594}
+  - component: {fileID: 9163158750106281570}
   m_Layer: 0
   m_Name: Barrel1
   m_TagString: Untagged
@@ -92,7 +93,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8229601432631751412}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63c6c0553f4b08e4680345dffbbe837e, type: 3}
   m_Name: 
@@ -104,6 +105,26 @@ MonoBehaviour:
   Attack: 1
   hasMoved: 0
   hasAttack: 0
-  characterName: 
+  characterName: Explosive Barrel
   moving: 0
-  animator: {fileID: 0}
+  animator: {fileID: 9163158750106281570}
+--- !u!95 &9163158750106281570
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229601432631751412}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

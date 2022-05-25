@@ -51,11 +51,13 @@ public class MouseController : MonoBehaviour
                 else
                 {
                     HideCharacterUI();
+                    HideAllTiles();
                 }
 
 
                 if (CurrentSelectedTile.isAlly == true)
                 {
+                    ClearAllTiles();
                     character = CurrentSelectedTile.character;
                     if (character.hasMoved == false)
                     {
@@ -83,12 +85,11 @@ public class MouseController : MonoBehaviour
                     Attack();
 
                 }
-
             }
 
         }
 
-        if(path.Count > 0)
+        if(path.Count > 0 && inRangeTiles.Contains(CurrentSelectedTile))
         {
             character.activeTile.isAlly = false;
             MoveAlongPath();
@@ -187,7 +188,7 @@ public class MouseController : MonoBehaviour
             item.HideTile();
         }
 
-        inAttackRangeTiles = attackrangefinder.GetTilesInAttackRange(character.activeTile, character.attackrange);//hardcoded 2 for now, attackinfo dont work
+        inAttackRangeTiles = attackrangefinder.GetTilesInAttackRange(character.activeTile, character.attackrange);//hardcoded for now, attackinfo dont work
 
         foreach (var item in inAttackRangeTiles)
         {
@@ -211,19 +212,57 @@ public class MouseController : MonoBehaviour
             CurrentSelectedTile.character.GetComponent<SpriteRenderer>().enabled = false;
             CurrentSelectedTile.isEnemy = false;
             HideCharacterUI();
-        }
-
+        }else
         if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isBarrel)
         {
-            BarrelExplode();
+            BarrelExplode(CurrentSelectedTile);
             CurrentSelectedTile.character.GetComponent<SpriteRenderer>().enabled = false;
             CurrentSelectedTile.isBarrel = false;
             HideCharacterUI();
         }
     }
 
-    private void BarrelExplode()
+    private void BarrelExplode(OverlayTile Barrel)
     {
-        
+        List<OverlayTile> explosion = attackrangefinder.GetTilesInAttackRange(Barrel, 1);
+        explosion.Remove(Barrel);
+        foreach (var item in explosion)
+        {
+            if (item.isEnemy || item.isAlly)
+            {
+                item.character.CharacterHP -= 1;
+                if (item.character.CharacterHP <= 0)
+                {
+                    item.character.GetComponent<SpriteRenderer>().enabled = false;
+                    item.isEnemy = false;
+                    item.isAlly = false;
+                }
+            }    
+        }       
+    }
+    private void ClearAllTiles()
+    {
+        foreach(var item in inAttackRangeTiles)
+        {
+            item.HideTile();
+        }
+        foreach (var item in inRangeTiles)
+        {
+            item.HideTile();
+        }
+        inRangeTiles.Clear();
+        inAttackRangeTiles.Clear();
+    }
+
+    private void HideAllTiles()
+    {
+        foreach (var item in inAttackRangeTiles)
+        {
+            item.HideTile();
+        }
+        foreach (var item in inRangeTiles)
+        {
+            item.HideTile();
+        }
     }
 }
