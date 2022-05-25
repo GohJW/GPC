@@ -12,6 +12,7 @@ public class OverlayTile : MonoBehaviour
     public bool isObstacle = false;
     public bool isEnemy = false;
     public bool isAlly = false;
+    public bool isBarrel = false;
     public bool isAttack = false;
     public OverlayTile previous;
     public CharacterInfo character = null;
@@ -24,17 +25,13 @@ public class OverlayTile : MonoBehaviour
     
     public void ShowTile()
     { 
-        if(isEnemy == true)
+        if(isEnemy == true || isBarrel == true)
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
         }
         else if(isAlly == true)
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
-        }
-        else if (isAttack == true)
-        {
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
         }
         else
         {

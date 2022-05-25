@@ -19,6 +19,7 @@ public class MapManager : MonoBehaviour
     public GameObject CharacterPrefab1;
     public GameObject CharacterPrefab2;
     public GameObject Enemy;
+    public GameObject Barrel1;
 
     private CharacterInfo character;
 
@@ -99,6 +100,14 @@ public class MapManager : MonoBehaviour
                         character.activeTile.isEnemy = true;
                        
                        
+                    }
+
+                    if (overlayTile.gridLocation == new Vector3Int(-2, -1, 0))
+                    {
+                        character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
+                        PositionCharacterOntile(overlayTile);
+                        overlayTile.character = character;
+                        character.activeTile.isBarrel = true;
                     }
 
                 }

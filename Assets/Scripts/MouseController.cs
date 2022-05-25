@@ -42,7 +42,7 @@ public class MouseController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 CurrentSelectedTile = overlaytile;
-                if (CurrentSelectedTile.isAlly == true || CurrentSelectedTile.isEnemy == true)
+                if (CurrentSelectedTile.isAlly == true || CurrentSelectedTile.isEnemy == true || CurrentSelectedTile.isBarrel == true)
                 {
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
@@ -73,10 +73,15 @@ public class MouseController : MonoBehaviour
 
                 if(CurrentSelectedTile.isEnemy == true && inAttackRangeTiles.Contains(CurrentSelectedTile) && character.hasAttack == false) 
                 {
-                    //CurrentSelectedTile.character.CharacterHP -= character.Attack;
-                    //character.hasAttack = true;
+
                     Attack();
                     
+                }
+
+                if (CurrentSelectedTile.isBarrel == true && inAttackRangeTiles.Contains(CurrentSelectedTile) && character.hasAttack == false)
+                {
+                    Attack();
+
                 }
 
             }
@@ -201,11 +206,24 @@ public class MouseController : MonoBehaviour
         }
         inAttackRangeTiles.Clear();
 
-        if (CurrentSelectedTile.character.CharacterHP <= 0)
+        if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isEnemy)
         {
             CurrentSelectedTile.character.GetComponent<SpriteRenderer>().enabled = false;
             CurrentSelectedTile.isEnemy = false;
             HideCharacterUI();
         }
+
+        if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isBarrel)
+        {
+            BarrelExplode();
+            CurrentSelectedTile.character.GetComponent<SpriteRenderer>().enabled = false;
+            CurrentSelectedTile.isBarrel = false;
+            HideCharacterUI();
+        }
+    }
+
+    private void BarrelExplode()
+    {
+        
     }
 }
