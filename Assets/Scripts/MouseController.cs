@@ -41,20 +41,19 @@ public class MouseController : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                CurrentSelectedTile = overlaytile;
+                CurrentSelectedTile = overlaytile;             
                 if (CurrentSelectedTile.isAlly == true || CurrentSelectedTile.isEnemy == true || CurrentSelectedTile.isBarrel == true)
-                {
+                {                    
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
                     ShowCharacterUI();
                 }
                 else
                 {
+
                     HideCharacterUI();
-                    HideAllTiles();
+                    //HideAllTiles();
                 }
-
-
                 if (CurrentSelectedTile.isAlly == true)
                 {
                     ClearAllTiles();
@@ -263,6 +262,23 @@ public class MouseController : MonoBehaviour
         foreach (var item in inRangeTiles)
         {
             item.HideTile();
+        }
+    }
+
+    public void SkipButton()
+    {
+        if (CurrentSelectedTile.isAlly == true && CurrentSelectedTile.character.hasMoved == false)
+        {
+            CurrentSelectedTile.character.hasMoved = true;
+            HideAllTiles();
+            inRangeTiles.Clear();
+            GetInAttackRangeTiles();
+        }else
+        if (CurrentSelectedTile.isAlly == true && CurrentSelectedTile.character.hasAttack == false)
+        {
+            CurrentSelectedTile.character.hasAttack = true;
+            ClearAllTiles();
+            HideCharacterUI();
         }
     }
 }
