@@ -41,9 +41,9 @@ public class MouseController : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                CurrentSelectedTile = overlaytile;             
+                CurrentSelectedTile = overlaytile;
                 if (CurrentSelectedTile.isAlly == true || CurrentSelectedTile.isEnemy == true || CurrentSelectedTile.isBarrel == true)
-                {                    
+                {
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
                     ShowCharacterUI();
@@ -66,24 +66,33 @@ public class MouseController : MonoBehaviour
                     {
                         GetInAttackRangeTiles();
                     }
+
+
                 }
                 if (inRangeTiles.Contains(CurrentSelectedTile))
                 {
                     path = pathfinder.FindPath(character.activeTile, CurrentSelectedTile, inRangeTiles);
                 }
 
-                if(CurrentSelectedTile.isEnemy == true && inAttackRangeTiles.Contains(CurrentSelectedTile) && character.hasAttack == false) 
+                else if (CurrentSelectedTile.isBarrel == false && CurrentSelectedTile.isEnemy == false && CurrentSelectedTile.isAlly == false)
+                {
+                    ClearAllTiles();
+                }
+
+                if (CurrentSelectedTile.isEnemy == true && inAttackRangeTiles.Contains(CurrentSelectedTile) && character.hasAttack == false)
                 {
 
                     Attack();
-                    
+
                 }
 
                 if (CurrentSelectedTile.isBarrel == true && inAttackRangeTiles.Contains(CurrentSelectedTile) && character.hasAttack == false)
                 {
                     Attack();
-
                 }
+
+               
+
             }
 
         }

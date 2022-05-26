@@ -75,7 +75,7 @@ public class MapManager : MonoBehaviour
                         overlayTile.isObstacle = true;
                     }          
                     
-                    if(overlayTile.gridLocation == new Vector3Int(-3,-3,0))
+                    if(overlayTile.gridLocation == new Vector3Int(-6,-3,0))
                     {
                         character = Instantiate(CharacterPrefab1).GetComponent<CharacterInfo>();
                         PositionCharacterOntile(overlayTile);
@@ -83,7 +83,7 @@ public class MapManager : MonoBehaviour
                         character.activeTile.isAlly = true;
                       
                     }
-                    if (overlayTile.gridLocation == new Vector3Int(-4, -3, 0))
+                    if (overlayTile.gridLocation == new Vector3Int(-6, -1, 0))
                     {
                         character = Instantiate(CharacterPrefab2).GetComponent<CharacterInfo>();
                         PositionCharacterOntile(overlayTile);
@@ -92,7 +92,7 @@ public class MapManager : MonoBehaviour
                        
                     }
 
-                    if (overlayTile.gridLocation == new Vector3Int(-3, -1, 0))
+                    if (overlayTile.gridLocation == new Vector3Int(2, 0, 0))
                     {
                         character = Instantiate(Enemy).GetComponent<CharacterInfo>();
                         PositionCharacterOntile(overlayTile);
@@ -102,7 +102,7 @@ public class MapManager : MonoBehaviour
                        
                     }
 
-                    if (overlayTile.gridLocation == new Vector3Int(-2, -1, 0))
+                    if (overlayTile.gridLocation == new Vector3Int(1, 0, 0))
                     {
                         character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
                         PositionCharacterOntile(overlayTile);
