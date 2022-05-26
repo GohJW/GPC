@@ -8,9 +8,9 @@ public class CharacterInfo : MonoBehaviour
     public OverlayTile activeTile;
     public int movementrange;
     public int attackrange;
-    public int CharacterHP;
+    public float CharacterHP;
     public int Attack;
-    public int Defense;
+    public float Defense;
     public bool hasMoved = false;
     public bool hasAttack = false;
     public string characterName;

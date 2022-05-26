@@ -25,7 +25,8 @@ public class OverlayTile : MonoBehaviour
     
     public void ShowTile()
     { 
-        if(isEnemy == true || isBarrel == true)
+        if(isEnemy == true ||
+            isBarrel == true)
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
         }

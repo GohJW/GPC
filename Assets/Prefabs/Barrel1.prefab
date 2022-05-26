@@ -103,6 +103,7 @@ MonoBehaviour:
   attackrange: 1
   CharacterHP: 1
   Attack: 1
+  Defense: 0
   hasMoved: 0
   hasAttack: 0
   characterName: Explosive Barrel

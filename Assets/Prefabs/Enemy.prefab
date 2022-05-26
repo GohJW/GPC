@@ -101,8 +101,9 @@ MonoBehaviour:
   activeTile: {fileID: 0}
   movementrange: 3
   attackrange: 3
-  CharacterHP: 3
+  CharacterHP: 50
   Attack: 0
+  Defense: 50
   hasMoved: 0
   hasAttack: 0
   characterName: Enemy

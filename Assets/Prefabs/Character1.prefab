@@ -101,12 +101,13 @@ MonoBehaviour:
   activeTile: {fileID: 0}
   movementrange: 1
   attackrange: 1
-  CharacterHP: 1
-  Attack: 1
+  CharacterHP: 50
+  Attack: 20
+  Defense: 20
   hasMoved: 0
   hasAttack: 0
   characterName: Character 1
-  rb: {fileID: 0}
+  moving: 0
   animator: {fileID: 2441331489751741515}
 --- !u!95 &2441331489751741515
 Animator:

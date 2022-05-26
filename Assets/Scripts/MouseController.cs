@@ -198,7 +198,7 @@ public class MouseController : MonoBehaviour
 
     private void Attack()
     {
-        CurrentSelectedTile.character.CharacterHP -= character.Attack;
+        CurrentSelectedTile.character.CharacterHP -= character.Attack * (1 - CurrentSelectedTile.character.Defense/100);
         character.hasAttack = true;
 
         foreach (var item in inAttackRangeTiles)
@@ -225,12 +225,12 @@ public class MouseController : MonoBehaviour
     private void BarrelExplode(OverlayTile Barrel)
     {
         List<OverlayTile> explosion = attackrangefinder.GetTilesInAttackRange(Barrel, 1);
-        explosion.Remove(Barrel);
+        explosion.Remove(Barrel); 
         foreach (var item in explosion)
         {
             if (item.isEnemy || item.isAlly)
             {
-                item.character.CharacterHP -= 1;
+                item.character.CharacterHP -= 10 * (1 - item.character.Defense/100);
                 if (item.character.CharacterHP <= 0)
                 {
                     item.character.GetComponent<SpriteRenderer>().enabled = false;
