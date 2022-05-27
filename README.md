@@ -21,7 +21,7 @@ We hope to make a turn-based strategy game that is both entertaining and engagin
 - As a player, they can come up with different strategies and routes to clear each stage with the different classes and skills of our playable characters.
 - As a game developer who wants to learn about the way users play the game, I want to be able to identify the strategies players use in order to clear each stage.
 
-#SCOPE
+# SCOPE
 We are creating a Turn-based strategy game, similar to games like Fire Emblem. Our players control a variety of characters  with different skills, with the goal of clearing the different stages that we create with their own creative strategies.
 
 ## Features
