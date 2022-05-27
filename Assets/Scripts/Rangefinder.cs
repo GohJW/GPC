@@ -22,11 +22,11 @@ public class Rangefinder
             foreach (var item in tileForPreviousStep)
             {
                 //excludes nearby enemy and ally tiles
-                if (item.isEnemy == true || item.isBarrel == true)
+                if (item.isEnemy || item.isBarrel)
                 {
                     continue;
                 }
-                if (item.isAlly == true && item != startingTile)
+                if (item.isAlly && item != startingTile)
                 {
                     continue;
                 }

@@ -140,7 +140,7 @@ public class MapManager : MonoBehaviour
         Vector2Int locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x, currentOverlayTile.gridLocation.y + 1);
         if (TiletoSearch.ContainsKey(locationToCheck))
         {
-            if (TiletoSearch[locationToCheck].isObstacle == false)
+            if (!TiletoSearch[locationToCheck].isObstacle)
             {
                 neighbours.Add(TiletoSearch[locationToCheck]);
             }
@@ -150,7 +150,7 @@ public class MapManager : MonoBehaviour
         locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x, currentOverlayTile.gridLocation.y - 1);
         if (TiletoSearch.ContainsKey(locationToCheck))
         {
-            if (TiletoSearch[locationToCheck].isObstacle == false)
+            if (!TiletoSearch[locationToCheck].isObstacle)
             {
                 neighbours.Add(TiletoSearch[locationToCheck]);
             }
@@ -160,7 +160,7 @@ public class MapManager : MonoBehaviour
         locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x + 1, currentOverlayTile.gridLocation.y);
         if (TiletoSearch.ContainsKey(locationToCheck))
         {
-            if (TiletoSearch[locationToCheck].isObstacle == false)
+            if (!TiletoSearch[locationToCheck].isObstacle)
             {
                 neighbours.Add(TiletoSearch[locationToCheck]);
             }
@@ -170,7 +170,7 @@ public class MapManager : MonoBehaviour
         locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x - 1, currentOverlayTile.gridLocation.y);
         if (TiletoSearch.ContainsKey(locationToCheck))
         {
-            if (TiletoSearch[locationToCheck].isObstacle == false)
+            if (!TiletoSearch[locationToCheck].isObstacle)
             {
                 neighbours.Add(TiletoSearch[locationToCheck]);
             }
@@ -232,7 +232,7 @@ public class MapManager : MonoBehaviour
         OverlayTile[] container = overlayContainer.GetComponentsInChildren<OverlayTile>();
         foreach (var item in container)
         {
-            if (item.isEnemy == true && item.character.hasMoved == false)
+            if (item.isEnemy && !item.character.hasMoved)
             {
                 //Execute Enemy AI actions here or create a new function for enemy turn movements
             }
@@ -241,7 +241,7 @@ public class MapManager : MonoBehaviour
         foreach (var item in container)
         {
             item.HideTile();
-            if (item.isAlly == true || item.isEnemy == true)
+            if (item.isAlly || item.isEnemy)
             {
                 item.character.hasMoved = false;
                 item.character.hasAttack = false;

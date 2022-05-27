@@ -42,7 +42,7 @@ public class MouseController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 CurrentSelectedTile = overlaytile;
-                if (CurrentSelectedTile.isAlly == true || CurrentSelectedTile.isEnemy == true || CurrentSelectedTile.isBarrel == true)
+                if (CurrentSelectedTile.isAlly || CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel)
                 {
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
@@ -54,15 +54,15 @@ public class MouseController : MonoBehaviour
                     HideCharacterUI();
                     //HideAllTiles();
                 }
-                if (CurrentSelectedTile.isAlly == true)
+                if (CurrentSelectedTile.isAlly)
                 {
                     ClearAllTiles();
                     character = CurrentSelectedTile.character;
-                    if (character.hasMoved == false)
+                    if (!character.hasMoved)
                     {
                         GetInRangeTiles();
                     }
-                    if (character.hasMoved == true && character.hasAttack == false)
+                    if (character.hasMoved && !character.hasAttack)
                     {
                         GetInAttackRangeTiles();
                     }
@@ -74,25 +74,17 @@ public class MouseController : MonoBehaviour
                     path = pathfinder.FindPath(character.activeTile, CurrentSelectedTile, inRangeTiles);
                 }
 
-                else if (CurrentSelectedTile.isBarrel == false && CurrentSelectedTile.isEnemy == false && CurrentSelectedTile.isAlly == false)
+                else if (!CurrentSelectedTile.isBarrel && !CurrentSelectedTile.isEnemy && !CurrentSelectedTile.isAlly)
                 {
                     ClearAllTiles();
                 }
 
-                if (CurrentSelectedTile.isEnemy == true && inAttackRangeTiles.Contains(CurrentSelectedTile) && character.hasAttack == false)
+                if ((CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel) && inAttackRangeTiles.Contains(CurrentSelectedTile) && !character.hasAttack)
                 {
 
                     Attack();
 
                 }
-
-                if (CurrentSelectedTile.isBarrel == true && inAttackRangeTiles.Contains(CurrentSelectedTile) && character.hasAttack == false)
-                {
-                    Attack();
-                }
-
-               
-
             }
 
         }

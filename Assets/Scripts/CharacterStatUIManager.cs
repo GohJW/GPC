@@ -20,14 +20,14 @@ public class CharacterStatUIManager : MonoBehaviour
         CharacterRange.text = "Range:" + currentSelectedTile.character.movementrange.ToString();
         CharacterAttack.text = "Attack:" + currentSelectedTile.character.Attack.ToString();
         CharacterDefense.text = "Defense:" + currentSelectedTile.character.Defense.ToString();
-        if (currentSelectedTile.isAlly == true)
+        if (currentSelectedTile.isAlly)
         {
             Button.gameObject.SetActive(true);
-            if (currentSelectedTile.character.hasMoved == false)
+            if (!currentSelectedTile.character.hasMoved)
             {
                 Button.GetComponentInChildren<TextMeshProUGUI>().text = "Skip Movement Turn";
             }
-            else if (currentSelectedTile.character.hasAttack == false)
+            else if (!currentSelectedTile.character.hasAttack)
             {
                 Button.GetComponentInChildren<TextMeshProUGUI>().text = "Skip Attack Turn";
             }
