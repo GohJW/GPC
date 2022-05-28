@@ -38,12 +38,12 @@ public class MouseController : MonoBehaviour
             transform.position = overlaytile.transform.position;
             gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlaytile.GetComponent<SpriteRenderer>().sortingOrder;
 
-
             if (Input.GetMouseButtonDown(0))
             {
                 CurrentSelectedTile = overlaytile;
                 if (CurrentSelectedTile.isAlly || CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel)
                 {
+                    //UpdateStats();
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
                     CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
                     ShowCharacterUI();
@@ -85,6 +85,7 @@ public class MouseController : MonoBehaviour
                     Attack();
 
                 }
+
             }
 
         }
@@ -282,4 +283,13 @@ public class MouseController : MonoBehaviour
             HideCharacterUI();
         }
     }
+
+    //public void UpdateStats()
+    //{
+        
+    //    CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
+    //    CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
+    //    CharacterStatUI.GetComponent<CharacterStatUIManager>().UpdateUI();
+    //    ShowCharacterUI();
+    //}
 }
