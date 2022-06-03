@@ -30,74 +30,76 @@ public class MouseController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        var focusedTile = GetFocusedOnTile();
-
-        if (focusedTile.HasValue)
+        if (!PauseMenu.isPaused)
         {
-            OverlayTile overlaytile = focusedTile.Value.collider.gameObject.GetComponent<OverlayTile>();
-            transform.position = overlaytile.transform.position;
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlaytile.GetComponent<SpriteRenderer>().sortingOrder;
+            var focusedTile = GetFocusedOnTile();
 
-            if (Input.GetMouseButtonDown(0))
+            if (focusedTile.HasValue)
             {
-                CurrentSelectedTile = overlaytile;
-                if (CurrentSelectedTile.isAlly || CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel)
-                {
-                    //UpdateStats();
-                    CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
-                    CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
-                    ShowCharacterUI();
-                }
-                else
-                {
+                OverlayTile overlaytile = focusedTile.Value.collider.gameObject.GetComponent<OverlayTile>();
+                transform.position = overlaytile.transform.position;
+                gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlaytile.GetComponent<SpriteRenderer>().sortingOrder;
 
-                    HideCharacterUI();
-                    //HideAllTiles();
-                }
-                if (CurrentSelectedTile.isAlly)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    ClearAllTiles();
-                    character = CurrentSelectedTile.character;
-                    if (!character.hasMoved)
+                    CurrentSelectedTile = overlaytile;
+                    if (CurrentSelectedTile.isAlly || CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel)
                     {
-                        GetInRangeTiles();
+                        //UpdateStats();
+                        CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
+                        CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
+                        ShowCharacterUI();
                     }
-                    if (character.hasMoved && !character.hasAttack)
+                    else
                     {
-                        GetInAttackRangeTiles();
+
+                        HideCharacterUI();
+                        //HideAllTiles();
+                    }
+                    if (CurrentSelectedTile.isAlly)
+                    {
+                        ClearAllTiles();
+                        character = CurrentSelectedTile.character;
+                        if (!character.hasMoved)
+                        {
+                            GetInRangeTiles();
+                        }
+                        if (character.hasMoved && !character.hasAttack)
+                        {
+                            GetInAttackRangeTiles();
+                        }
+
+
+                    }
+                    if (inRangeTiles.Contains(CurrentSelectedTile))
+                    {
+                        path = pathfinder.FindPath(character.activeTile, CurrentSelectedTile, inRangeTiles);
                     }
 
+                    else if (!CurrentSelectedTile.isBarrel && !CurrentSelectedTile.isEnemy && !CurrentSelectedTile.isAlly)
+                    {
+                        ClearAllTiles();
+                    }
 
-                }
-                if (inRangeTiles.Contains(CurrentSelectedTile))
-                {
-                    path = pathfinder.FindPath(character.activeTile, CurrentSelectedTile, inRangeTiles);
-                }
+                    if ((CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel) && inAttackRangeTiles.Contains(CurrentSelectedTile) && !character.hasAttack)
+                    {
 
-                else if (!CurrentSelectedTile.isBarrel && !CurrentSelectedTile.isEnemy && !CurrentSelectedTile.isAlly)
-                {
-                    ClearAllTiles();
-                }
+                        Attack();
 
-                if ((CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel) && inAttackRangeTiles.Contains(CurrentSelectedTile) && !character.hasAttack)
-                {
-
-                    Attack();
+                    }
 
                 }
 
             }
 
-        }
+            if (path.Count > 0 && inRangeTiles.Contains(CurrentSelectedTile))
+            {
+                character.activeTile.isAlly = false;
+                MoveAlongPath();
 
-        if(path.Count > 0 && inRangeTiles.Contains(CurrentSelectedTile))
-        {
-            character.activeTile.isAlly = false;
-            MoveAlongPath();
-            
-        }
-        
+            }
 
+        }
     }
 
     private void MoveAlongPath()
