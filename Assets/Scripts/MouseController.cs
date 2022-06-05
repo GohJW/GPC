@@ -40,6 +40,7 @@ public class MouseController : MonoBehaviour
                 transform.position = overlaytile.transform.position;
                 gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlaytile.GetComponent<SpriteRenderer>().sortingOrder;
 
+               
                 if (Input.GetMouseButtonDown(0))
                 {
                     CurrentSelectedTile = overlaytile;
@@ -71,12 +72,15 @@ public class MouseController : MonoBehaviour
 
 
                     }
-                    if (inRangeTiles.Contains(CurrentSelectedTile))
+                    if (inRangeTiles.Contains(CurrentSelectedTile) && !character.moving)
                     {
-                        path = pathfinder.FindPath(character.activeTile, CurrentSelectedTile, inRangeTiles);
+                        //if (!character.moving)
+                        //{
+                            path = pathfinder.FindPath(character.activeTile, CurrentSelectedTile, inRangeTiles);
+                        //}
                     }
 
-                    else if (!CurrentSelectedTile.isBarrel && !CurrentSelectedTile.isEnemy && !CurrentSelectedTile.isAlly)
+                    else if (!CurrentSelectedTile.isBarrel && !CurrentSelectedTile.isEnemy && !CurrentSelectedTile.isAlly && !character.moving)
                     {
                         ClearAllTiles();
                     }
@@ -93,7 +97,7 @@ public class MouseController : MonoBehaviour
             }
 
             if (path.Count > 0 && inRangeTiles.Contains(CurrentSelectedTile))
-            {
+            {               
                 character.activeTile.isAlly = false;
                 MoveAlongPath();
 
@@ -201,8 +205,18 @@ public class MouseController : MonoBehaviour
 
     private void Attack()
     {
-        CurrentSelectedTile.character.CharacterHP -= character.Attack * (1 - CurrentSelectedTile.character.Defense/100);
-        character.hasAttack = true;
+
+        CharacterInfo Attacked = CurrentSelectedTile.character;
+        CharacterInfo Attacker = character;
+
+        Attacked.damaged = true;
+        StartCoroutine(DamagedAnimationDelay(Attacked));
+        Attacker.attacking = true;
+        StartCoroutine(AttackingAnimationDelay(Attacker));
+
+        Attacked.CharacterHP -= Attacker.Attack * (1 - Attacked.Defense/100);
+        Attacker.hasAttack = true;
+
 
         foreach (var item in inAttackRangeTiles)
         {
@@ -233,6 +247,8 @@ public class MouseController : MonoBehaviour
         {
             if (item.isEnemy || item.isAlly)
             {
+                item.character.damaged = true;
+                StartCoroutine(DamagedAnimationDelay(item.character));
                 item.character.CharacterHP -= 10 * (1 - item.character.Defense/100);
                 if (item.character.CharacterHP <= 0)
                 {
@@ -288,10 +304,23 @@ public class MouseController : MonoBehaviour
 
     //public void UpdateStats()
     //{
-        
+
     //    CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
     //    CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
     //    CharacterStatUI.GetComponent<CharacterStatUIManager>().UpdateUI();
     //    ShowCharacterUI();
     //}
+
+    IEnumerator DamagedAnimationDelay(CharacterInfo DamagedCharacter)
+    {
+        yield return new WaitForSeconds((float)0.15);
+        DamagedCharacter.damaged = false;
+
+    }
+    IEnumerator AttackingAnimationDelay(CharacterInfo AttackingCharacter)
+    {
+        yield return new WaitForSeconds((float)0.15);
+       AttackingCharacter.attacking = false;
+
+    }
 }

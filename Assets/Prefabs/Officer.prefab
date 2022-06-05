@@ -108,6 +108,8 @@ MonoBehaviour:
   hasAttack: 0
   characterName: Character 2
   moving: 0
+  damaged: 0
+  attacking: 0
   animator: {fileID: 33218183}
 --- !u!95 &33218183
 Animator:

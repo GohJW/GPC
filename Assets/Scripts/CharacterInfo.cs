@@ -15,6 +15,8 @@ public class CharacterInfo : MonoBehaviour
     public bool hasAttack = false;
     public string characterName;
     public bool moving = false;
+    public bool damaged = false;
+    public bool attacking = false;
 
 
     //public Rigidbody2D rb;
@@ -22,14 +24,17 @@ public class CharacterInfo : MonoBehaviour
     public Animator animator;
 
     private void Update()
-    {
+    {          
         animator.SetBool("Moving", moving);
-    //   movement.x = Input.mousePosition.x;
-    //    movement.y = Input.mousePosition.y;
+        animator.SetBool("Damaged", damaged);
+        animator.SetBool("Attacking", attacking);
 
-    //    animator.SetFloat("Horizontal", movement.x);
-    //    animator.SetFloat("Vertical", movement.y);
-    //    animator.SetFloat("Speed", movement.sqrMagnitude);
+        //   movement.x = Input.mousePosition.x;
+        //    movement.y = Input.mousePosition.y;
+
+        //    animator.SetFloat("Horizontal", movement.x);
+        //    animator.SetFloat("Vertical", movement.y);
+        //    animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     //private void FixedUpdate()

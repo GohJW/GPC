@@ -108,6 +108,7 @@ MonoBehaviour:
   hasAttack: 0
   characterName: Alien (Ally)
   moving: 0
+  damaged: 0
   animator: {fileID: 7529006738986411636}
 --- !u!95 &7529006738986411636
 Animator:
