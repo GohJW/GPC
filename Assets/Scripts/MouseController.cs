@@ -8,7 +8,6 @@ public class MouseController : MonoBehaviour
 {
     public float speed;
     private CharacterInfo character;
-    private Attackinfo attack;
     public OverlayTile CurrentSelectedTile;
     public Canvas CharacterStatUI;
 
@@ -61,6 +60,7 @@ public class MouseController : MonoBehaviour
                     {
                         ClearAllTiles();
                         character = CurrentSelectedTile.character;
+                        character.Skillnumber = 1;
                         if (!character.hasMoved)
                         {
                             GetInRangeTiles();
@@ -184,7 +184,7 @@ public class MouseController : MonoBehaviour
         CharacterStatUI.GetComponent<Canvas>().enabled = true;
     }
 
-    private void GetInAttackRangeTiles()
+    public void GetInAttackRangeTiles()
     {
         foreach (var item in inAttackRangeTiles)
         {
@@ -195,7 +195,7 @@ public class MouseController : MonoBehaviour
             item.HideTile();
         }
 
-        inAttackRangeTiles = attackrangefinder.GetTilesInAttackRange(character.activeTile, character.attackrange);//hardcoded for now, attackinfo dont work
+        inAttackRangeTiles = attackrangefinder.GetTilesInAttackRange(character.activeTile, character.Attackrange);
 
         foreach (var item in inAttackRangeTiles)
         {
@@ -259,7 +259,7 @@ public class MouseController : MonoBehaviour
             }    
         }       
     }
-    private void ClearAllTiles()
+    public void ClearAllTiles()
     {
         foreach(var item in inAttackRangeTiles)
         {
