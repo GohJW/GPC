@@ -1487,10 +1487,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1652,6 +1652,7 @@ GameObject:
   - component: {fileID: 496867991}
   - component: {fileID: 496867993}
   - component: {fileID: 496867992}
+  - component: {fileID: 496867994}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -1720,6 +1721,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496867990}
   m_CullTransparentMesh: 1
+--- !u!95 &496867994
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496867990}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9607e13ce5ba2e4abec8f3aa9f5c8c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1855,7 +1876,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Dialogue
 --- !u!222 &529484495
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2619,7 +2640,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Name
 --- !u!222 &2087575881
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2686,7 +2707,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 186.6, y: -48.65}
+  m_AnchoredPosition: {x: 537.2, y: -218}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2090933248
@@ -2846,6 +2867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 2087575880}
   dialogueText: {fileID: 529484494}
+  animator: {fileID: 496867994}
 --- !u!1001 &1175337558909017923
 PrefabInstance:
   m_ObjectHideFlags: 0
