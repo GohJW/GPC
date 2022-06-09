@@ -62,6 +62,7 @@ public class CharacterStatUIManager : MonoBehaviour
     public void Skill1()
     {
         currentSelectedTile.character.Skillnumber = 1;
+        currentSelectedTile.character.UpdateSkillinfo();
         currentSelectedTile.character.Attackrange = currentSelectedTile.character.Skill1attackrange;
         currentSelectedTile.character.Attack = currentSelectedTile.character.Skill1attack;
         
@@ -70,6 +71,7 @@ public class CharacterStatUIManager : MonoBehaviour
     public void Skill2()
     {
         currentSelectedTile.character.Skillnumber = 2;
+        currentSelectedTile.character.UpdateSkillinfo();
         currentSelectedTile.character.Attackrange = currentSelectedTile.character.Skill2attackrange;
         currentSelectedTile.character.Attack = currentSelectedTile.character.Skill2attack;
     }

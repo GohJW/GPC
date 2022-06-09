@@ -15,8 +15,8 @@ public class CharacterInfo : MonoBehaviour
     public bool hasAttack = false;
     public string characterName;
     public bool moving = false;
-    public bool damaged = false;
-    public bool attacking = false;
+    //public bool damaged = false;
+    //public bool attacking = false;
 
     public int Skillnumber = 1;
     public int Skill1attackrange;
@@ -33,11 +33,11 @@ public class CharacterInfo : MonoBehaviour
     //Vector2 movement;
     public Animator animator;
 
-    private void Update()
+    public void UpdateSkillinfo()
     {          
-        animator.SetBool("Moving", moving);
-        animator.SetBool("Damaged", damaged);
-        animator.SetBool("Attacking", attacking);
+        //animator.SetBool("Moving", moving);
+        //animator.SetBool("Damaged", damaged);
+        //animator.SetBool("Attacking", attacking);
 
         if (Skillnumber == 1)
         {
