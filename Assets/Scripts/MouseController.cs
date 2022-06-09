@@ -52,7 +52,6 @@ public class MouseController : MonoBehaviour
                     }
                     else
                     {
-
                         HideCharacterUI();
                         //HideAllTiles();
                     }
@@ -61,6 +60,7 @@ public class MouseController : MonoBehaviour
                         ClearAllTiles();
                         character = CurrentSelectedTile.character;
                         character.Skillnumber = 1;
+                        character.UpdateSkillinfo();
                         if (!character.hasMoved)
                         {
                             GetInRangeTiles();
@@ -100,7 +100,6 @@ public class MouseController : MonoBehaviour
             {               
                 character.activeTile.isAlly = false;
                 MoveAlongPath();
-
             }
 
         }
@@ -109,6 +108,7 @@ public class MouseController : MonoBehaviour
     private void MoveAlongPath()
     {
         character.moving = true;
+        character.animator.SetBool("Moving", character.moving);
         var step = speed * Time.deltaTime;
 
         character.transform.position = Vector2.MoveTowards(character.transform.position, path[0].transform.position, step);
@@ -125,12 +125,13 @@ public class MouseController : MonoBehaviour
             character.activeTile.character = character;
             character.hasMoved = true;
 
-            foreach (var item in inRangeTiles)
+            foreach (OverlayTile item in inRangeTiles)
             {
                 item.HideTile();
             }
             inRangeTiles.Clear();
             character.moving = false;
+            character.animator.SetBool("Moving", character.moving);
         }
     }
 
@@ -157,18 +158,18 @@ public class MouseController : MonoBehaviour
 
     private void GetInRangeTiles()
     {
-        foreach (var item in inRangeTiles)
+        foreach (OverlayTile item in inRangeTiles)
         {
             item.HideTile();
         }
-        foreach (var item in inAttackRangeTiles)
+        foreach (OverlayTile item in inAttackRangeTiles)
         {
             item.HideTile();
         }
 
         inRangeTiles = rangefinder.GetTilesInRange(character.activeTile, character.movementrange);
 
-        foreach (var item in inRangeTiles)
+        foreach (OverlayTile item in inRangeTiles)
         {
             item.ShowTile();
         }
@@ -186,18 +187,18 @@ public class MouseController : MonoBehaviour
 
     public void GetInAttackRangeTiles()
     {
-        foreach (var item in inAttackRangeTiles)
+        foreach (OverlayTile item in inAttackRangeTiles)
         {
             item.HideTile();
         }
-        foreach (var item in inRangeTiles)
+        foreach (OverlayTile item in inRangeTiles)
         {
             item.HideTile();
         }
 
         inAttackRangeTiles = attackrangefinder.GetTilesInAttackRange(character.activeTile, character.Attackrange);
 
-        foreach (var item in inAttackRangeTiles)
+        foreach (OverlayTile item in inAttackRangeTiles)
         {
             item.ShowTile();
         }
@@ -209,16 +210,21 @@ public class MouseController : MonoBehaviour
         CharacterInfo Attacked = CurrentSelectedTile.character;
         CharacterInfo Attacker = character;
 
-        Attacked.damaged = true;
-        StartCoroutine(DamagedAnimationDelay(Attacked));
-        Attacker.attacking = true;
-        StartCoroutine(AttackingAnimationDelay(Attacker));
+        //Attacked.damaged = true;
+        //StartCoroutine(DamagedAnimationDelay(Attacked));
+        //Attacker.attacking = true;
+        //StartCoroutine(AttackingAnimationDelay(Attacker));
+
+        //Attacked.damaged = true;
+        Attacked.animator.SetTrigger("Damaged");
+        //Attacker.attacking = true;
+        Attacker.animator.SetTrigger("Attacking");
 
         Attacked.CharacterHP -= Attacker.Attack * (1 - Attacked.Defense/100);
         Attacker.hasAttack = true;
 
 
-        foreach (var item in inAttackRangeTiles)
+        foreach (OverlayTile item in inAttackRangeTiles)
         {
             item.HideTile();
         }
@@ -229,8 +235,7 @@ public class MouseController : MonoBehaviour
             CurrentSelectedTile.character.GetComponent<SpriteRenderer>().enabled = false;
             CurrentSelectedTile.isEnemy = false;
             HideCharacterUI();
-        }else
-        if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isBarrel)
+        }else if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isBarrel)
         {
             BarrelExplode(CurrentSelectedTile);
             CurrentSelectedTile.character.GetComponent<SpriteRenderer>().enabled = false;
@@ -243,12 +248,13 @@ public class MouseController : MonoBehaviour
     {
         List<OverlayTile> explosion = attackrangefinder.GetTilesInAttackRange(Barrel, 1);
         explosion.Remove(Barrel); 
-        foreach (var item in explosion)
+        foreach (OverlayTile item in explosion)
         {
             if (item.isEnemy || item.isAlly)
             {
-                item.character.damaged = true;
-                StartCoroutine(DamagedAnimationDelay(item.character));
+                //item.character.damaged = true;
+                item.character.animator.SetTrigger("Damaged");
+                //StartCoroutine(DamagedAnimationDelay(item.character));
                 item.character.CharacterHP -= 10 * (1 - item.character.Defense/100);
                 if (item.character.CharacterHP <= 0)
                 {
@@ -261,11 +267,11 @@ public class MouseController : MonoBehaviour
     }
     public void ClearAllTiles()
     {
-        foreach(var item in inAttackRangeTiles)
+        foreach(OverlayTile item in inAttackRangeTiles)
         {
             item.HideTile();
         }
-        foreach (var item in inRangeTiles)
+        foreach (OverlayTile item in inRangeTiles)
         {
             item.HideTile();
         }
@@ -275,11 +281,11 @@ public class MouseController : MonoBehaviour
 
     private void HideAllTiles()
     {
-        foreach (var item in inAttackRangeTiles)
+        foreach (OverlayTile item in inAttackRangeTiles)
         {
             item.HideTile();
         }
-        foreach (var item in inRangeTiles)
+        foreach (OverlayTile item in inRangeTiles)
         {
             item.HideTile();
         }
@@ -311,16 +317,16 @@ public class MouseController : MonoBehaviour
     //    ShowCharacterUI();
     //}
 
-    IEnumerator DamagedAnimationDelay(CharacterInfo DamagedCharacter)
-    {
-        yield return new WaitForSeconds((float)0.15);
-        DamagedCharacter.damaged = false;
+    //IEnumerator DamagedAnimationDelay(CharacterInfo DamagedCharacter)
+    //{
+    //    yield return new WaitForSeconds((float)0.15);
+    //    DamagedCharacter.damaged = false;
 
-    }
-    IEnumerator AttackingAnimationDelay(CharacterInfo AttackingCharacter)
-    {
-        yield return new WaitForSeconds((float)0.15);
-       AttackingCharacter.attacking = false;
+    //}
+    //IEnumerator AttackingAnimationDelay(CharacterInfo AttackingCharacter)
+    //{
+    //    yield return new WaitForSeconds((float)0.15);
+    //   AttackingCharacter.attacking = false;
 
-    }
+    //}
 }
