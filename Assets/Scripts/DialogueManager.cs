@@ -9,6 +9,8 @@ public class DialogueManager : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
 
+    public GameObject cursor;
+
     public Animator animator;
 
     private Queue<string> names;
@@ -23,6 +25,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {
+        cursor.SetActive(false);
 
         animator.SetBool("IsOpen", true);
 
@@ -31,7 +34,7 @@ public class DialogueManager : MonoBehaviour
 
         foreach (string name in dialogue.names)
         {
-            sentences.Enqueue(name);
+            names.Enqueue(name);
         }
 
         foreach (string sentence in dialogue.sentences) 
@@ -67,6 +70,15 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
+    //IEnumerator TypeName (string name)
+    //{
+    //    nameText.text = "";
+    //    foreach (char letter in name.ToCharArray())
+    //    {
+    //        nameText.text += letter;
+    //        yield return null;
+    //    }
+    //}
 
     IEnumerator TypeSentence (string sentence)
     {
@@ -78,8 +90,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+
+
     void EndDialogue() // Hide dialogue Box
     {
         animator.SetBool("IsOpen", false);
+        cursor.SetActive(true);
     }
 }
