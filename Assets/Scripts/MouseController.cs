@@ -230,15 +230,15 @@ public class MouseController : MonoBehaviour
         }
         inAttackRangeTiles.Clear();
 
-        if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isEnemy)
+        if (Attacked.CharacterHP <= 0 && CurrentSelectedTile.isEnemy)
         {
-            CurrentSelectedTile.character.GetComponent<SpriteRenderer>().enabled = false;
+            Attacked.GetComponent<SpriteRenderer>().enabled = false;
             CurrentSelectedTile.isEnemy = false;
             HideCharacterUI();
         }else if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isBarrel)
         {
             BarrelExplode(CurrentSelectedTile);
-            CurrentSelectedTile.character.GetComponent<SpriteRenderer>().enabled = false;
+            Attacked.GetComponent<SpriteRenderer>().enabled = false;
             CurrentSelectedTile.isBarrel = false;
             HideCharacterUI();
         }

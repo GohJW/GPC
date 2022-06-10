@@ -95,6 +95,7 @@ public class MapManager : MonoBehaviour
                     if (overlayTile.gridLocation == new Vector3Int(2, 0, 0))
                     {
                         character = Instantiate(Enemy).GetComponent<CharacterInfo>();
+                        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
                         PositionCharacterOntile(overlayTile);
                         overlayTile.character = character;
                         character.activeTile.isEnemy = true;
