@@ -9,6 +9,8 @@ public class DialogueManager : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
 
+    public Dialogue dialogue;
+
     public GameObject cursor;
 
     public Animator animator;
@@ -21,6 +23,8 @@ public class DialogueManager : MonoBehaviour
     {
         names = new Queue<string>();
         sentences = new Queue<string>();
+
+        StartDialogue(dialogue);
     }
 
     public void StartDialogue (Dialogue dialogue)
@@ -70,23 +74,13 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
-    //IEnumerator TypeName (string name)
-    //{
-    //    nameText.text = "";
-    //    foreach (char letter in name.ToCharArray())
-    //    {
-    //        nameText.text += letter;
-    //        yield return null;
-    //    }
-    //}
-
     IEnumerator TypeSentence (string sentence)
     {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(0.03f);
         }
     }
 
