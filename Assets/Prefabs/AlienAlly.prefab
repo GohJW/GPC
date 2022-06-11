@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7944289855595625962}
   - component: {fileID: 5224176143351068472}
   - component: {fileID: 7529006738986411636}
-  - component: {fileID: 6880501346944287364}
+  - component: {fileID: -2774552293500254154}
   m_Layer: 0
   m_Name: AlienAlly
   m_TagString: Untagged
@@ -137,7 +137,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6880501346944287364
+--- !u!114 &-2774552293500254154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,3 +153,4 @@ MonoBehaviour:
   AllyTile: {fileID: 0}
   OverlayContainer: {fileID: 0}
   inAttackRange: []
+  inRange: []

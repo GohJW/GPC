@@ -94,13 +94,12 @@ public class MapManager : MonoBehaviour
 
                     if (overlayTile.gridLocation == new Vector3Int(2, 0, 0))
                     {
-                        character = Instantiate(Enemy).GetComponent<CharacterInfo>();
-                        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+                        character = Instantiate(Enemy).GetComponent<CharacterInfo>();                       
                         PositionCharacterOntile(overlayTile);
                         overlayTile.character = character;
                         character.activeTile.isEnemy = true;
-                       
-                       
+                        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+
                     }
 
                     if (overlayTile.gridLocation == new Vector3Int(1, 0, 0))
@@ -115,6 +114,7 @@ public class MapManager : MonoBehaviour
 
             }
         }
+        
 
         //NewTurn();
     }
