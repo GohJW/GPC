@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7944289855595625962}
   - component: {fileID: 5224176143351068472}
   - component: {fileID: 7529006738986411636}
+  - component: {fileID: -2774552293500254154}
   m_Layer: 0
   m_Name: AlienAlly
   m_TagString: Untagged
@@ -100,15 +101,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
   movementrange: 3
-  attackrange: 3
   CharacterHP: 50
-  Attack: 0
+  Attackrange: 2
+  Attack: 10
   Defense: 50
   hasMoved: 0
   hasAttack: 0
   characterName: Alien (Ally)
   moving: 0
-  damaged: 0
+  Skillnumber: 1
+  Skill1attackrange: 0
+  Skill1attack: 0
+  Skill1: 
+  Skill2attackrange: 0
+  Skill2attack: 0
+  Skill2: 
   animator: {fileID: 7529006738986411636}
 --- !u!95 &7529006738986411636
 Animator:
@@ -130,3 +137,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2774552293500254154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938640777943149458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8a3fdfab3ca034292b9dd25526370f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentTile: {fileID: 0}
+  AllyTile: {fileID: 0}
+  OverlayContainer: {fileID: 0}
+  inAttackRange: []
+  inRange: []
