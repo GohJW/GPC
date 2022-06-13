@@ -11,40 +11,56 @@ public class EnemyAi : MonoBehaviour
     public GameObject OverlayContainer;
     public List<OverlayTile> inAttackRange;
     public List<OverlayTile> inRange;
-    private List<OverlayTile> path;
+    public List<OverlayTile> path;
     private OverlayTile[] container;
     private List<OverlayTile> containerlist;
+    private Animator animator;
 
     private Node topNode;
+    private Node AttackNode;
 
     void Start()
     {
         CurrentTile = gameObject.GetComponent<CharacterInfo>().activeTile;
-        //OverlayTile[] container = OverlayContainer.GetComponentsInChildren<OverlayTile>();
+        animator = CurrentTile.character.GetComponent<Animator>();
+        //////OverlayTile[] container = OverlayContainer.GetComponentsInChildren<OverlayTile>();
         FindClosestAlly();
-        ConstructBehaviourTree();
+        //ConstructBehaviourTree();
     }
 
     private void ConstructBehaviourTree()
     {
+        SetCurrentTileNode setCurrentTileNode = new SetCurrentTileNode(this, CurrentTile, CurrentTile.character);
+        FindClosestAllyNode findClosestAllyNode = new FindClosestAllyNode(this, AllyTile, CurrentTile, OverlayContainer);
         InAttackrangeNode attackrangeNode = new InAttackrangeNode(this, inAttackRange, CurrentTile, AllyTile);
-        MoveNode move = new MoveNode(this, CurrentTile, AllyTile,path, inRange, containerlist);
+        MoveNode moveNode = new MoveNode(this, CurrentTile, AllyTile, path, containerlist);
+        SetAllyTileNode setAllyTileNode = new SetAllyTileNode(this, AllyTile, CurrentTile, OverlayContainer);
 
-        topNode = new Selector(new List<Node> { attackrangeNode });
+        Sequence CheckFirstAttackrangeSequence = new Sequence(new List<Node> { attackrangeNode });
+        Sequence moveSequence = new Sequence(new List<Node> { findClosestAllyNode, moveNode, setCurrentTileNode, setAllyTileNode, findClosestAllyNode, attackrangeNode});
+
+        topNode = new Selector(new List<Node> {attackrangeNode, moveSequence});
     }
 
     void Update()
     {
         if(!CurrentTile.character.hasAttack)
         {
-            FindClosestAlly();          
+            FindClosestAlly();
+            ConstructBehaviourTree();
             topNode.Evaluate();
+            if (CurrentTile.character.hasMoved)
+            {
+                AttackNode = new InAttackrangeNode(this, inAttackRange, CurrentTile, AllyTile);
+                AttackNode.Evaluate();
+            }
         }
         
     }
 
     public void FindClosestAlly()
     {
+        AllyTile = null;
         OverlayTile[] container = OverlayContainer.GetComponentsInChildren<OverlayTile>();
         int shortestdistance = int.MaxValue;
         foreach (var item in container)
@@ -67,5 +83,5 @@ public class EnemyAi : MonoBehaviour
         return Mathf.Abs(start.gridLocation.x - neighbour.gridLocation.x) + Mathf.Abs(start.gridLocation.y - neighbour.gridLocation.y);
     }
 
-    
+
 }

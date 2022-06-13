@@ -100,9 +100,30 @@ public class MapManager : MonoBehaviour
                         PositionCharacterOntile(overlayTile);
                         overlayTile.character = character;
                         character.activeTile.isEnemy = true;
+                        character.hasAttack = true;
                         character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
 
                     }
+                    //if (overlayTile.gridLocation == new Vector3Int(2, 1, 0))
+                    //{
+                    //    character = Instantiate(Enemy).GetComponent<CharacterInfo>();
+                    //    PositionCharacterOntile(overlayTile);
+                    //    overlayTile.character = character;
+                    //    character.activeTile.isEnemy = true;
+                    //    character.hasAttack = true;
+                    //    character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+
+                    //}
+                    //if (overlayTile.gridLocation == new Vector3Int(2, -1, 0))
+                    //{
+                    //    character = Instantiate(Enemy).GetComponent<CharacterInfo>();
+                    //    PositionCharacterOntile(overlayTile);
+                    //    overlayTile.character = character;
+                    //    character.activeTile.isEnemy = true;
+                    //    character.hasAttack = true;
+                    //    character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+
+                    //}
 
                     if (overlayTile.gridLocation == new Vector3Int(1, 0, 0))
                     {

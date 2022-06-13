@@ -7,68 +7,47 @@ public class MoveNode : Node
 {
     private EnemyAi ai;
     private OverlayTile CurrentTile;
+    private CharacterInfo Character;
     private OverlayTile AllyTile;
     private List<OverlayTile> path;
-    private List<OverlayTile> inRange;
     private List<OverlayTile> containerlist;
+    
 
-    public MoveNode(EnemyAi ai, OverlayTile currentTile, OverlayTile allyTile, List<OverlayTile> path, List<OverlayTile> inRange, List<OverlayTile> containerlist)
+    public MoveNode(EnemyAi ai, OverlayTile currentTile, OverlayTile allyTile, List<OverlayTile> path, List<OverlayTile> containerlist)
     {
         this.ai = ai;
         CurrentTile = currentTile;
         AllyTile = allyTile;
         this.path = path;
-        this.inRange = inRange;
         this.containerlist = containerlist;
+ 
     }
 
     public override NodeState Evaluate()
     {
-        //inRange = GetTilesInRange(CurrentTile, CurrentTile.character.movementrange);
-        path = FindPath(CurrentTile, AllyTile, containerlist);
+        //path.Clear(); // if i clear path error null, if i dont clear it doesnt reset the pathfinding
+        path = FindPath(CurrentTile, AllyTile);
+        path.Remove(AllyTile);
+        //if(path.Count <= CurrentTile.character.Attackrange)
+        //{
+        //    path.Clear();
+        //    var map = MapManager.Instance.map;
+        //    Vector2Int locationToCheck = new Vector2Int(
+        //    CurrentTile.gridLocation.x + 1,
+        //    CurrentTile.gridLocation.y);
+        //    if (!map[locationToCheck].isBarrel || !map[locationToCheck].isAlly || !map[locationToCheck].isEnemy || !map[locationToCheck].isObstacle)
+        //    {
+        //        path.Add(map[locationToCheck]);
+        //    }
+        //}
+        Character = CurrentTile.character;
+        CurrentTile.isEnemy = false;
         MoveAlongPath();
-        CurrentTile.character.hasAttack = true;
+        //CurrentTile.character.hasAttack = true;
         return NodeState.SUCCESS;
     }
 
-    public List<OverlayTile> GetTilesInRange(OverlayTile startingTile, int range)
-    {
-        var inRangeTiles = new List<OverlayTile>();
-        int stepCount = 0;
-
-        inRangeTiles.Add(startingTile);
-
-        var tileForPreviousStep = new List<OverlayTile>();
-        tileForPreviousStep.Add(startingTile);
-
-        while (stepCount < range)
-        {
-            var surroundingTiles = new List<OverlayTile>();
-
-            foreach (var item in tileForPreviousStep)
-            {
-                //excludes nearby enemy and ally tiles
-                if (item.isEnemy || item.isBarrel)
-                {
-                    continue;
-                }
-                if (item.isAlly && item != startingTile)
-                {
-                    continue;
-                }
-                surroundingTiles.AddRange(MapManager.GetNeighbourTiles(item, new List<OverlayTile>()));
-            }
-
-            inRangeTiles.AddRange(surroundingTiles);
-            tileForPreviousStep = surroundingTiles.Distinct().ToList();
-            stepCount++;
-
-        }
-
-        return inRangeTiles.Distinct().ToList();
-    }
-
-    public List<OverlayTile> FindPath(OverlayTile start, OverlayTile end, List<OverlayTile> searchableTiles)
+    public List<OverlayTile> FindPath(OverlayTile start, OverlayTile end)
     {
         List<OverlayTile> openList = new List<OverlayTile>();
         List<OverlayTile> closedList = new List<OverlayTile>();
@@ -88,14 +67,16 @@ public class MoveNode : Node
                 return GetFinishedList(start, end);
             }
 
-            //error here
-            var neighbourTiles = MapManager.GetNeighbourTiles(currentOverlayTile, searchableTiles);
+            var neighbourTiles = GetNeighbourOverlayTiles(currentOverlayTile);
 
             foreach (var neighbour in neighbourTiles)
             {
                 if (neighbour.isObstacle || closedList.Contains(neighbour) || neighbour.isEnemy || neighbour.isAlly || neighbour.isBarrel)
                 {
-                    continue;
+                    if (neighbour != AllyTile)
+                    {
+                        continue;
+                    }
                 }
 
                 neighbour.G = GetManhattenDistance(start, neighbour);
@@ -123,6 +104,7 @@ public class MoveNode : Node
         while (currentTile != start)
         {
             finishedList.Add(currentTile);
+            currentTile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
             currentTile = currentTile.previous;
         }
 
@@ -133,26 +115,32 @@ public class MoveNode : Node
 
     private int GetManhattenDistance(OverlayTile start, OverlayTile neighbour)
     {
-        return Mathf.Abs(start.gridLocation.x - neighbour.gridLocation.x) + Mathf.Abs(start.gridLocation.y - neighbour.gridLocation.y);
+        return Mathf.Abs(start.gridLocation.x - neighbour.gridLocation.x) + Mathf.Abs(start.gridLocation.y - neighbour.gridLocation.y); 
     }
 
     private void MoveAlongPath()
     {
+        int originalpathlength = path.Count;
         CurrentTile.character.moving = true;
         CurrentTile.character.animator.SetBool("Moving", CurrentTile.character.moving);
-        var step = 5 * Time.deltaTime;
-
-        CurrentTile.character.transform.position = Vector2.MoveTowards(CurrentTile.character.transform.position, path[0].transform.position, step);
-
-        if (Vector2.Distance(CurrentTile.character.transform.position, path[0].transform.position) < 0.0001f)
+        float step = 5 * Time.deltaTime;
+        if (path.Count != Character.Attackrange - 1)
         {
-            PositionCharacterOntile(path[0]);
-            path.RemoveAt(0);
-        }
+            while (path.Count > originalpathlength - CurrentTile.character.movementrange && path.Count != CurrentTile.character.Attackrange - 1)
+            {
+                CurrentTile.character.transform.position = Vector2.MoveTowards(CurrentTile.character.transform.position, path[0].transform.position, step);
 
-        if (path.Count == 0)
-        {
-            CurrentTile.isAlly = true;
+
+                if (Vector2.Distance(CurrentTile.character.transform.position, path[0].transform.position) < 0.0001f)
+                {
+                    Debug.Log("move");
+                    PositionCharacterOntile(path[0]);
+                    path.RemoveAt(0);
+                }
+            }
+            CurrentTile = Character.activeTile;
+            CurrentTile.character = Character;
+            CurrentTile.isEnemy = true;
             //character.activeTile.character = character;
             CurrentTile.character.hasMoved = true;
             CurrentTile.character.moving = false;
@@ -165,5 +153,114 @@ public class MoveNode : Node
         CurrentTile.character.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
         CurrentTile.character.activeTile = tile;
     }
+    //public static List<OverlayTile> GetNeighbourTiles(OverlayTile currentOverlayTile)
+    //{
+    //    Dictionary<Vector2Int, OverlayTile> TiletoSearch = new Dictionary<Vector2Int, OverlayTile>();
+    //    var map = MapManager.Instance.map;
 
+    //    List<OverlayTile> neighbours = new List<OverlayTile>();
+
+    //    //check Top
+    //    Vector2Int locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x, currentOverlayTile.gridLocation.y + 1);
+    //    if (TiletoSearch.ContainsKey(locationToCheck))
+    //    {
+    //        if (!TiletoSearch[locationToCheck].isObstacle)
+    //        {
+    //            neighbours.Add(TiletoSearch[locationToCheck]);
+    //        }
+    //    }
+
+    //    //check Bottom
+    //    locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x, currentOverlayTile.gridLocation.y - 1);
+    //    if (TiletoSearch.ContainsKey(locationToCheck))
+    //    {
+    //        if (!TiletoSearch[locationToCheck].isObstacle)
+    //        {
+    //            neighbours.Add(TiletoSearch[locationToCheck]);
+    //        }
+    //    }
+
+    //    //check Right
+    //    locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x + 1, currentOverlayTile.gridLocation.y);
+    //    if (TiletoSearch.ContainsKey(locationToCheck))
+    //    {
+    //        if (!TiletoSearch[locationToCheck].isObstacle)
+    //        {
+    //            neighbours.Add(TiletoSearch[locationToCheck]);
+    //        }
+    //    }
+
+    //    //check Left
+    //    locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x - 1, currentOverlayTile.gridLocation.y);
+    //    if (TiletoSearch.ContainsKey(locationToCheck))
+    //    {
+    //        if (!TiletoSearch[locationToCheck].isObstacle)
+    //        {
+    //            neighbours.Add(TiletoSearch[locationToCheck]);
+    //        }
+    //    }
+    //    return neighbours;
+    //}
+
+    private List<OverlayTile> GetNeighbourOverlayTiles(OverlayTile currentOverlayTile)
+    {
+        var map = MapManager.Instance.map;
+
+        List<OverlayTile> neighbours = new List<OverlayTile>();
+
+        //right
+        Vector2Int locationToCheck = new Vector2Int(
+            currentOverlayTile.gridLocation.x + 1,
+            currentOverlayTile.gridLocation.y
+        );
+
+        if (map.ContainsKey(locationToCheck))
+        {
+            neighbours.Add(map[locationToCheck]);
+        }
+
+        //left
+        locationToCheck = new Vector2Int(
+            currentOverlayTile.gridLocation.x - 1,
+            currentOverlayTile.gridLocation.y
+        );
+
+        if (map.ContainsKey(locationToCheck))
+        {
+            neighbours.Add(map[locationToCheck]);
+        }
+
+        //top
+        locationToCheck = new Vector2Int(
+            currentOverlayTile.gridLocation.x,
+            currentOverlayTile.gridLocation.y + 1
+        );
+
+        if (map.ContainsKey(locationToCheck))
+        {
+            neighbours.Add(map[locationToCheck]);
+        }
+
+        //bottom
+        locationToCheck = new Vector2Int(
+            currentOverlayTile.gridLocation.x,
+            currentOverlayTile.gridLocation.y - 1
+        );
+
+        if (map.ContainsKey(locationToCheck))
+        {
+            neighbours.Add(map[locationToCheck]);
+        }
+
+        return neighbours;
+    }
+     IEnumerator Move(float step)
+    {
+        while (Vector2.Distance(CurrentTile.character.transform.position, path[0].transform.position) > 0.0001f)
+        {
+            CurrentTile.character.transform.position = Vector2.MoveTowards(CurrentTile.character.transform.position, path[0].transform.position, step);
+
+            yield return null;
+        }
+    }
 }
