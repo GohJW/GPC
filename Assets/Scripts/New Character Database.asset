@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: New Character Database
   m_EditorClassIdentifier: 
   character:
-  - characterName: Grapes
-    characterSprite: {fileID: 21300000, guid: 8cdd60d2182835d4aa26c427dbba4de6, type: 3}
-  - characterName: Officer
-    characterSprite: {fileID: 21300000, guid: 7e5477eb94e891a4393cf39ee62e1f0a, type: 3}
-  - characterName: Chef
-    characterSprite: {fileID: 21300000, guid: 98f64ec63c8c4594d856d458db758be9, type: 3}
+  - {fileID: -6685051112829749794, guid: 6fdad203d7b070a45860ab6893a57ab7, type: 3}
+  - {fileID: 8489453035858243835, guid: 14fd8bff47eeadf44999d19ac983f444, type: 3}
+  - {fileID: 6086691666055349629, guid: 27ceb32dcbaa5d94ba20e7079968e49a, type: 3}

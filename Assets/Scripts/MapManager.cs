@@ -28,6 +28,8 @@ public class MapManager : MonoBehaviour
     public Dictionary<Vector2Int, OverlayTile> map;
     public Dictionary<Vector3Int, int> obstacles;
 
+    public CharacterDatabase characterDB;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -250,6 +252,11 @@ public class MapManager : MonoBehaviour
         }
 
        TurnUI.GetComponent<TurnUIScript>().ShowPlayerTurn();
+
+    }
+
+    public void SpawnCharacter()
+    {
 
     }
 }

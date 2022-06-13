@@ -108,8 +108,6 @@ MonoBehaviour:
   hasAttack: 0
   characterName: Officer
   moving: 0
-  damaged: 0
-  attacking: 0
   Skillnumber: 1
   Skill1attackrange: 2
   Skill1attack: 10
@@ -117,6 +115,7 @@ MonoBehaviour:
   Skill2attackrange: 1
   Skill2attack: 0
   Skill2: Protect
+  characterSprite: {fileID: 21300000, guid: 7e5477eb94e891a4393cf39ee62e1f0a, type: 3}
   animator: {fileID: 33218183}
 --- !u!95 &33218183
 Animator:

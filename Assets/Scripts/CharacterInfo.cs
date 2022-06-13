@@ -28,7 +28,7 @@ public class CharacterInfo : MonoBehaviour
     public string Skill2;
 
 
-
+    public Sprite characterSprite;
     //public Rigidbody2D rb;
     //Vector2 movement;
     public Animator animator;

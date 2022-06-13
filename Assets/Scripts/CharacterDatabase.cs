@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterDatabase : ScriptableObject
 {
 
-    public Character[] character;
+    public CharacterInfo[] character;
 
     public int CharacterCount
     {
@@ -16,7 +16,7 @@ public class CharacterDatabase : ScriptableObject
         }
     }
 
-    public Character GetCharacter(int index)
+    public CharacterInfo GetCharacter(int index)
     {
         return character[index];
     }

@@ -10,9 +10,15 @@ public class CharacterManager : MonoBehaviour
     public CharacterDatabase characterDB;
 
     public TextMeshProUGUI nameText;
+    public TextMeshProUGUI selectText;
     public SpriteRenderer artworkSprite;
 
+    public Button selectButton;
+
     private int selectedOption = 0;
+    private int selectedIndex = 0;
+    public int[] selectedOptionIndex = new int[3];
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +63,7 @@ public class CharacterManager : MonoBehaviour
 
     private void UpdateCharacter(int selectedOption)
     {
-       Character character = characterDB.GetCharacter(selectedOption);
+       CharacterInfo character = characterDB.GetCharacter(selectedOption);
        artworkSprite.sprite = character.characterSprite;
        nameText.text = character.characterName;
 
@@ -76,6 +82,23 @@ public class CharacterManager : MonoBehaviour
     public void ChangeScene(int sceneID)
     {
         SceneManager.LoadScene(sceneID);
+    }
+
+    public void SelectCharacter()
+    {
+        if (selectedIndex < 3)
+        {
+            selectedOptionIndex[selectedIndex] = selectedOption;
+            selectedIndex++;
+        }
+        if (selectedIndex == 3) 
+        {
+            selectButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            return;
+        }
     }
 
 }
