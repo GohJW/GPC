@@ -77,21 +77,17 @@ public class MapManager : MonoBehaviour
                         overlayTile.isObstacle = true;
                     }          
                     
-                    if(overlayTile.gridLocation == new Vector3Int(-6,-3,0))
+                    if(overlayTile.gridLocation == new Vector3Int(-6,-6,0))
                     {
-                        character = Instantiate(CharacterPrefab1).GetComponent<CharacterInfo>();
-                        PositionCharacterOntile(overlayTile);
-                        overlayTile.character = character;
-                        character.activeTile.isAlly = true;
-                      
+                        SpawnCharacter(overlayTile, 0);
                     }
-                    if (overlayTile.gridLocation == new Vector3Int(-6, -1, 0))
+                    if (overlayTile.gridLocation == new Vector3Int(-6, -2, 0))
                     {
-                        character = Instantiate(CharacterPrefab2).GetComponent<CharacterInfo>();
-                        PositionCharacterOntile(overlayTile);
-                        overlayTile.character = character;
-                        character.activeTile.isAlly = true;
-                       
+                        SpawnCharacter(overlayTile,1);
+                    }
+                    if (overlayTile.gridLocation == new Vector3Int(-6, 2, 0))
+                    {
+                        SpawnCharacter(overlayTile, 2);
                     }
 
                     if (overlayTile.gridLocation == new Vector3Int(2, 0, 0))
@@ -255,8 +251,12 @@ public class MapManager : MonoBehaviour
 
     }
 
-    public void SpawnCharacter()
+    public void SpawnCharacter(OverlayTile overlayTile, int i)
     {
-
+            int selectedOption = CharacterManager.selectedOptionIndex[i];
+            character = Instantiate(characterDB.GetCharacter(selectedOption)).GetComponent<CharacterInfo>();
+            PositionCharacterOntile(overlayTile);
+            overlayTile.character = character;
+            character.activeTile.isAlly = true;
     }
 }

@@ -17,7 +17,7 @@ public class CharacterManager : MonoBehaviour
 
     private int selectedOption = 0;
     private int selectedIndex = 0;
-    public int[] selectedOptionIndex = new int[3];
+    public static int[] selectedOptionIndex = new int[3];
 
     // Start is called before the first frame update
     void Start()
@@ -79,7 +79,7 @@ public class CharacterManager : MonoBehaviour
         PlayerPrefs.SetInt("selectedOption", selectedOption);
     }
 
-    public void ChangeScene(int sceneID)
+    public void ChangeScene(string sceneID)
     {
         SceneManager.LoadScene(sceneID);
     }
@@ -94,6 +94,8 @@ public class CharacterManager : MonoBehaviour
         if (selectedIndex == 3) 
         {
             selectButton.gameObject.SetActive(false);
+            ChangeScene("Game");
+
         }
         else
         {
