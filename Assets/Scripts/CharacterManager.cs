@@ -70,9 +70,11 @@ public class CharacterManager : MonoBehaviour
        CharacterInfo character = characterDB.GetCharacter(selectedOption);
        artworkSprite.sprite = character.characterSprite;
        nameText.text = character.characterName;
+       nameText.color = Color.white;
        if (character.hasSelected)
         {
             nameText.text = "Selected";
+            nameText.color = Color.green;
         }
 
     }
