@@ -629,7 +629,6 @@ MonoBehaviour:
   selectText: {fileID: 0}
   artworkSprite: {fileID: 581647009}
   selectButton: {fileID: 1318632514}
-  selectedOptionIndex: 000000000000000000000000
 --- !u!212 &581647009
 SpriteRenderer:
   m_ObjectHideFlags: 0

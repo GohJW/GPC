@@ -37,7 +37,7 @@ public class EnemyAi : MonoBehaviour
         SetAllyTileNode setAllyTileNode = new SetAllyTileNode(this, AllyTile, CurrentTile, OverlayContainer);
 
         Sequence CheckFirstAttackrangeSequence = new Sequence(new List<Node> { attackrangeNode });
-        Sequence moveSequence = new Sequence(new List<Node> { findClosestAllyNode, moveNode, setCurrentTileNode, setAllyTileNode, findClosestAllyNode, attackrangeNode});
+        Sequence moveSequence = new Sequence(new List<Node> { findClosestAllyNode, moveNode, setCurrentTileNode, setAllyTileNode, findClosestAllyNode});
 
         topNode = new Selector(new List<Node> {attackrangeNode, moveSequence});
     }
@@ -49,7 +49,7 @@ public class EnemyAi : MonoBehaviour
             FindClosestAlly();
             ConstructBehaviourTree();
             topNode.Evaluate();
-            if (CurrentTile.character.hasMoved)
+            if (CurrentTile.character.hasMoved && !CurrentTile.character.hasAttack)
             {
                 AttackNode = new InAttackrangeNode(this, inAttackRange, CurrentTile, AllyTile);
                 AttackNode.Evaluate();

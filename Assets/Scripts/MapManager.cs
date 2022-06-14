@@ -267,7 +267,7 @@ public class MapManager : MonoBehaviour
                 item.character.hasAttack = false;
             }
         }
-
+       
        TurnUI.GetComponent<TurnUIScript>().ShowPlayerTurn();
 
     }

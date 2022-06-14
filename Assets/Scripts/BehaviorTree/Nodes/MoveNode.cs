@@ -28,22 +28,22 @@ public class MoveNode : Node
         //path.Clear(); // if i clear path error null, if i dont clear it doesnt reset the pathfinding
         path = FindPath(CurrentTile, AllyTile);
         path.Remove(AllyTile);
-        //if(path.Count <= CurrentTile.character.Attackrange)
-        //{
-        //    path.Clear();
-        //    var map = MapManager.Instance.map;
-        //    Vector2Int locationToCheck = new Vector2Int(
-        //    CurrentTile.gridLocation.x + 1,
-        //    CurrentTile.gridLocation.y);
-        //    if (!map[locationToCheck].isBarrel || !map[locationToCheck].isAlly || !map[locationToCheck].isEnemy || !map[locationToCheck].isObstacle)
-        //    {
-        //        path.Add(map[locationToCheck]);
-        //    }
-        //}
-        Character = CurrentTile.character;
-        CurrentTile.isEnemy = false;
-        MoveAlongPath();
-        //CurrentTile.character.hasAttack = true;
+
+        if (path.Count == 0)
+        {
+            Character = CurrentTile.character;
+            CurrentTile.isEnemy = false;
+            Debug.Log("Count0");
+            path.Clear();
+            Moveaway();
+        }
+        else
+        {
+            Character = CurrentTile.character;
+            CurrentTile.isEnemy = false;
+            MoveAlongPath();
+            //CurrentTile.character.hasAttack = true;
+        }
         return NodeState.SUCCESS;
     }
 
@@ -262,5 +262,45 @@ public class MoveNode : Node
 
             yield return null;
         }
+    }
+
+    public void Moveaway()
+    {
+        float step = 5 * Time.deltaTime;
+        var map = MapManager.Instance.map;
+        int value = 0;
+        var neighbourtiles = GetNeighbourOverlayTiles(CurrentTile);
+        foreach( OverlayTile item in neighbourtiles)
+        {
+            if (!item.isBarrel && !item.isAlly && !item.isEnemy && !item.isObstacle)
+            {
+                Debug.Log("pathadd");
+                value++;
+                path.Add(item);
+            }
+        }
+        if (path.Count == 0)
+        {
+            CurrentTile.character.hasMoved = true;
+            return;
+        }
+        int index = Random.Range(0, path.Count - 1);
+        Debug.Log(index);
+        while (path.Count != 0)
+        {
+            CurrentTile.character.transform.position = Vector2.MoveTowards(CurrentTile.character.transform.position, path[index].transform.position, step);
+            if (Vector2.Distance(CurrentTile.character.transform.position, path[index].transform.position) < 0.0001f)
+            {
+                Debug.Log("move");
+                PositionCharacterOntile(path[index]);
+                path.Clear();
+            }
+        }
+        CurrentTile = Character.activeTile;
+        CurrentTile.character = Character;
+        CurrentTile.isEnemy = true;
+        CurrentTile.character.hasMoved = true;
+        CurrentTile.character.moving = false;
+        CurrentTile.character.animator.SetBool("Moving", CurrentTile.character.moving);
     }
 }

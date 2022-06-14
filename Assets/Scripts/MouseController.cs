@@ -308,25 +308,8 @@ public class MouseController : MonoBehaviour
         }
     }
 
-    //public void UpdateStats()
-    //{
-
-    //    CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
-    //    CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
-    //    CharacterStatUI.GetComponent<CharacterStatUIManager>().UpdateUI();
-    //    ShowCharacterUI();
-    //}
-
-    //IEnumerator DamagedAnimationDelay(CharacterInfo DamagedCharacter)
-    //{
-    //    yield return new WaitForSeconds((float)0.15);
-    //    DamagedCharacter.damaged = false;
-
-    //}
-    //IEnumerator AttackingAnimationDelay(CharacterInfo AttackingCharacter)
-    //{
-    //    yield return new WaitForSeconds((float)0.15);
-    //   AttackingCharacter.attacking = false;
-
-    //}
+   public void Clearinfo()
+    {
+        character = null;
+    }
 }

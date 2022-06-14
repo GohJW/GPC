@@ -2786,6 +2786,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 134636116}
@@ -2793,6 +2801,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1129050688}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1129050688}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Clearinfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: MouseController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1175337558805859499, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
       propertyPath: m_fontAsset
       value: 
