@@ -11,6 +11,7 @@ public class CharacterInfo : MonoBehaviour
     public int Attackrange;
     public int Attack;
     public float Defense;
+    public bool hasSelected = false;
     public bool hasMoved = false;
     public bool hasAttack = false;
     public string characterName;

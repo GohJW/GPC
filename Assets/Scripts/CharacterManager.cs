@@ -14,6 +14,7 @@ public class CharacterManager : MonoBehaviour
     public SpriteRenderer artworkSprite;
 
     public Button selectButton;
+    public Button playButton;
 
     private int selectedOption = 0;
     private int selectedIndex = 0;
@@ -22,6 +23,9 @@ public class CharacterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playButton.gameObject.SetActive(false);
+        ResetCharacters();
+
         if(!PlayerPrefs.HasKey("selectedOption"))
         {
             selectedOption = 0;
@@ -66,7 +70,41 @@ public class CharacterManager : MonoBehaviour
        CharacterInfo character = characterDB.GetCharacter(selectedOption);
        artworkSprite.sprite = character.characterSprite;
        nameText.text = character.characterName;
+       if (character.hasSelected)
+        {
+            nameText.text = "Selected";
+        }
 
+    }
+
+
+
+    private void ResetCharacters()
+    {
+        foreach(CharacterInfo character in characterDB.character)
+        {
+           character.hasSelected = false;
+        }
+    }
+
+    public void DeselectCharacter()
+    {
+        CharacterInfo character = characterDB.GetCharacter(selectedOption);
+        if (character.hasSelected)
+        {
+            character.hasSelected = false;
+            selectedIndex--;
+            UpdateCharacter(selectedOption);
+        }
+        if (selectedIndex != 3)
+        {
+            selectButton.gameObject.SetActive(true);
+            playButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            return;
+        }
     }
 
     private void Load()
@@ -86,15 +124,19 @@ public class CharacterManager : MonoBehaviour
 
     public void SelectCharacter()
     {
-        if (selectedIndex < 3)
+        CharacterInfo character = characterDB.GetCharacter(selectedOption);
+        if (selectedIndex < 3 && !character.hasSelected)
         {
+            character.hasSelected = true;
             selectedOptionIndex[selectedIndex] = selectedOption;
             selectedIndex++;
+            UpdateCharacter(selectedOption);
         }
         if (selectedIndex == 3) 
         {
             selectButton.gameObject.SetActive(false);
-            ChangeScene("Game");
+            playButton.gameObject.SetActive(true);
+            UpdateCharacter(selectedOption);
 
         }
         else
@@ -103,4 +145,8 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    public void PlayGame()
+    {
+        ChangeScene("Game");
+    }
 }
