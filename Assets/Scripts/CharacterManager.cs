@@ -78,14 +78,15 @@ public class CharacterManager : MonoBehaviour
         }
 
     }
-
-
-
     private void ResetCharacters()
     {
         foreach(CharacterInfo character in characterDB.character)
         {
            character.hasSelected = false;
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            selectedOptionIndex[i] = -1;
         }
     }
 
@@ -96,6 +97,7 @@ public class CharacterManager : MonoBehaviour
         {
             character.hasSelected = false;
             selectedIndex--;
+            selectedOptionIndex[selectedIndex] = -1;
             UpdateCharacter(selectedOption);
         }
         if (selectedIndex != 3)
