@@ -188,7 +188,7 @@ MonoBehaviour:
   obstaclePrefab2: {fileID: 4873257352821483164, guid: 4f0ac735f4e2cf24a8143258f17197e4, type: 3}
   CharacterPrefab1: {fileID: 2194246102877866239, guid: 6fdad203d7b070a45860ab6893a57ab7, type: 3}
   CharacterPrefab2: {fileID: 7641212942601949390, guid: 14fd8bff47eeadf44999d19ac983f444, type: 3}
-  Enemy: {fileID: 4938640777943149458, guid: f24e1fe4dccccf74084c3f6c63b336b1, type: 3}
+  Enemy: {fileID: 4938640777943149458, guid: 62c1e79787c47c7429688f7c844de605, type: 3}
   Barrel1: {fileID: 8229601432631751412, guid: 1f4b68cf5c588464997e50687234fe3c, type: 3}
   TurnUI: {fileID: 1406030881}
   characterDB: {fileID: 11400000, guid: abe0ad19683b33a41b1f6fca4f18f86a, type: 2}
