@@ -223,6 +223,11 @@ public class MouseController : MonoBehaviour
         Attacked.CharacterHP -= Attacker.Attack * (1 - Attacked.Defense/100);
         Attacker.hasAttack = true;
 
+        if( Attacker.Attack == Attacker.Skill2attack && Attacker.Skill2cooldown == 0)
+        {
+            Attacker.Skill2cooldown += 3;
+        }
+
 
         foreach (OverlayTile item in inAttackRangeTiles)
         {

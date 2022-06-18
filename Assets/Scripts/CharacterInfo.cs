@@ -18,6 +18,7 @@ public class CharacterInfo : MonoBehaviour
     public bool moving = false;
     //public bool damaged = false;
     //public bool attacking = false;
+    public int Skill2cooldown = 0;
 
     public int Skillnumber = 1;
     public int Skill1attackrange;
@@ -50,15 +51,10 @@ public class CharacterInfo : MonoBehaviour
             Attackrange = Skill2attackrange;
             Attack = Skill2attack;
         }
-
-
-
-        //   movement.x = Input.mousePosition.x;
-        //    movement.y = Input.mousePosition.y;
-
-        //    animator.SetFloat("Horizontal", movement.x);
-        //    animator.SetFloat("Vertical", movement.y);
-        //    animator.SetFloat("Speed", movement.sqrMagnitude);
+        if(Skill2cooldown < 0)
+        {
+            Skill2cooldown = 0;
+        }
     }
 
     //private void FixedUpdate()

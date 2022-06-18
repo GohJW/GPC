@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using TMPro;
 
 public class MapManager : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class MapManager : MonoBehaviour
     private CharacterInfo character;
 
     public Canvas TurnUI;
+
+    public TMP_Text TurnCounter;
+    public int TurnNumber = 1;
 
     public Dictionary<Vector2Int, OverlayTile> map;
     public Dictionary<Vector3Int, int> obstacles;
@@ -265,10 +269,15 @@ public class MapManager : MonoBehaviour
             {
                 item.character.hasMoved = false;
                 item.character.hasAttack = false;
+                if(item.isAlly)
+                {
+                    item.character.Skill2cooldown--;
+                }
             }
         }
-       
-       TurnUI.GetComponent<TurnUIScript>().ShowPlayerTurn();
+        TurnNumber++;
+        TurnCounter.text = "Turn " + TurnNumber.ToString(); 
+        TurnUI.GetComponent<TurnUIScript>().ShowPlayerTurn();
 
     }
 

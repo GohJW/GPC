@@ -12,13 +12,13 @@ public class CharacterStatUIManager : MonoBehaviour
     public GameObject SkipButton;
     public GameObject Skill1Button;
     public GameObject Skill2Button;
+    public TMP_Text Cooldown;
 
     private void Update()
     {
         CharacterName.text = currentSelectedTile.character.characterName;
         Textbox1.text = "Health:" + currentSelectedTile.character.CharacterHP.ToString();
         Textbox2.text = "Defense:" + currentSelectedTile.character.Defense.ToString();
-
         if (currentSelectedTile.isAlly)
         {
             SkipButton.gameObject.SetActive(true); 
@@ -28,14 +28,26 @@ public class CharacterStatUIManager : MonoBehaviour
                 Skill1Button.gameObject.SetActive(false);
                 Skill2Button.gameObject.SetActive(false);
                 SkipButton.GetComponentInChildren<TextMeshProUGUI>().text = "Skip Movement Turn";
+                Cooldown.gameObject.SetActive(false);
             }
             else if (!currentSelectedTile.character.hasAttack)
             {
                 Textbox1.text = "Range:" + currentSelectedTile.character.Attackrange.ToString();
                 Textbox2.text = "Attack:" + currentSelectedTile.character.Attack.ToString();
+                Cooldown.text = "Cooldown:" + currentSelectedTile.character.Skill2cooldown.ToString();
 
                 Skill1Button.gameObject.SetActive(true);
-                Skill2Button.gameObject.SetActive(true);
+                Cooldown.gameObject.SetActive(true);
+                if (currentSelectedTile.character.Skill2cooldown == 0)
+                {
+                    Cooldown.gameObject.SetActive(false);
+                    Skill2Button.gameObject.SetActive(true);
+                }
+                else
+                {
+                    Cooldown.text = "Cooldown:" + currentSelectedTile.character.Skill2cooldown.ToString();
+                    Cooldown.gameObject.SetActive(true);
+                }
                 Skill1Button.GetComponentInChildren<TextMeshProUGUI>().text = currentSelectedTile.character.Skill1;
                 Skill2Button.GetComponentInChildren<TextMeshProUGUI>().text = currentSelectedTile.character.Skill2;
                 SkipButton.GetComponentInChildren<TextMeshProUGUI>().text = "Skip Attack Turn";
