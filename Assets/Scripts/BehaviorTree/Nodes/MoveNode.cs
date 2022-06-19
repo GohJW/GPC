@@ -104,7 +104,7 @@ public class MoveNode : Node
         while (currentTile != start)
         {
             finishedList.Add(currentTile);
-            currentTile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
+            //currentTile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
             currentTile = currentTile.previous;
         }
 

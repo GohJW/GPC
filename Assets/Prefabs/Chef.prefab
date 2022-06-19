@@ -104,17 +104,22 @@ MonoBehaviour:
   Attackrange: 0
   Attack: 10
   Defense: 30
+  burn: 0
   hasSelected: 1
   hasMoved: 0
   hasAttack: 0
   characterName: Michelin
   moving: 0
+  Skill2cooldown: 0
+  Burntimer: 0
   Skillnumber: 1
   Skill1attackrange: 2
-  Skill1attack: -10
+  Skill1attack: 10
+  Skill1burn: 1
   Skill1: Cook
   Skill2attackrange: 2
   Skill2attack: -15
+  Skill2burn: 0
   Skill2: Serve
   characterSprite: {fileID: 21300000, guid: 98f64ec63c8c4594d856d458db758be9, type: 3}
   animator: {fileID: 6086691666055349630}
