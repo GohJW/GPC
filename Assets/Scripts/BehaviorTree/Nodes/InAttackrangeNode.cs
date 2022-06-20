@@ -56,7 +56,7 @@ public class InAttackrangeNode : Node
     public void FindAttackRange()
     {
         inAttackRange.Clear();
-       // CurrentTile.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
+        CurrentTile.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
         inAttackRange = GetTilesInAttackRange(CurrentTile, CurrentTile.character.Attackrange);
     }
     public Dictionary<OverlayTile, int> tiles;
@@ -96,7 +96,7 @@ public class InAttackrangeNode : Node
         {
             if (pair.Value == attackrange)
             {
-               // pair.Key.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                pair.Key.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
                 inAttackRangeTiles.Add(pair.Key);
 
             }
