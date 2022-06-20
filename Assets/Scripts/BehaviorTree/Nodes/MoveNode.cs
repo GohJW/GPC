@@ -104,7 +104,7 @@ public class MoveNode : Node
         while (currentTile != start)
         {
             finishedList.Add(currentTile);
-            currentTile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
+           // currentTile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
             currentTile = currentTile.previous;
         }
 
@@ -153,54 +153,6 @@ public class MoveNode : Node
         CurrentTile.character.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
         CurrentTile.character.activeTile = tile;
     }
-    //public static List<OverlayTile> GetNeighbourTiles(OverlayTile currentOverlayTile)
-    //{
-    //    Dictionary<Vector2Int, OverlayTile> TiletoSearch = new Dictionary<Vector2Int, OverlayTile>();
-    //    var map = MapManager.Instance.map;
-
-    //    List<OverlayTile> neighbours = new List<OverlayTile>();
-
-    //    //check Top
-    //    Vector2Int locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x, currentOverlayTile.gridLocation.y + 1);
-    //    if (TiletoSearch.ContainsKey(locationToCheck))
-    //    {
-    //        if (!TiletoSearch[locationToCheck].isObstacle)
-    //        {
-    //            neighbours.Add(TiletoSearch[locationToCheck]);
-    //        }
-    //    }
-
-    //    //check Bottom
-    //    locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x, currentOverlayTile.gridLocation.y - 1);
-    //    if (TiletoSearch.ContainsKey(locationToCheck))
-    //    {
-    //        if (!TiletoSearch[locationToCheck].isObstacle)
-    //        {
-    //            neighbours.Add(TiletoSearch[locationToCheck]);
-    //        }
-    //    }
-
-    //    //check Right
-    //    locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x + 1, currentOverlayTile.gridLocation.y);
-    //    if (TiletoSearch.ContainsKey(locationToCheck))
-    //    {
-    //        if (!TiletoSearch[locationToCheck].isObstacle)
-    //        {
-    //            neighbours.Add(TiletoSearch[locationToCheck]);
-    //        }
-    //    }
-
-    //    //check Left
-    //    locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x - 1, currentOverlayTile.gridLocation.y);
-    //    if (TiletoSearch.ContainsKey(locationToCheck))
-    //    {
-    //        if (!TiletoSearch[locationToCheck].isObstacle)
-    //        {
-    //            neighbours.Add(TiletoSearch[locationToCheck]);
-    //        }
-    //    }
-    //    return neighbours;
-    //}
 
     private List<OverlayTile> GetNeighbourOverlayTiles(OverlayTile currentOverlayTile)
     {

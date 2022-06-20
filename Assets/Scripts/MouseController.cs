@@ -227,14 +227,16 @@ public class MouseController : MonoBehaviour
         {
             Attacker.Skill2cooldown += 3;
         }
-
-
+        if (Attacker.burn)
+        {
+            Attacked.Burntimer += 2;
+        }
         foreach (OverlayTile item in inAttackRangeTiles)
         {
             item.HideTile();
         }
         inAttackRangeTiles.Clear();
-
+       
         if (Attacked.CharacterHP <= 0 && CurrentSelectedTile.isEnemy)
         {
             Attacked.GetComponent<SpriteRenderer>().enabled = false;

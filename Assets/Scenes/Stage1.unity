@@ -194,6 +194,7 @@ MonoBehaviour:
   TurnCounter: {fileID: 1820290232}
   TurnNumber: 1
   characterDB: {fileID: 11400000, guid: abe0ad19683b33a41b1f6fca4f18f86a, type: 2}
+  scenenumber: 1
 --- !u!1 &137949075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,6 +2732,10 @@ PrefabInstance:
     - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheckGameTurn
       objectReference: {fileID: 0}
     - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName

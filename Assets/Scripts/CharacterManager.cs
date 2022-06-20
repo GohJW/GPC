@@ -151,6 +151,6 @@ public class CharacterManager : MonoBehaviour
 
     public void PlayGame()
     {
-        ChangeScene("Game");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
