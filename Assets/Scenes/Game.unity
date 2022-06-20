@@ -2018,6 +2018,9 @@ Canvas:
   m_PrefabInstance: {fileID: 8456184448512224173}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 687accc (Added burn)
 --- !u!114 &1568630166 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5405746787031257684, guid: 4f176002ea4c20744999281546a60fc0, type: 3}
@@ -2200,7 +2203,10 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1820290230
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 687accc (Added burn)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2340,6 +2346,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1175337557550418818, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
   m_PrefabInstance: {fileID: 1175337558909017923}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &2057990434
 >>>>>>> parent of 0fba3e4 (repush burn)
 GameObject:
@@ -2481,6 +2488,8 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1175337557550418818, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
   m_PrefabInstance: {fileID: 1175337558909017923}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> parent of 687accc (Added burn)
 --- !u!1 &2087575879
 GameObject:
   m_ObjectHideFlags: 0
