@@ -13,12 +13,23 @@ public class CharacterStatUIManager : MonoBehaviour
     public GameObject Skill1Button;
     public GameObject Skill2Button;
     public TMP_Text Cooldown;
+    public TMP_Text Burn;
 
     private void Update()
     {
         CharacterName.text = currentSelectedTile.character.characterName;
         Textbox1.text = "Health:" + currentSelectedTile.character.CharacterHP.ToString();
         Textbox2.text = "Defense:" + currentSelectedTile.character.Defense.ToString();
+        if(currentSelectedTile.character.Burntimer > 0 && (currentSelectedTile.isAlly || currentSelectedTile.isEnemy))
+        {
+            Burn.gameObject.SetActive(true);
+            Burn.text = "Burning: " + currentSelectedTile.character.Burntimer.ToString() + " Turns Remaining";
+        }
+        else
+        {
+            Burn.gameObject.SetActive(false);
+        }
+
         if (currentSelectedTile.isAlly)
         {
             SkipButton.gameObject.SetActive(true); 
@@ -66,6 +77,7 @@ public class CharacterStatUIManager : MonoBehaviour
             SkipButton.gameObject.SetActive(false);
             Skill1Button.gameObject.SetActive(false);
             Skill2Button.gameObject.SetActive(false);
+
         }
 
 
