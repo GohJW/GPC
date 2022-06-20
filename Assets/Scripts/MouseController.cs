@@ -227,10 +227,7 @@ public class MouseController : MonoBehaviour
         {
             Attacker.Skill2cooldown += 3;
         }
-        if(Attacker.burn)
-        {
-            Attacked.Burntimer += 2;
-        }
+
 
         foreach (OverlayTile item in inAttackRangeTiles)
         {
