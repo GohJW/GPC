@@ -11,22 +11,24 @@ public class CharacterInfo : MonoBehaviour
     public int Attackrange;
     public int Attack;
     public float Defense;
+    public bool burn;
     public bool hasSelected = false;
     public bool hasMoved = false;
     public bool hasAttack = false;
     public string characterName;
     public bool moving = false;
-    //public bool damaged = false;
-    //public bool attacking = false;
     public int Skill2cooldown = 0;
+    public int Burntimer = 0;
 
     public int Skillnumber = 1;
     public int Skill1attackrange;
     public int Skill1attack;
+    public bool Skill1burn;
     public string Skill1;
 
     public int Skill2attackrange;
     public int Skill2attack;
+    public bool Skill2burn;
     public string Skill2;
 
 
@@ -45,20 +47,19 @@ public class CharacterInfo : MonoBehaviour
         {
             Attackrange = Skill1attackrange;
             Attack = Skill1attack;
+            burn = Skill1burn;
         }
         if(Skillnumber == 2)
         {
             Attackrange = Skill2attackrange;
             Attack = Skill2attack;
+            burn = Skill2burn;
+
         }
-        if(Skill2cooldown < 0)
+        if (Skill2cooldown < 0)
         {
             Skill2cooldown = 0;
         }
     }
 
-    //private void FixedUpdate()
-    //{
-    //    rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
-    //}
 }
