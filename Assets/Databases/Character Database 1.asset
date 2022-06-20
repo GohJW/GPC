@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1111d3caadcfcef4d9b74fec1cc70556, type: 3}
-  m_Name: New Character Database 1
+  m_Name: Character Database 1
   m_EditorClassIdentifier: 
   character:
   - {fileID: -6685051112829749794, guid: 6fdad203d7b070a45860ab6893a57ab7, type: 3}
   - {fileID: 8489453035858243835, guid: 14fd8bff47eeadf44999d19ac983f444, type: 3}
   - {fileID: 6086691666055349629, guid: 27ceb32dcbaa5d94ba20e7079968e49a, type: 3}
-  - {fileID: 5457866490438364087, guid: 70dac0b74eed1d44f8cdd5318e4389e0, type: 3}

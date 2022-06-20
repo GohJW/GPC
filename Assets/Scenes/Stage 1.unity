@@ -2586,6 +2586,48 @@ MonoBehaviour:
     - Officer
     - Grapes
     - 
+    - Officer
+    - Officer
+    - Prisoner
+    - Prisoner
+    - Prisoner
+    - Officer
+    - Prisoner
+    - Prisoner
+    - Officer
+    - Officer
+    - Officer
+    - Prisoner
+    - 
+    - Officer
+    - Prisoner
+    - Officer
+    - Officer
+    - Prisoner
+    - 
+    - Prisoner
+    - Prisoner
+    - Prisoner
+    - Other Officer
+    - Other Officer
+    - Officer
+    - Officer
+    - Prisoner
+    - 
+    - Officer
+    - Officer
+    - Prisoner
+    - Officer
+    - Officer
+    - Prisoner
+    - Prisoner
+    - Officer
+    - Officer
+    - Officer
+    - Prisoner
+    - Chef
+    - Officer
+    - 
     sentences:
     - '*Yawn*'
     - "Yet another beautiful day wasted in this boring cell\u2026"
@@ -2600,6 +2642,50 @@ MonoBehaviour:
     - At least there's something to look forward to huh?
     - "Yea\u2026"
     - Prisoner continues to read the letter.
+    - Are you done? I gotta take that back soon.
+    - "Standard protocol\u2026"
+    - "Yea I\u2019m done. "
+    - "Must be nice to be in the outside world\u2026"
+    - I would kill just to go out again.
+    - Damn, you're already here for 10 years and thinking of things to extend your
+      sentence?
+    - "You know I\u2019m just kidding man."
+    - "I won\u2019t do anything stupid no more, especially since that day."
+    - Well looks like that really got to you huh.
+    - Well anyways, it's time for breakfast.
+    - "I\u2019ll pass it through your door later."
+    - Thanks man.
+    - Officer Jeffords goes to the kitchen and hands Grapes his food.
+    - Here you go.
+    - "Can\u2019t wait to eat a proper meal when I\u2019m out."
+    - '*laughs*'
+    - You still have a long way to go.
+    - A man can dream, Jeffords.
+    - "Grapes continues to eat his breakfast when suddenly\u2026\r\n*BOOM*"
+    - Huh?
+    - Probably the gas pipe from the kitchen again.
+    - This is such a shitty place to be.
+    - 'Jeffords! '
+    - Meeting Room NOW!
+    - "\u201CHmm\u2026 What could it be this time?\u201D"
+    - "I\u2019ll be right back Grapes."
+    - Alright Jeffords
+    - "A short while later\u2026"
+    - Get out now Grapes!
+    - There's not much time left.
+    - What? Did my sentence get shortened or something?
+    - "I\u2019ll explain on the way out."
+    - "Grab this weapon, it\u2019s time to fight for your freedom."
+    - WTF?
+    - "I ain\u2019t gonna touch another weapon man after that day man."
+    - You heard that explosion just now?
+    - There's just been an unknown attack on the prison.
+    - "Seems to be an unidentified attacker as well\u2026"
+    - Did no one see the attacker or something?
+    - HELP!!!
+    - "There\u2019s not much time to explain, let\u2019s go help him!"
+    - "Officer and Prisoner leave the cell and head into the kitchen. They encounter
+      something they have never seen before\u2026"
   cursor: {fileID: 1129050687}
   animator: {fileID: 496867994}
 --- !u!1001 &1175337558909017923
@@ -2881,11 +2967,11 @@ PrefabInstance:
       objectReference: {fileID: 1129050688}
     - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -236.70004
+      value: -236.70007
       objectReference: {fileID: 0}
     - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -94.58998
+      value: -94.589966
       objectReference: {fileID: 0}
     - target: {fileID: 1250395655, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2893,7 +2979,7 @@ PrefabInstance:
       objectReference: {fileID: 1129050688}
     - target: {fileID: 1426426868, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -290.63998
+      value: -290.64
       objectReference: {fileID: 0}
     - target: {fileID: 1426426868, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2997,7 +3083,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 7867075649884241357, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -288.48996
+      value: -288.49
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}

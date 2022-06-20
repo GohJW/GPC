@@ -2589,33 +2589,66 @@ MonoBehaviour:
   dialogueText: {fileID: 883608750}
   dialogue:
     names:
-    - ' 2'
-    - Grapes
     - Officer
-    - Grapes
-    - Officer
-    - Officer
-    - Officer
-    - Grapes
+    - Chef
+    - Chef
+    - Prisoner
+    - Prisoner
     - Officer
     - Officer
+    - Prisoner
     - Officer
-    - Grapes
+    - Officer
+    - Prisoner
+    - Prisoner
+    - Chef
+    - Chef
+    - Prisoner
+    - 
+    - Prisoner
+    - Prisoner
+    - Officer
+    - Officer
+    - Officer
+    - Scientist
+    - Scientist
+    - Chef
+    - Chef
+    - Scientist
+    - Officer
+    - Officer
     - 
     sentences:
-    - '*Yawn*'
-    - "Yet another beautiful day wasted in this boring cell\u2026"
-    - You say that everyday you know that right?
-    - Do I?
-    - Well, to be honest, every other day to be exact.
-    - Time here must be taking its toll on you.
-    - Well you know what they say. You do the crime, you do the time.
-    - Can you get off my ass for just one day, Jeffords?
-    - "Sorry but that\u2019s just part of my job scope."
-    - Anyways, here is a letter from your family.
-    - At least there's something to look forward to huh?
-    - "Yea\u2026"
-    - Prisoner continues to read the letter.
+    - You good?
+    - You guys saved my life!
+    - What the hell are those things?
+    - Sure looks like aliens to me.
+    - They actually exist!
+    - "Let\u2019s not stay here for too long."
+    - "It\u2019s no longer safe in the prison, let\u2019s get out."
+    - Looks like I'm free again.
+    - Not too fast Grapes.
+    - You escape and I shoot you, simple as that.
+    - "Relax\u2026"
+    - Least I can do is to protect the motherland.
+    - I can help too.
+    - "There are a few sharp knives here, let\u2019s grab a few and move."
+    - Alright!
+    - "The trio escaped the kitchen and ran through the laboratory to escape\u2026"
+    - WHAT IS GOING ON HERE?
+    - You know about this, Jeffords?
+    - "Well\u2026"
+    - "\u201CHmm, I have never seen the inside of this lab before...\u201D"
+    - "Confidential Grapes, let\u2019s keep moving."
+    - Stay back!
+    - "Or I\u2019m going to burn you all alive!"
+    - Calm down.
+    - We are escaping the aliens too.
+    - Oh thank god!
+    - "Let\u2019s not stay here for too long."
+    - Grab what you need and move!
+    - "The scientist proceeded to take his chemicals when suddenly more aliens came
+      through the door\u2026"
   cursor: {fileID: 1129050687}
   animator: {fileID: 496867994}
 --- !u!1001 &1175337558909017923
@@ -2897,7 +2930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -94.58998
+      value: -94.589966
       objectReference: {fileID: 0}
     - target: {fileID: 1250395655, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
