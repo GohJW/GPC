@@ -56,7 +56,7 @@ public class MapManager : MonoBehaviour
         obstacles.Add(new Vector3Int(-4, -2, 0), 2);
 
         BoundsInt bounds = tileMap.cellBounds;
-    
+
         //generate grid map
         for (int y = bounds.min.y; y < bounds.max.y; y++)
         {
@@ -79,15 +79,15 @@ public class MapManager : MonoBehaviour
                     {
                         PositionObstacleOntile(overlayTile, obstacles[overlayTile.gridLocation]);
                         overlayTile.isObstacle = true;
-                    }          
-                    
-                    if(overlayTile.gridLocation == new Vector3Int(-6,-6,0))
+                    }
+
+                    if (overlayTile.gridLocation == new Vector3Int(-6, -6, 0))
                     {
                         SpawnCharacter(overlayTile, 0);
                     }
                     if (overlayTile.gridLocation == new Vector3Int(-6, -2, 0))
                     {
-                        SpawnCharacter(overlayTile,1);
+                        SpawnCharacter(overlayTile, 1);
                     }
                     if (overlayTile.gridLocation == new Vector3Int(-6, 2, 0))
                     {
@@ -96,7 +96,7 @@ public class MapManager : MonoBehaviour
 
                     if (overlayTile.gridLocation == new Vector3Int(2, 0, 0))
                     {
-                        character = Instantiate(Enemy).GetComponent<CharacterInfo>();                       
+                        character = Instantiate(Enemy).GetComponent<CharacterInfo>();
                         PositionCharacterOntile(overlayTile);
                         overlayTile.character = character;
                         character.activeTile.isEnemy = true;
@@ -137,7 +137,7 @@ public class MapManager : MonoBehaviour
 
             }
         }
-        
+
 
         //NewTurn();
     }
@@ -152,7 +152,8 @@ public class MapManager : MonoBehaviour
             {
                 TiletoSearch.Add(item.grid2DLocation, item);
             }
-        } else
+        }
+        else
         {
             TiletoSearch = map;
         }
@@ -212,7 +213,7 @@ public class MapManager : MonoBehaviour
             obstacle.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z);
             obstacle.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder;
             obstacle.activeTile = tile;
-            
+
         }
 
         if (value == 2)
@@ -224,7 +225,7 @@ public class MapManager : MonoBehaviour
             obstacle.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z);
             obstacle.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
             obstacle.activeTile = tile;
-          
+
         }
 
     }
@@ -233,7 +234,7 @@ public class MapManager : MonoBehaviour
     {
         character.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z);
         character.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
-        character.activeTile = tile;     
+        character.activeTile = tile;
     }
 
 
@@ -267,26 +268,46 @@ public class MapManager : MonoBehaviour
             item.HideTile();
             if (item.isAlly || item.isEnemy)
             {
-                item.character.hasMoved = false;
-                item.character.hasAttack = false;
-                if(item.isAlly)
+                if (item.character.Burntimer > 0)
                 {
-                    item.character.Skill2cooldown--;
+                    Burn(item.character);
+                    item.character.Burntimer--;
+                }
+                if (item.character.GetComponent<SpriteRenderer>().enabled == true)
+                {
+                    item.character.hasMoved = false;
+                    item.character.hasAttack = false;
+                    if (item.isAlly)
+                    {
+                        item.character.Skill2cooldown--;
+                    }
                 }
             }
         }
         TurnNumber++;
-        TurnCounter.text = "Turn " + TurnNumber.ToString(); 
+        TurnCounter.text = "Turn " + TurnNumber.ToString();
         TurnUI.GetComponent<TurnUIScript>().ShowPlayerTurn();
 
     }
 
     public void SpawnCharacter(OverlayTile overlayTile, int i)
     {
-            int selectedOption = CharacterManager.selectedOptionIndex[i];
-            character = Instantiate(characterDB.GetCharacter(selectedOption)).GetComponent<CharacterInfo>();
-            PositionCharacterOntile(overlayTile);
-            overlayTile.character = character;
-            character.activeTile.isAlly = true;
+        int selectedOption = CharacterManager.selectedOptionIndex[i];
+        character = Instantiate(characterDB.GetCharacter(selectedOption)).GetComponent<CharacterInfo>();
+        PositionCharacterOntile(overlayTile);
+        overlayTile.character = character;
+        character.activeTile.isAlly = true;
+    }
+
+    public void Burn(CharacterInfo character)
+    {
+        character.CharacterHP -= 5;
+        character.animator.SetTrigger("Damaged");
+        if (character.CharacterHP <= 0)
+        {
+            character.GetComponent<SpriteRenderer>().enabled = false;
+            character.activeTile.isEnemy = false;
+            character.activeTile.isAlly = false;
+        }
     }
 }
