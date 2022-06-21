@@ -193,7 +193,7 @@ MonoBehaviour:
   TurnUI: {fileID: 1406030881}
   TurnCounter: {fileID: 1820290232}
   TurnNumber: 1
-  characterDB: {fileID: 11400000, guid: 600c90972b48a7848a0b8e707457e7a4, type: 2}
+  characterDB: {fileID: 11400000, guid: 00c764953dd6b6f4fab85c3ca0378f79, type: 2}
   scenenumber: 4
 --- !u!1 &137949075
 GameObject:
@@ -1669,7 +1669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &803561383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2557,7 +2557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2134777765
 Transform:
   m_ObjectHideFlags: 0

@@ -385,5 +385,129 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
+        if (stagenumber == 3)
+        {
+            for (int y = bounds.min.y; y < bounds.max.y; y++)
+            {
+                for (int x = bounds.min.x; x < bounds.max.x; x++)
+                {
+                    var tileLocation = new Vector3Int(x, y, 0);
+                    var tileKey = new Vector2Int(x, y);
+                    if (tileMap.HasTile(tileLocation))
+                    {
+
+                        var overlayTile = Instantiate(overlaytilePrefab, overlayContainer.transform);
+                        var cellWorldPosition = tileMap.GetCellCenterWorld(tileLocation);
+
+                        overlayTile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z);
+                        overlayTile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
+                        overlayTile.gridLocation = tileLocation;
+                        map.Add(tileKey, overlayTile);
+
+                        if (obstacles.ContainsKey(overlayTile.gridLocation))
+                        {
+                            PositionObstacleOntile(overlayTile, obstacles[overlayTile.gridLocation]);
+                            overlayTile.isObstacle = true;
+                        }
+
+                        if (overlayTile.gridLocation == new Vector3Int(-6, -5, 0))
+                        {
+                            SpawnCharacter(overlayTile, 0);
+                        }
+                        if (overlayTile.gridLocation == new Vector3Int(-6, -3, 0))
+                        {
+                            SpawnCharacter(overlayTile, 1);
+                        }
+                        if (overlayTile.gridLocation == new Vector3Int(-6, 2, 0))
+                        {
+                            SpawnCharacter(overlayTile, 2);
+                        }
+
+                        if (overlayTile.gridLocation == new Vector3Int(2, 0, 0))
+                        {
+                            character = Instantiate(Enemy).GetComponent<CharacterInfo>();
+                            PositionCharacterOntile(overlayTile);
+                            overlayTile.character = character;
+                            character.activeTile.isEnemy = true;
+                            character.hasAttack = true;
+                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+
+                        }
+
+                        if (overlayTile.gridLocation == new Vector3Int(1, 0, 0))
+                        {
+                            character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
+                            PositionCharacterOntile(overlayTile);
+                            overlayTile.character = character;
+                            character.activeTile.isBarrel = true;
+                        }
+
+                    }
+
+                }
+            }
+        }
+        if (stagenumber == 4)
+        {
+            for (int y = bounds.min.y; y < bounds.max.y; y++)
+            {
+                for (int x = bounds.min.x; x < bounds.max.x; x++)
+                {
+                    var tileLocation = new Vector3Int(x, y, 0);
+                    var tileKey = new Vector2Int(x, y);
+                    if (tileMap.HasTile(tileLocation))
+                    {
+
+                        var overlayTile = Instantiate(overlaytilePrefab, overlayContainer.transform);
+                        var cellWorldPosition = tileMap.GetCellCenterWorld(tileLocation);
+
+                        overlayTile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z);
+                        overlayTile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
+                        overlayTile.gridLocation = tileLocation;
+                        map.Add(tileKey, overlayTile);
+
+                        if (obstacles.ContainsKey(overlayTile.gridLocation))
+                        {
+                            PositionObstacleOntile(overlayTile, obstacles[overlayTile.gridLocation]);
+                            overlayTile.isObstacle = true;
+                        }
+
+                        if (overlayTile.gridLocation == new Vector3Int(-6, -5, 0))
+                        {
+                            SpawnCharacter(overlayTile, 0);
+                        }
+                        if (overlayTile.gridLocation == new Vector3Int(-6, -3, 0))
+                        {
+                            SpawnCharacter(overlayTile, 1);
+                        }
+                        if (overlayTile.gridLocation == new Vector3Int(-6, 2, 0))
+                        {
+                            SpawnCharacter(overlayTile, 2);
+                        }
+
+                        if (overlayTile.gridLocation == new Vector3Int(2, 0, 0))
+                        {
+                            character = Instantiate(Enemy).GetComponent<CharacterInfo>();
+                            PositionCharacterOntile(overlayTile);
+                            overlayTile.character = character;
+                            character.activeTile.isEnemy = true;
+                            character.hasAttack = true;
+                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+
+                        }
+
+                        if (overlayTile.gridLocation == new Vector3Int(1, 0, 0))
+                        {
+                            character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
+                            PositionCharacterOntile(overlayTile);
+                            overlayTile.character = character;
+                            character.activeTile.isBarrel = true;
+                        }
+
+                    }
+
+                }
+            }
+        }
     }
 }

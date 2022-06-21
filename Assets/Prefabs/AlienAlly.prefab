@@ -102,20 +102,28 @@ MonoBehaviour:
   activeTile: {fileID: 0}
   movementrange: 3
   CharacterHP: 50
+  MaxHP: 0
   Attackrange: 2
   Attack: 10
+  burn: 0
   Defense: 50
+  hasSelected: 0
   hasMoved: 0
   hasAttack: 0
   characterName: Alien (Ally)
   moving: 0
+  Skill2cooldown: 0
+  Burntimer: 0
   Skillnumber: 1
   Skill1attackrange: 0
   Skill1attack: 0
   Skill1: 
+  Skill1burn: 0
   Skill2attackrange: 0
   Skill2attack: 0
   Skill2: 
+  Skill2burn: 0
+  characterSprite: {fileID: 21300000, guid: 523387868a5521543ac8f53ad72473f2, type: 3}
   animator: {fileID: 7529006738986411636}
 --- !u!95 &7529006738986411636
 Animator:
@@ -154,3 +162,4 @@ MonoBehaviour:
   OverlayContainer: {fileID: 0}
   inAttackRange: []
   inRange: []
+  path: []
