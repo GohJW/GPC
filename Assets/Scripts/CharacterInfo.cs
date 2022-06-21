@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class CharacterInfo : MonoBehaviour
 {
     public OverlayTile activeTile;
-    public int movementrange;   
+    public int movementrange;
     public float CharacterHP;
+    public float MaxHP;
     public int Attackrange;
     public int Attack;
     public bool burn;
@@ -38,8 +40,7 @@ public class CharacterInfo : MonoBehaviour
     public Animator animator;
 
     public void UpdateSkillinfo()
-    {          
-       
+    {
         if (Skillnumber == 1)
         {
             Attackrange = Skill1attackrange;

@@ -101,6 +101,7 @@ MonoBehaviour:
   activeTile: {fileID: 0}
   movementrange: 2
   CharacterHP: 50
+  MaxHP: 0
   Attackrange: 0
   Attack: 0
   burn: 0
@@ -115,8 +116,8 @@ MonoBehaviour:
   Skillnumber: 1
   Skill1attackrange: 1
   Skill1attack: 10
-  Skill1: 
-  Skill1burn: 0
+  Skill1: Concoction
+  Skill1burn: 1
   Skill2attackrange: 0
   Skill2attack: 0
   Skill2: 

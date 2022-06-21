@@ -99,22 +99,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
-  movementrange: 2
+  movementrange: 1
   CharacterHP: 50
+  MaxHP: 50
   Attackrange: 0
   Attack: 10
+  burn: 0
   Defense: 30
+  hasSelected: 1
   hasMoved: 0
   hasAttack: 0
   characterName: Officer
   moving: 0
+  Skill2cooldown: 0
+  Burntimer: 0
   Skillnumber: 1
   Skill1attackrange: 2
   Skill1attack: 10
   Skill1: Shoot
-  Skill2attackrange: 1
-  Skill2attack: 0
-  Skill2: Protect
+  Skill1burn: 0
+  Skill2attackrange: 3
+  Skill2attack: 20
+  Skill2: Grenade
+  Skill2burn: 0
   characterSprite: {fileID: 21300000, guid: 7e5477eb94e891a4393cf39ee62e1f0a, type: 3}
   animator: {fileID: 33218183}
 --- !u!95 &33218183

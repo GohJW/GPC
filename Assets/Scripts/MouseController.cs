@@ -57,6 +57,10 @@ public class MouseController : MonoBehaviour
                     }
                     if (CurrentSelectedTile.isAlly)
                     {
+                        if(character != null && character.Attack < 0)
+                        {
+                            Heal();
+                        }
                         ClearAllTiles();
                         character = CurrentSelectedTile.character;
                         character.Skillnumber = 1;
@@ -87,7 +91,10 @@ public class MouseController : MonoBehaviour
 
                     if ((CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel) && inAttackRangeTiles.Contains(CurrentSelectedTile) && !character.hasAttack)
                     {
-
+                        if(character.Skill2 == "Grenade")
+                        {
+                            CurrentSelectedTile.isBarrel = true;
+                        }
                         Attack();
 
                     }
@@ -226,6 +233,15 @@ public class MouseController : MonoBehaviour
         if( Attacker.Attack == Attacker.Skill2attack && Attacker.Skill2cooldown == 0)
         {
             Attacker.Skill2cooldown += 3;
+            if(Attacker.Skill2 == "Hose")
+            {
+                Vector2Int AttackerPosition = Attacker.activeTile.grid2DLocation;
+                Vector2Int AttackedPosition = Attacked.activeTile.grid2DLocation;
+                Vector2Int Difference = AttackedPosition - AttackerPosition;
+                Vector2Int NewPosition = AttackedPosition + Difference;
+                Push(Attacked, Attacker, NewPosition);
+                Debug.Log("entered");
+            }
         }
         if (Attacker.burn)
         {
@@ -262,7 +278,7 @@ public class MouseController : MonoBehaviour
                 //item.character.damaged = true;
                 item.character.animator.SetTrigger("Damaged");
                 //StartCoroutine(DamagedAnimationDelay(item.character));
-                item.character.CharacterHP -= 10 * (1 - item.character.Defense/100);
+                item.character.CharacterHP -= 20 * (1 - item.character.Defense/100);
                 if (item.character.CharacterHP <= 0)
                 {
                     item.character.GetComponent<SpriteRenderer>().enabled = false;
@@ -318,5 +334,47 @@ public class MouseController : MonoBehaviour
    public void Clearinfo()
     {
         character = null;
+    }
+
+    public void Heal()
+    {
+        CharacterInfo healer = character;
+        CharacterInfo healed = CurrentSelectedTile.character;
+        healed.CharacterHP -= healer.Attack;
+        if(healed.CharacterHP > healed.MaxHP)
+        {
+            healed.CharacterHP = healed.MaxHP;
+        }
+        healer.hasAttack = true;
+
+        if (healer.Attack == healer.Skill2attack && healer.Skill2cooldown == 0)
+        {
+            healer.Skill2cooldown += 3;
+        }
+
+    }
+
+    public void Push(CharacterInfo Attacked, CharacterInfo Attacker, Vector2Int Newposition)
+    {
+        var map = MapManager.Instance.map;
+        Vector2Int locationToCheck = new Vector2Int(Newposition.x, Newposition.y);
+        Debug.Log("Push");
+        if (map.ContainsKey(locationToCheck))
+        {
+            Debug.Log("containskey");
+            Debug.Log(Newposition);
+
+            if (!map[locationToCheck].isAlly && !map[locationToCheck].isEnemy && !map[locationToCheck].isObstacle)
+            {
+                Attacked.activeTile.isEnemy = false;
+                Attacked.transform.position = new Vector3(map[locationToCheck].transform.position.x, map[locationToCheck].transform.position.y, map[locationToCheck].transform.position.z);
+                Attacked.GetComponent<SpriteRenderer>().sortingOrder = map[locationToCheck].GetComponent<SpriteRenderer>().sortingOrder + 1;
+                Attacked.activeTile = map[locationToCheck];
+                map[locationToCheck].character = Attacked;
+                Attacked.activeTile.isEnemy = true;
+                Attacked.GetComponent<EnemyAi>().CurrentTile = Attacked.activeTile;
+                Debug.Log("empty");
+            }
+        }
     }
 }

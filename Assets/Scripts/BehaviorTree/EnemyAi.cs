@@ -39,7 +39,7 @@ public class EnemyAi : MonoBehaviour
         Sequence CheckFirstAttackrangeSequence = new Sequence(new List<Node> { attackrangeNode });
         Sequence moveSequence = new Sequence(new List<Node> { findClosestAllyNode, moveNode, setCurrentTileNode, setAllyTileNode, findClosestAllyNode});
 
-        topNode = new Selector(new List<Node> {attackrangeNode, moveSequence});
+        topNode = new Selector(new List<Node> { attackrangeNode, moveSequence});
     }
 
     void Update()

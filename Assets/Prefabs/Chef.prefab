@@ -101,11 +101,12 @@ MonoBehaviour:
   activeTile: {fileID: 0}
   movementrange: 1
   CharacterHP: 50
+  MaxHP: 50
   Attackrange: 0
   Attack: 10
   burn: 0
   Defense: 30
-  hasSelected: 0
+  hasSelected: 1
   hasMoved: 0
   hasAttack: 0
   characterName: Michelin
@@ -114,10 +115,10 @@ MonoBehaviour:
   Burntimer: 0
   Skillnumber: 1
   Skill1attackrange: 2
-  Skill1attack: 10
+  Skill1attack: 5
   Skill1: Cook
   Skill1burn: 1
-  Skill2attackrange: 2
+  Skill2attackrange: 1
   Skill2attack: -15
   Skill2: Serve
   Skill2burn: 0

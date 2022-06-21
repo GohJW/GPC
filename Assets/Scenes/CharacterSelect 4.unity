@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de027b5f58d11e4a9312d290af20f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDB: {fileID: 11400000, guid: 600c90972b48a7848a0b8e707457e7a4, type: 2}
+  characterDB: {fileID: 11400000, guid: 00c764953dd6b6f4fab85c3ca0378f79, type: 2}
   nameText: {fileID: 1201040855}
   selectText: {fileID: 574692222}
   artworkSprite: {fileID: 581647009}
