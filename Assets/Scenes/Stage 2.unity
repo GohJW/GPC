@@ -1327,7 +1327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 122.8, y: -82}
+  m_AnchoredPosition: {x: 111.3, y: -81.999}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348328859
@@ -1475,8 +1475,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -94.6}
-  m_SizeDelta: {x: 413.1, y: 200}
+  m_AnchoredPosition: {x: 3.43, y: -94.6}
+  m_SizeDelta: {x: 391.71, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &496867992
 MonoBehaviour:
@@ -1787,8 +1787,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.875, y: 0.586}
-  m_SizeDelta: {x: 409.35, y: 195.17}
+  m_AnchoredPosition: {x: 2.31, y: 0.58552}
+  m_SizeDelta: {x: 359.43, y: 195.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &883608750
 MonoBehaviour:
@@ -2441,8 +2441,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -142.1, y: 82.6}
-  m_SizeDelta: {x: 108.63, y: 31.14}
+  m_AnchoredPosition: {x: -102.3, y: 82.6}
+  m_SizeDelta: {x: 169.41, y: 31.141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2057990436
 MonoBehaviour:
@@ -2651,6 +2651,7 @@ MonoBehaviour:
       through the door\u2026"
   cursor: {fileID: 1129050687}
   animator: {fileID: 496867994}
+  EndButton: {fileID: 1175337558909017924}
 --- !u!1001 &1175337558909017923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2812,6 +2813,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+--- !u!114 &1175337558909017924 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+  m_PrefabInstance: {fileID: 1175337558909017923}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1705073266668286729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2934,7 +2946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -94.58995
+      value: -94.589966
       objectReference: {fileID: 0}
     - target: {fileID: 1250395655, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

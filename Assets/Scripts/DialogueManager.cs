@@ -15,6 +15,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject cursor;
 
     public Animator animator;
+    
+    public Button EndButton;
 
     private Queue<string> names;
     private Queue<string> sentences;
@@ -22,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        EndButton.gameObject.SetActive(false);
         names = new Queue<string>();
         sentences = new Queue<string>();
 
@@ -89,6 +92,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue() // Hide dialogue Box
     {
+        EndButton.gameObject.SetActive(true);
         animator.SetBool("IsOpen", false);
         cursor.SetActive(true);
     }
