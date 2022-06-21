@@ -221,6 +221,7 @@ public class MapManager : MonoBehaviour
         if(gameend)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            gameend = false;
         }
 
     }
