@@ -184,9 +184,11 @@ MonoBehaviour:
   overlaytilePrefab: {fileID: 4635019341595453394, guid: a2910e87e9f95d44aa1fca7943d32980, type: 3}
   overlayContainer: {fileID: 1748086853}
   obstacleContainer: {fileID: 745084920}
-  obstaclePrefab1: {fileID: 4873257352821483164, guid: 4f0ac735f4e2cf24a8143258f17197e4, type: 3}
-  obstaclePrefab2: {fileID: 4873257352821483164, guid: 4f0ac735f4e2cf24a8143258f17197e4, type: 3}
-  CharacterPrefab1: {fileID: 2194246102877866239, guid: 6fdad203d7b070a45860ab6893a57ab7, type: 3}
+  obstaclePrefab1: {fileID: 1002025919230482344, guid: 8edb360590af57e499d085860113154d, type: 3}
+  obstaclePrefab2: {fileID: 1002025919230482344, guid: 8edb360590af57e499d085860113154d, type: 3}
+  obstaclePrefab3: {fileID: 1002025919230482344, guid: 8edb360590af57e499d085860113154d, type: 3}
+  obstaclePrefab4: {fileID: 1002025919230482344, guid: 8edb360590af57e499d085860113154d, type: 3}
+  CharacterPrefab1: {fileID: 1002025919230482344, guid: 8edb360590af57e499d085860113154d, type: 3}
   CharacterPrefab2: {fileID: 7641212942601949390, guid: 14fd8bff47eeadf44999d19ac983f444, type: 3}
   Enemy: {fileID: 4938640777943149458, guid: 62c1e79787c47c7429688f7c844de605, type: 3}
   Barrel1: {fileID: 8229601432631751412, guid: 1f4b68cf5c588464997e50687234fe3c, type: 3}
@@ -2812,6 +2814,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1129050688}
+    - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -94.589935
+      objectReference: {fileID: 0}
     - target: {fileID: 1250395655, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

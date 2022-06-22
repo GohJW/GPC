@@ -16,10 +16,13 @@ public class MapManager : MonoBehaviour
 
     public GameObject obstaclePrefab1;
     public GameObject obstaclePrefab2;
+    public GameObject obstaclePrefab3;
+    public GameObject obstaclePrefab4;
     private ObstacleInfo obstacle;
 
     public GameObject CharacterPrefab1;
     public GameObject CharacterPrefab2;
+
     public GameObject Enemy;
     public GameObject Barrel1;
 
@@ -137,6 +140,30 @@ public class MapManager : MonoBehaviour
             obstacle.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
             obstacle.activeTile = tile;
           
+        }
+
+        if (value == 3)
+        {
+
+
+            obstacle = Instantiate(obstaclePrefab3, obstacleContainer.transform).GetComponent<ObstacleInfo>();
+
+            obstacle.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z);
+            obstacle.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
+            obstacle.activeTile = tile;
+
+        }
+
+        if (value == 4)
+        {
+
+
+            obstacle = Instantiate(obstaclePrefab4, obstacleContainer.transform).GetComponent<ObstacleInfo>();
+
+            obstacle.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z);
+            obstacle.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder + 1;
+            obstacle.activeTile = tile;
+
         }
 
     }
@@ -264,6 +291,8 @@ public class MapManager : MonoBehaviour
         obstacles = new Dictionary<Vector3Int, int>();
         obstacles.Add(new Vector3Int(-1, 0, 0), 1);
         obstacles.Add(new Vector3Int(-4, -2, 0), 2);
+        obstacles.Add(new Vector3Int(-4, -1, 0), 3);
+        obstacles.Add(new Vector3Int(0, -2, 0), 4);
 
         BoundsInt bounds = tileMap.cellBounds;
 
@@ -417,11 +446,11 @@ public class MapManager : MonoBehaviour
                             overlayTile.isObstacle = true;
                         }
 
-                        if (overlayTile.gridLocation == new Vector3Int(-6, -5, 0))
+                        if (overlayTile.gridLocation == new Vector3Int(-6, -6, 0))
                         {
                             SpawnCharacter(overlayTile, 0);
                         }
-                        if (overlayTile.gridLocation == new Vector3Int(-6, -3, 0))
+                        if (overlayTile.gridLocation == new Vector3Int(-6, 1, 0))
                         {
                             SpawnCharacter(overlayTile, 1);
                         }
