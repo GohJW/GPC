@@ -14,6 +14,7 @@ public class CharacterStatUIManager : MonoBehaviour
     public GameObject Skill2Button;
     public TMP_Text Cooldown;
     public TMP_Text Burn;
+    public TMP_Text SkillDescription;
 
     private void Update()
     {
@@ -39,11 +40,22 @@ public class CharacterStatUIManager : MonoBehaviour
                 Skill2Button.gameObject.SetActive(false);
                 SkipButton.GetComponentInChildren<TextMeshProUGUI>().text = "Skip Movement Turn";
                 Cooldown.gameObject.SetActive(false);
+                SkillDescription.gameObject.SetActive(false);
             }
             else if (!currentSelectedTile.character.hasAttack)
             {
                 Textbox1.text = "Range:" + currentSelectedTile.character.Attackrange.ToString();
-                Textbox2.text = "Attack:" + currentSelectedTile.character.Attack.ToString();
+                SkillDescription.text = currentSelectedTile.character.SkillDescription.ToString();
+                SkillDescription.gameObject.SetActive(true);
+                if (currentSelectedTile.character.Attack < 0)
+                {
+                    int healvalue = -currentSelectedTile.character.Attack;
+                    Textbox2.text = "Heal:" + healvalue.ToString();
+                }
+                else
+                {
+                    Textbox2.text = "Attack:" + currentSelectedTile.character.Attack.ToString();
+                }
                 Skill1Button.gameObject.SetActive(true);
                 Cooldown.gameObject.SetActive(true);
                 if (currentSelectedTile.character.Skill2cooldown == 0)
@@ -55,6 +67,8 @@ public class CharacterStatUIManager : MonoBehaviour
                 {
                     Cooldown.text = "Cooldown: " + currentSelectedTile.character.Skill2cooldown.ToString() + "Turns";
                     Cooldown.gameObject.SetActive(true);
+                    Skill2Button.gameObject.SetActive(false);
+
                 }
                 Skill1Button.GetComponentInChildren<TextMeshProUGUI>().text = currentSelectedTile.character.Skill1;
                 Skill2Button.GetComponentInChildren<TextMeshProUGUI>().text = currentSelectedTile.character.Skill2;
@@ -67,7 +81,7 @@ public class CharacterStatUIManager : MonoBehaviour
                 Skill1Button.gameObject.SetActive(false);
                 Skill2Button.gameObject.SetActive(false);
                 Cooldown.gameObject.SetActive(false);
-
+                SkillDescription.gameObject.SetActive(false);
             }
         }
         else
@@ -77,10 +91,8 @@ public class CharacterStatUIManager : MonoBehaviour
             Skill1Button.gameObject.SetActive(false);
             Skill2Button.gameObject.SetActive(false);
             Cooldown.gameObject.SetActive(false);
-
+            SkillDescription.gameObject.SetActive(false);
         }
-
-
     }
 
     public void Skill1()

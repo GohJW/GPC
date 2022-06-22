@@ -100,28 +100,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
   movementrange: 2
-  CharacterHP: 50
-  MaxHP: 0
+  CharacterHP: 40
+  MaxHP: 40
   Attackrange: 0
   Attack: 0
   burn: 0
-  Defense: 0
+  Defense: 20
   hasSelected: 1
   hasMoved: 0
   hasAttack: 0
   characterName: Scientist
+  SkillDescription: 
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
   Skillnumber: 1
-  Skill1attackrange: 1
+  Skill1attackrange: 2
   Skill1attack: 10
-  Skill1: Concoction
+  Skill1: Flask
   Skill1burn: 1
-  Skill2attackrange: 0
-  Skill2attack: 0
-  Skill2: 
+  Skill1Description: Whats even in this? (Burns)
+  Skill2attackrange: 2
+  Skill2attack: -15
+  Skill2: Potion
   Skill2burn: 0
+  Skill2Description: Bottoms up! (Heals)
   characterSprite: {fileID: 21300000, guid: 8c3f5f940d2daa24683bd24ddb07e836, type: 3}
   animator: {fileID: 3454655682121413481}
 --- !u!95 &3454655682121413481

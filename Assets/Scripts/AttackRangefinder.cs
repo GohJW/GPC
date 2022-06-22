@@ -30,7 +30,7 @@ public class AttackRangefinder
                 {
                     tiles.Add(item, stepCount);
                 }               
-                surroundingTiles.AddRange(MapManager.GetNeighbourTiles(item, new List<OverlayTile>()));
+                surroundingTiles.AddRange(GetNeighbourTilesforAttack(item, new List<OverlayTile>()));
             }
 
             inRangeTiles.AddRange(surroundingTiles);
@@ -49,6 +49,55 @@ public class AttackRangefinder
         }
               
         return inAttackRangeTiles.Distinct().ToList();
+    }
+    public static List<OverlayTile> GetNeighbourTilesforAttack(OverlayTile currentOverlayTile, List<OverlayTile> searchableTiles)
+    {
+        Dictionary<Vector2Int, OverlayTile> TiletoSearch = new Dictionary<Vector2Int, OverlayTile>();
+        var map = MapManager.Instance.map;
+
+        if (searchableTiles.Count > 0)
+        {
+            foreach (var item in searchableTiles)
+            {
+                TiletoSearch.Add(item.grid2DLocation, item);
+            }
+        }
+        else
+        {
+            TiletoSearch = map;
+        }
+
+
+        List<OverlayTile> neighbours = new List<OverlayTile>();
+
+        //check Top
+        Vector2Int locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x, currentOverlayTile.gridLocation.y + 1);
+        if (TiletoSearch.ContainsKey(locationToCheck))
+        {            
+                neighbours.Add(TiletoSearch[locationToCheck]);
+        }
+
+        //check Bottom
+        locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x, currentOverlayTile.gridLocation.y - 1);
+        if (TiletoSearch.ContainsKey(locationToCheck))
+        {
+                neighbours.Add(TiletoSearch[locationToCheck]);           
+        }
+
+        //check Right
+        locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x + 1, currentOverlayTile.gridLocation.y);
+        if (TiletoSearch.ContainsKey(locationToCheck))
+        {           
+                neighbours.Add(TiletoSearch[locationToCheck]);         
+        }
+
+        //check Left
+        locationToCheck = new Vector2Int(currentOverlayTile.gridLocation.x - 1, currentOverlayTile.gridLocation.y);
+        if (TiletoSearch.ContainsKey(locationToCheck))
+        {          
+                neighbours.Add(TiletoSearch[locationToCheck]);            
+        }
+        return neighbours;
     }
 
 }

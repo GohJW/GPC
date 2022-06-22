@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7944289855595625962}
   - component: {fileID: 5224176143351068472}
   - component: {fileID: 7529006738986411636}
-  - component: {fileID: -2774552293500254154}
   m_Layer: 0
   m_Name: AlienAlly
   m_TagString: Untagged
@@ -100,29 +99,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
-  movementrange: 3
+  movementrange: 2
   CharacterHP: 50
-  MaxHP: 0
+  MaxHP: 50
   Attackrange: 2
   Attack: 10
   burn: 0
-  Defense: 50
-  hasSelected: 0
+  Defense: 30
+  hasSelected: 1
   hasMoved: 0
   hasAttack: 0
-  characterName: Alien (Ally)
+  characterName: Defector
+  SkillDescription: 
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
   Skillnumber: 1
-  Skill1attackrange: 0
-  Skill1attack: 0
-  Skill1: 
+  Skill1attackrange: 2
+  Skill1attack: 15
+  Skill1: Zap
   Skill1burn: 0
-  Skill2attackrange: 0
-  Skill2attack: 0
-  Skill2: 
+  Skill1Description: Alien guns = more damage
+  Skill2attackrange: 2
+  Skill2attack: 20
+  Skill2: Blast
   Skill2burn: 0
+  Skill2Description: Send them flying (Knockback)
   characterSprite: {fileID: 21300000, guid: 523387868a5521543ac8f53ad72473f2, type: 3}
   animator: {fileID: 7529006738986411636}
 --- !u!95 &7529006738986411636
@@ -145,21 +147,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-2774552293500254154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4938640777943149458}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8a3fdfab3ca034292b9dd25526370f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentTile: {fileID: 0}
-  AllyTile: {fileID: 0}
-  OverlayContainer: {fileID: 0}
-  inAttackRange: []
-  inRange: []
-  path: []

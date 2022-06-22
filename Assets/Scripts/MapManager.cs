@@ -220,10 +220,16 @@ public class MapManager : MonoBehaviour
         }
         if(gameend)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            gameend = false;
+            StartCoroutine(Nextstage((float)1.1, gameend));
+            TurnUI.GetComponent<TurnUIScript>().ShowWin();   
         }
 
+    }
+    public IEnumerator Nextstage(float x, bool gameend)
+    {
+        yield return new WaitForSeconds(x);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        gameend = false;
     }
 
     public void SpawnCharacter(OverlayTile overlayTile, int i)
@@ -487,6 +493,16 @@ public class MapManager : MonoBehaviour
                         }
 
                         if (overlayTile.gridLocation == new Vector3Int(2, 0, 0))
+                        {
+                            character = Instantiate(Enemy).GetComponent<CharacterInfo>();
+                            PositionCharacterOntile(overlayTile);
+                            overlayTile.character = character;
+                            character.activeTile.isEnemy = true;
+                            character.hasAttack = true;
+                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+
+                        }
+                        if (overlayTile.gridLocation == new Vector3Int(2, -1, 0))
                         {
                             character = Instantiate(Enemy).GetComponent<CharacterInfo>();
                             PositionCharacterOntile(overlayTile);

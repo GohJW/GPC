@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+
 
 
 public class CharacterInfo : MonoBehaviour
@@ -18,6 +18,7 @@ public class CharacterInfo : MonoBehaviour
     public bool hasMoved = false;
     public bool hasAttack = false;
     public string characterName;
+    public string SkillDescription;
     public bool moving = false;
     public int Skill2cooldown = 0;
     public int Burntimer = 0;
@@ -27,11 +28,14 @@ public class CharacterInfo : MonoBehaviour
     public int Skill1attack;
     public string Skill1;
     public bool Skill1burn;
+    public string Skill1Description;
 
     public int Skill2attackrange;
     public int Skill2attack;
     public string Skill2;
     public bool Skill2burn;
+    public string Skill2Description;
+
 
 
     public Sprite characterSprite;
@@ -46,6 +50,7 @@ public class CharacterInfo : MonoBehaviour
             Attackrange = Skill1attackrange;
             Attack = Skill1attack;
             burn = Skill1burn;
+            SkillDescription = Skill1Description;
 
         }
         if(Skillnumber == 2)
@@ -53,8 +58,10 @@ public class CharacterInfo : MonoBehaviour
             Attackrange = Skill2attackrange;
             Attack = Skill2attack;
             burn = Skill2burn;
+            SkillDescription = Skill2Description;
+
         }
-        if(Skill2cooldown < 0)
+        if (Skill2cooldown < 0)
         {
             Skill2cooldown = 0;
         }

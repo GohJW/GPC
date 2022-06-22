@@ -91,10 +91,6 @@ public class MouseController : MonoBehaviour
 
                     if ((CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel) && inAttackRangeTiles.Contains(CurrentSelectedTile) && !character.hasAttack)
                     {
-                        if(character.Skill2 == "Grenade")
-                        {
-                            CurrentSelectedTile.isBarrel = true;
-                        }
                         Attack();
 
                     }
@@ -233,14 +229,14 @@ public class MouseController : MonoBehaviour
         if( Attacker.Attack == Attacker.Skill2attack && Attacker.Skill2cooldown == 0)
         {
             Attacker.Skill2cooldown += 3;
-            if(Attacker.Skill2 == "Hose")
+            if(Attacker.Skill2 == "Hose" || Attacker.Skill2 == "Blast")
+            { 
+                Push(Attacked, Attacker);
+            }
+            if (Attacker.Skill2 == "Nade")
             {
-                Vector2Int AttackerPosition = Attacker.activeTile.grid2DLocation;
-                Vector2Int AttackedPosition = Attacked.activeTile.grid2DLocation;
-                Vector2Int Difference = AttackedPosition - AttackerPosition;
-                Vector2Int NewPosition = AttackedPosition + Difference;
-                Push(Attacked, Attacker, NewPosition);
-                Debug.Log("entered");
+                BarrelExplode(Attacked.activeTile);
+                Debug.Log("Grenade");
             }
         }
         if (Attacker.burn)
@@ -269,8 +265,7 @@ public class MouseController : MonoBehaviour
 
     private void BarrelExplode(OverlayTile Barrel)
     {
-        List<OverlayTile> explosion = attackrangefinder.GetTilesInAttackRange(Barrel, 1);
-        explosion.Remove(Barrel); 
+        List<OverlayTile> explosion = attackrangefinder.GetTilesInAttackRange(Barrel, 1); 
         foreach (OverlayTile item in explosion)
         {
             if (item.isEnemy || item.isAlly)
@@ -354,15 +349,22 @@ public class MouseController : MonoBehaviour
 
     }
 
-    public void Push(CharacterInfo Attacked, CharacterInfo Attacker, Vector2Int Newposition)
+    public void Push(CharacterInfo Attacked, CharacterInfo Attacker)
     {
         var map = MapManager.Instance.map;
-        Vector2Int locationToCheck = new Vector2Int(Newposition.x, Newposition.y);
+        Vector2Int AttackerPosition = Attacker.activeTile.grid2DLocation;
+        Vector2Int AttackedPosition = Attacked.activeTile.grid2DLocation;
+        Vector2Int Difference = AttackedPosition - AttackerPosition;
+        if(Attacker.characterName == "Gardener")
+        {
+            Difference = Difference * 2;
+        }
+        Vector2Int NewPosition = AttackedPosition + Difference;
+        Vector2Int locationToCheck = new Vector2Int(NewPosition.x, NewPosition.y);
         Debug.Log("Push");
         if (map.ContainsKey(locationToCheck))
         {
             Debug.Log("containskey");
-            Debug.Log(Newposition);
 
             if (!map[locationToCheck].isAlly && !map[locationToCheck].isEnemy && !map[locationToCheck].isObstacle)
             {
@@ -373,7 +375,28 @@ public class MouseController : MonoBehaviour
                 map[locationToCheck].character = Attacked;
                 Attacked.activeTile.isEnemy = true;
                 Attacked.GetComponent<EnemyAi>().CurrentTile = Attacked.activeTile;
-                Debug.Log("empty");
+                Debug.Log("2nd");
+                return;
+            }
+        }
+        Difference = Difference / 2;
+        NewPosition = AttackedPosition + Difference;
+        locationToCheck = new Vector2Int(NewPosition.x, NewPosition.y);
+        if (map.ContainsKey(locationToCheck))
+        {
+            Debug.Log("containskey");
+
+            if (!map[locationToCheck].isAlly && !map[locationToCheck].isEnemy && !map[locationToCheck].isObstacle)
+            {
+                Attacked.activeTile.isEnemy = false;
+                Attacked.transform.position = new Vector3(map[locationToCheck].transform.position.x, map[locationToCheck].transform.position.y, map[locationToCheck].transform.position.z);
+                Attacked.GetComponent<SpriteRenderer>().sortingOrder = map[locationToCheck].GetComponent<SpriteRenderer>().sortingOrder + 1;
+                Attacked.activeTile = map[locationToCheck];
+                map[locationToCheck].character = Attacked;
+                Attacked.activeTile.isEnemy = true;
+                Attacked.GetComponent<EnemyAi>().CurrentTile = Attacked.activeTile;
+                Debug.Log("1st");
+                return;
             }
         }
     }

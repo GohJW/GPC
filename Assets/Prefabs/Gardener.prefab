@@ -100,28 +100,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
   movementrange: 2
-  CharacterHP: 50
-  MaxHP: 0
+  CharacterHP: 35
+  MaxHP: 35
   Attackrange: 0
   Attack: 0
   burn: 0
-  Defense: 0
-  hasSelected: 0
+  Defense: 30
+  hasSelected: 1
   hasMoved: 0
   hasAttack: 0
   characterName: Gardener
+  SkillDescription: 
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
   Skillnumber: 1
-  Skill1attackrange: 2
+  Skill1attackrange: 1
   Skill1attack: 20
   Skill1: Snip
   Skill1burn: 0
+  Skill1Description: For cutting branches and aliens
   Skill2attackrange: 1
   Skill2attack: 0
   Skill2: Hose
   Skill2burn: 0
+  Skill2Description: Blast away (Knockback can push over obstacles)
   characterSprite: {fileID: 21300000, guid: 5416071925bac784c8a1f7e201934c48, type: 3}
   animator: {fileID: 7223013216065825215}
 --- !u!95 &7223013216065825215

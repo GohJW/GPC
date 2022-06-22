@@ -32,7 +32,6 @@ public class MoveNode : Node
         if (path.Count == 0)
         {
             Character = CurrentTile.character;
-            CurrentTile.isEnemy = false;
             Debug.Log("Count0");
             path.Clear();
             Moveaway();
@@ -222,7 +221,7 @@ public class MoveNode : Node
         var map = MapManager.Instance.map;
         int value = 0;
         var neighbourtiles = GetNeighbourOverlayTiles(CurrentTile);
-        foreach( OverlayTile item in neighbourtiles)
+        foreach (OverlayTile item in neighbourtiles)
         {
             if (!item.isBarrel && !item.isAlly && !item.isEnemy && !item.isObstacle)
             {
@@ -236,23 +235,29 @@ public class MoveNode : Node
             CurrentTile.character.hasMoved = true;
             return;
         }
-        int index = Random.Range(0, path.Count - 1);
-        Debug.Log(index);
-        while (path.Count != 0)
+        else
         {
-            CurrentTile.character.transform.position = Vector2.MoveTowards(CurrentTile.character.transform.position, path[index].transform.position, step);
-            if (Vector2.Distance(CurrentTile.character.transform.position, path[index].transform.position) < 0.0001f)
+            CurrentTile.isEnemy = false;
+            int index = Random.Range(0, path.Count - 1);
+            Debug.Log(index);
+            
+            while (path.Count != 0)
             {
-                Debug.Log("move");
-                PositionCharacterOntile(path[index]);
-                path.Clear();
+                CurrentTile.character.transform.position = Vector2.MoveTowards(CurrentTile.character.transform.position, path[index].transform.position, step);
+                if (Vector2.Distance(CurrentTile.character.transform.position, path[index].transform.position) < 0.0001f)
+                {
+                    Debug.Log("move");
+                    PositionCharacterOntile(path[index]);
+                    path.Clear();
+                }
             }
+
+            CurrentTile = Character.activeTile;
+            CurrentTile.character = Character;
+            CurrentTile.isEnemy = true;
+            CurrentTile.character.hasMoved = true;
+            CurrentTile.character.moving = false;
+            CurrentTile.character.animator.SetBool("Moving", CurrentTile.character.moving);
         }
-        CurrentTile = Character.activeTile;
-        CurrentTile.character = Character;
-        CurrentTile.isEnemy = true;
-        CurrentTile.character.hasMoved = true;
-        CurrentTile.character.moving = false;
-        CurrentTile.character.animator.SetBool("Moving", CurrentTile.character.moving);
     }
 }

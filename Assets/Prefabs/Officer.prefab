@@ -100,16 +100,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
   movementrange: 1
-  CharacterHP: 50
-  MaxHP: 50
+  CharacterHP: 40
+  MaxHP: 40
   Attackrange: 0
   Attack: 10
   burn: 0
-  Defense: 30
-  hasSelected: 1
+  Defense: 25
+  hasSelected: 0
   hasMoved: 0
   hasAttack: 0
   characterName: Officer
+  SkillDescription: 
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
@@ -118,10 +119,12 @@ MonoBehaviour:
   Skill1attack: 10
   Skill1: Shoot
   Skill1burn: 0
+  Skill1Description: Pew Pew
   Skill2attackrange: 3
   Skill2attack: 20
-  Skill2: Grenade
+  Skill2: Nade
   Skill2burn: 0
+  Skill2Description: We all know what this does (AoE damage)
   characterSprite: {fileID: 21300000, guid: 7e5477eb94e891a4393cf39ee62e1f0a, type: 3}
   animator: {fileID: 33218183}
 --- !u!95 &33218183
