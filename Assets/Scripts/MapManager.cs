@@ -228,7 +228,7 @@ public class MapManager : MonoBehaviour
 
     }
 
-    public void CheckGameTurn()
+    public void CheckWin()
     {
         OverlayTile[] container = overlayContainer.GetComponentsInChildren<OverlayTile>();
         bool gameend = false;
@@ -252,10 +252,41 @@ public class MapManager : MonoBehaviour
         }
 
     }
+
+    public void CheckLose()
+    {
+        OverlayTile[] container = overlayContainer.GetComponentsInChildren<OverlayTile>();
+        bool gameend = false;
+        foreach (OverlayTile item in container)
+        {
+            if (item.isAlly)
+            {
+                gameend = false;
+                break;
+            }
+            else
+            {
+                gameend = true;
+            }
+        }
+        if (gameend)
+        {
+            StartCoroutine(Restartstage((float)1.1, gameend));
+            TurnUI.GetComponent<TurnUIScript>().ShowLose();
+        }
+
+    }
     public IEnumerator Nextstage(float x, bool gameend)
     {
         yield return new WaitForSeconds(x);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        gameend = false;
+    }
+
+    public IEnumerator Restartstage(float x, bool gameend)
+    {
+        yield return new WaitForSeconds(x);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         gameend = false;
     }
 

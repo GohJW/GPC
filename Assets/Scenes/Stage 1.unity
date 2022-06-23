@@ -2677,10 +2677,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1820290230, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
-      propertyPath: m_Name
-      value: TurnCounter
-      objectReference: {fileID: 0}
     - target: {fileID: 1175337557550418818, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2785,6 +2781,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1129050688}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 134636116}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
 --- !u!114 &1175337558909017924 stripped
