@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
-  movementrange: 2
+  movementrange: 3
   CharacterHP: 35
   MaxHP: 35
   Attackrange: 0

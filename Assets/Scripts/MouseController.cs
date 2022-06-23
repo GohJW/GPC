@@ -17,6 +17,7 @@ public class MouseController : MonoBehaviour
     private List<OverlayTile> path = new List<OverlayTile>();
     private List<OverlayTile> inRangeTiles = new List<OverlayTile>();
     private List<OverlayTile> inAttackRangeTiles = new List<OverlayTile>();
+    private bool isInput = true;
 
     // Start is called before the first frame update
     void Start()
@@ -39,62 +40,60 @@ public class MouseController : MonoBehaviour
                 transform.position = overlaytile.transform.position;
                 gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlaytile.GetComponent<SpriteRenderer>().sortingOrder;
 
-               
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && isInput)
                 {
-                    CurrentSelectedTile = overlaytile;
-                    if (CurrentSelectedTile.isAlly || CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel)
-                    {
-                        //UpdateStats();
-                        CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
-                        CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
-                        ShowCharacterUI();
-                    }
-                    else
-                    {
-                        HideCharacterUI();
-                        //HideAllTiles();
-                    }
-                    if (CurrentSelectedTile.isAlly)
-                    {
-                        if(character != null && character.Attack < 0)
+                        CurrentSelectedTile = overlaytile;
+                        if (CurrentSelectedTile.isAlly || CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel)
                         {
-                            Heal();
+                            //UpdateStats();
+                            CharacterStatUI.GetComponent<CharacterStatUIManager>().enabled = true;
+                            CharacterStatUI.GetComponent<CharacterStatUIManager>().currentSelectedTile = CurrentSelectedTile;
+                            ShowCharacterUI();
                         }
-                        ClearAllTiles();
-                        character = CurrentSelectedTile.character;
-                        character.Skillnumber = 1;
-                        character.UpdateSkillinfo();
-                        if (!character.hasMoved)
+                        else
                         {
-                            GetInRangeTiles();
+                            HideCharacterUI();
+                            //HideAllTiles();
                         }
-                        if (character.hasMoved && !character.hasAttack)
+                        if (CurrentSelectedTile.isAlly)
                         {
-                            GetInAttackRangeTiles();
-                        }
+                            if (character != null && character.Attack < 0)
+                            {
+                                Heal();
+                            }
+                            ClearAllTiles();
+                            character = CurrentSelectedTile.character;
+                            character.Skillnumber = 1;
+                            character.UpdateSkillinfo();
+                            if (!character.hasMoved)
+                            {
+                                GetInRangeTiles();
+                            }
+                            if (character.hasMoved && !character.hasAttack)
+                            {
+                                GetInAttackRangeTiles();
+                            }
 
 
-                    }
-                    if (inRangeTiles.Contains(CurrentSelectedTile) && !character.moving)
-                    {
-                        //if (!character.moving)
-                        //{
+                        }
+                        if (inRangeTiles.Contains(CurrentSelectedTile) && !character.moving)
+                        {
+                            //if (!character.moving)
+                            //{
                             path = pathfinder.FindPath(character.activeTile, CurrentSelectedTile, inRangeTiles);
-                        //}
-                    }
+                            //}
+                        }
 
-                    else if (!CurrentSelectedTile.isBarrel && !CurrentSelectedTile.isEnemy && !CurrentSelectedTile.isAlly && !character.moving)
-                    {
-                        ClearAllTiles();
-                    }
+                        else if (!CurrentSelectedTile.isBarrel && !CurrentSelectedTile.isEnemy && !CurrentSelectedTile.isAlly && !character.moving)
+                        {
+                            ClearAllTiles();
+                        }
 
-                    if ((CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel) && inAttackRangeTiles.Contains(CurrentSelectedTile) && !character.hasAttack)
-                    {
-                        Attack();
+                        if ((CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel) && inAttackRangeTiles.Contains(CurrentSelectedTile) && !character.hasAttack)
+                        {
+                            Attack();
 
-                    }
-
+                        }
                 }
 
             }
@@ -110,6 +109,7 @@ public class MouseController : MonoBehaviour
 
     private void MoveAlongPath()
     {
+        isInput = false;
         character.moving = true;
         character.animator.SetBool("Moving", character.moving);
         var step = speed * Time.deltaTime;
@@ -127,6 +127,7 @@ public class MouseController : MonoBehaviour
             character.activeTile.isAlly = true;
             character.activeTile.character = character;
             character.hasMoved = true;
+            isInput = true;
 
             foreach (OverlayTile item in inRangeTiles)
             {
