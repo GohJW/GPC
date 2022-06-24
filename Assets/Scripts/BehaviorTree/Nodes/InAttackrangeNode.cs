@@ -49,7 +49,8 @@ public class InAttackrangeNode : Node
         Attacker.hasAttack = true;
         if (Attacked.CharacterHP <= 0)
         {
-            Attacked.GetComponent<SpriteRenderer>().enabled = false;
+            Attacked.gameObject.SetActive(false);
+            //Attacked.GetComponent<SpriteRenderer>().enabled = false;
             AllyTile.isAlly = false;
         }
     }
