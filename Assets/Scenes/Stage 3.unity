@@ -190,7 +190,8 @@ MonoBehaviour:
   obstaclePrefab4: {fileID: 4873257352821483164, guid: 5e3b41e56d61464449746aeb3ef45e75, type: 3}
   CharacterPrefab1: {fileID: 2194246102877866239, guid: 6fdad203d7b070a45860ab6893a57ab7, type: 3}
   CharacterPrefab2: {fileID: 7641212942601949390, guid: 14fd8bff47eeadf44999d19ac983f444, type: 3}
-  Enemy: {fileID: 4938640777943149458, guid: 62c1e79787c47c7429688f7c844de605, type: 3}
+  EnemyMelee: {fileID: 4938640777943149458, guid: 62c1e79787c47c7429688f7c844de605, type: 3}
+  EnemyRanged: {fileID: 3914229218513654148, guid: 4ca27482f7f48ac45bd70aed2a804743, type: 3}
   Barrel1: {fileID: 8229601432631751412, guid: 1f4b68cf5c588464997e50687234fe3c, type: 3}
   TurnUI: {fileID: 1406030881}
   TurnCounter: {fileID: 1175337558909017925}
@@ -1951,17 +1952,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &959898449 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6624022682969434125, guid: 4f176002ea4c20744999281546a60fc0, type: 3}
-  m_PrefabInstance: {fileID: 8456184448512224173}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1129050687
 GameObject:
   m_ObjectHideFlags: 0
@@ -2062,26 +2052,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1406030877 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8270330719131659118, guid: 4f176002ea4c20744999281546a60fc0, type: 3}
-  m_PrefabInstance: {fileID: 8456184448512224173}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1406030878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406030877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5880a9f4dab8d4c42a7d6aae4181842e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyTurn: {fileID: 959898449}
-  PlayerTurn: {fileID: 1568630166}
-  Win: {fileID: 0}
 --- !u!223 &1406030881 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 5893341353012250480, guid: 4f176002ea4c20744999281546a60fc0, type: 3}
@@ -2104,7 +2074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -94.589935
+      value: -94.58995
       objectReference: {fileID: 0}
     - target: {fileID: 1250395655, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2356,17 +2326,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558988134}
   m_CullTransparentMesh: 1
---- !u!114 &1568630166 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5405746787031257684, guid: 4f176002ea4c20744999281546a60fc0, type: 3}
-  m_PrefabInstance: {fileID: 8456184448512224173}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1748086853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,7 +2565,7 @@ MonoBehaviour:
     - Man, shut it.
     - You were experimenting on prisoners.
     - They were awaiting the death penalty anyways.
-    - Even slaughtering pigs doesn't involve THAT much blood.
+    - Even slaughtering pigs don't  involve THAT much blood.
     - "Save the arguments for later, there\u2019s a big pile of them up ahead."
     - This seems to be never ending.
     - Is that the gardener!?
@@ -2737,7 +2696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -2756,6 +2715,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1129050688}
     - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 134636116}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -2764,11 +2727,23 @@ PrefabInstance:
       value: Clearinfo
       objectReference: {fileID: 0}
     - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: CheckWin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: MouseController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: MapManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1175337558805859499, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}

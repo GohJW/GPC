@@ -252,13 +252,14 @@ public class MouseController : MonoBehaviour
        
         if (Attacked.CharacterHP <= 0 && CurrentSelectedTile.isEnemy)
         {
-            Attacked.GetComponent<SpriteRenderer>().enabled = false;
+            Attacked.gameObject.SetActive(false);
             CurrentSelectedTile.isEnemy = false;
             HideCharacterUI();
         }else if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isBarrel)
         {
             BarrelExplode(CurrentSelectedTile);
-            Attacked.GetComponent<SpriteRenderer>().enabled = false;
+            //Attacked.GetComponent<SpriteRenderer>().enabled = false;
+            Attacked.gameObject.SetActive(false);
             CurrentSelectedTile.isBarrel = false;
             HideCharacterUI();
         }

@@ -467,7 +467,7 @@ MonoBehaviour:
   EnemyTurn: {fileID: 6624022682969434125}
   PlayerTurn: {fileID: 5405746787031257684}
   Win: {fileID: 2199033594170176317}
-  Lose: {fileID: 0}
+  Lose: {fileID: 5612849871861764451}
 --- !u!1 &8323035404240344386
 GameObject:
   m_ObjectHideFlags: 0

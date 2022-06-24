@@ -105,7 +105,7 @@ MonoBehaviour:
   Attackrange: 0
   Attack: 20
   burn: 0
-  Defense: 35
+  Defense: 40
   hasSelected: 0
   hasMoved: 0
   hasAttack: 0

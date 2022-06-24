@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7944289855595625962}
   - component: {fileID: 5224176143351068472}
   - component: {fileID: 7529006738986411636}
-  - component: {fileID: 1486158283}
+  - component: {fileID: 4803215462413676184}
   m_Layer: 0
-  m_Name: AlienMelee
+  m_Name: AlienAllyEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9a06b9c8aa5e54b49bdbe7a52783cb8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc8dce68ed2c0974fa4b4b52c51b3953, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,33 +100,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
-  movementrange: 2
-  CharacterHP: 50
-  MaxHP: 50
-  Attackrange: 1
-  Attack: 20
+  movementrange: 1
+  CharacterHP: 70
+  MaxHP: 70
+  Attackrange: 2
+  Attack: 15
   burn: 0
   Defense: 30
-  hasSelected: 0
+  hasSelected: 1
   hasMoved: 0
   hasAttack: 0
-  characterName: Alien (Melee)
+  characterName: Bossman
   SkillDescription: 
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
   Skillnumber: 1
-  Skill1attackrange: 0
-  Skill1attack: 0
-  Skill1: 
+  Skill1attackrange: 2
+  Skill1attack: 15
+  Skill1: Zap
   Skill1burn: 0
-  Skill1Description: 
-  Skill2attackrange: 0
-  Skill2attack: 0
-  Skill2: 
+  Skill1Description: Alien guns = more damage
+  Skill2attackrange: 2
+  Skill2attack: 20
+  Skill2: Blast
   Skill2burn: 0
-  Skill2Description: 
-  characterSprite: {fileID: 0}
+  Skill2Description: Send them flying (Knockback)
+  characterSprite: {fileID: 21300000, guid: 523387868a5521543ac8f53ad72473f2, type: 3}
   animator: {fileID: 7529006738986411636}
 --- !u!95 &7529006738986411636
 Animator:
@@ -138,7 +138,7 @@ Animator:
   m_GameObject: {fileID: 4938640777943149458}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4f21ed29bfe37b243a8d6540d4aaa600, type: 2}
+  m_Controller: {fileID: 9100000, guid: aa9f5977ad92f564c82a45d5db20058a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -148,7 +148,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1486158283
+--- !u!114 &4803215462413676184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

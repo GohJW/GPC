@@ -190,7 +190,8 @@ MonoBehaviour:
   obstaclePrefab4: {fileID: 1002025919230482344, guid: ed741c37bc4a5ae4ca970aeae918e32b, type: 3}
   CharacterPrefab1: {fileID: 2194246102877866239, guid: 6fdad203d7b070a45860ab6893a57ab7, type: 3}
   CharacterPrefab2: {fileID: 7641212942601949390, guid: 14fd8bff47eeadf44999d19ac983f444, type: 3}
-  Enemy: {fileID: 4938640777943149458, guid: 62c1e79787c47c7429688f7c844de605, type: 3}
+  EnemyMelee: {fileID: 4938640777943149458, guid: 62c1e79787c47c7429688f7c844de605, type: 3}
+  EnemyRanged: {fileID: 3914229218513654148, guid: 4ca27482f7f48ac45bd70aed2a804743, type: 3}
   Barrel1: {fileID: 8229601432631751412, guid: 1f4b68cf5c588464997e50687234fe3c, type: 3}
   TurnUI: {fileID: 1406030881}
   TurnCounter: {fileID: 1820290232}
@@ -1650,7 +1651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &803561383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2522,7 +2523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2134777765
 Transform:
   m_ObjectHideFlags: 0
@@ -2614,8 +2615,8 @@ MonoBehaviour:
     - "Yet another beautiful day wasted in this boring cell\u2026"
     - You say that everyday you know that right?
     - Do I?
-    - Well, to be honest, every other day to be exact.
-    - Time here must be taking its toll on you.
+    - Well,  every other day to be exact.
+    - Time here must be taking a toll on you.
     - Well you know what they say. You do the crime, you do the time.
     - Can you get off my ass for just one day, Jeffords?
     - "Sorry but that\u2019s just part of my job scope."
@@ -2628,11 +2629,11 @@ MonoBehaviour:
     - "Yea I\u2019m done. "
     - "Must be nice to be in the outside world\u2026"
     - I would kill just to go out again.
-    - Damn, you're already here for 10 years and thinking of things to extend your
-      sentence?
+    - Damn, you're already here for 10 years and still thinking of things to extend
+      your sentence?
     - "You know I\u2019m just kidding man."
     - "I won\u2019t do anything stupid no more, especially since that day."
-    - Well looks like that really got to you huh.
+    - Looks like that really got to you huh.
     - Well anyways, it's time for breakfast.
     - "I\u2019ll pass it through your door later."
     - Thanks man.
@@ -2658,15 +2659,15 @@ MonoBehaviour:
     - "I\u2019ll explain on the way out."
     - "Grab this weapon, it\u2019s time to fight for your freedom."
     - WTF?
-    - "I ain\u2019t gonna touch another weapon man after that day man."
+    - "I ain\u2019t gonna touch another weapon after that day man."
     - You heard that explosion just now?
     - There's just been an unknown attack on the prison.
     - "Seems to be an unidentified attacker as well\u2026"
     - Did no one see the attacker or something?
     - HELP!!!
     - "There\u2019s not much time to explain, let\u2019s go help him!"
-    - "Officer and Prisoner leave the cell and head into the kitchen. They encounter
-      something they have never seen before\u2026"
+    - "Officer Jeffords and Prisoner Grapes leave the cell and head into the kitchen.
+      They encounter something they have never seen before\u2026"
   cursor: {fileID: 1129050687}
   animator: {fileID: 496867994}
   EndButton: {fileID: 1175337558909017924}
