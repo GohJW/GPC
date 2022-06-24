@@ -57,7 +57,7 @@ public class MouseController : MonoBehaviour
                         }
                         if (CurrentSelectedTile.isAlly)
                         {
-                            if (character != null && character.Attack < 0)
+                            if (character != null && character.Attack < 0 && inAttackRangeTiles.Contains(CurrentSelectedTile))
                             {
                                 Heal();
                             }
@@ -89,7 +89,7 @@ public class MouseController : MonoBehaviour
                             ClearAllTiles();
                         }
 
-                        if ((CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel) && inAttackRangeTiles.Contains(CurrentSelectedTile) && !character.hasAttack)
+                        if ((CurrentSelectedTile.isEnemy || CurrentSelectedTile.isBarrel) && inAttackRangeTiles.Contains(CurrentSelectedTile) && !character.hasAttack && character.Attack >= 0)
                         {
                             Attack();
 
@@ -252,13 +252,14 @@ public class MouseController : MonoBehaviour
        
         if (Attacked.CharacterHP <= 0 && CurrentSelectedTile.isEnemy)
         {
+            Attacked.GetComponent<SpriteRenderer>().enabled = false;
             Attacked.gameObject.SetActive(false);
             CurrentSelectedTile.isEnemy = false;
             HideCharacterUI();
         }else if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isBarrel)
         {
             BarrelExplode(CurrentSelectedTile);
-            //Attacked.GetComponent<SpriteRenderer>().enabled = false;
+            Attacked.GetComponent<SpriteRenderer>().enabled = false;
             Attacked.gameObject.SetActive(false);
             CurrentSelectedTile.isBarrel = false;
             HideCharacterUI();
@@ -270,7 +271,7 @@ public class MouseController : MonoBehaviour
         List<OverlayTile> explosion = attackrangefinder.GetTilesInAttackRange(Barrel, 1); 
         foreach (OverlayTile item in explosion)
         {
-            if (item.isEnemy || item.isAlly)
+            if (item.isEnemy || item.isAlly || item.isBarrel)
             {
                 //item.character.damaged = true;
                 item.character.animator.SetTrigger("Damaged");
@@ -281,6 +282,11 @@ public class MouseController : MonoBehaviour
                     item.character.GetComponent<SpriteRenderer>().enabled = false;
                     item.isEnemy = false;
                     item.isAlly = false;
+                    if(item.isBarrel)
+                    {
+                        BarrelExplode(item);
+                        item.isBarrel = false;
+                    }
                 }
             }    
         }       

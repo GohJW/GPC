@@ -49,9 +49,9 @@ public class InAttackrangeNode : Node
         Attacker.hasAttack = true;
         if (Attacked.CharacterHP <= 0)
         {
-            Attacked.gameObject.SetActive(false);
-            //Attacked.GetComponent<SpriteRenderer>().enabled = false;
+            Attacked.GetComponent<SpriteRenderer>().enabled = false;
             AllyTile.isAlly = false;
+            Attacked.gameObject.SetActive(false);
         }
     }
     public void FindAttackRange()
