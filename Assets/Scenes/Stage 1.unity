@@ -2786,6 +2786,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 134636116}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheckWin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: CheckLose
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
 --- !u!114 &1175337558909017924 stripped
@@ -2995,10 +3003,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5612849871861764451, guid: 4f176002ea4c20744999281546a60fc0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5893341353012250480, guid: 4f176002ea4c20744999281546a60fc0, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5893341353012250480, guid: 4f176002ea4c20744999281546a60fc0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8270330719131659118, guid: 4f176002ea4c20744999281546a60fc0, type: 3}
       propertyPath: m_Name
       value: TurnUI

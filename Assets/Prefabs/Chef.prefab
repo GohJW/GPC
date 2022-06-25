@@ -106,7 +106,7 @@ MonoBehaviour:
   Attack: 10
   burn: 0
   Defense: 30
-  hasSelected: 0
+  hasSelected: 1
   hasMoved: 0
   hasAttack: 0
   characterName: Michelin
