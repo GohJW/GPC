@@ -374,7 +374,7 @@ public class MouseController : MonoBehaviour
         {
             Debug.Log("containskey");
 
-            if (!map[locationToCheck].isAlly && !map[locationToCheck].isEnemy && !map[locationToCheck].isObstacle)
+            if (!map[locationToCheck].isAlly && !map[locationToCheck].isEnemy && !map[locationToCheck].isObstacle && !map[locationToCheck].isBarrel)
             {
                 Attacked.activeTile.isEnemy = false;
                 Attacked.transform.position = new Vector3(map[locationToCheck].transform.position.x, map[locationToCheck].transform.position.y, map[locationToCheck].transform.position.z);
@@ -394,7 +394,7 @@ public class MouseController : MonoBehaviour
         {
             Debug.Log("containskey");
 
-            if (!map[locationToCheck].isAlly && !map[locationToCheck].isEnemy && !map[locationToCheck].isObstacle)
+            if (!map[locationToCheck].isAlly && !map[locationToCheck].isEnemy && !map[locationToCheck].isObstacle && !map[locationToCheck].isBarrel)
             {
                 Attacked.activeTile.isEnemy = false;
                 Attacked.transform.position = new Vector3(map[locationToCheck].transform.position.x, map[locationToCheck].transform.position.y, map[locationToCheck].transform.position.z);

@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 288.4, y: 159.3}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 311.37, y: 159.3}
+  m_SizeDelta: {x: 158.83, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1820290233
 CanvasRenderer:
@@ -275,8 +275,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 288.4, y: -159.9}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 311.37, y: -159.9}
+  m_SizeDelta: {x: 127.06, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1175337558792776167
 CanvasRenderer:
@@ -362,7 +362,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: CheckLose
+        m_MethodName: CheckWin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -398,7 +398,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
-        m_MethodName: CheckWin
+        m_MethodName: CheckLose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -503,8 +503,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -580,8 +580,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 290.09998, y: 0}
-  m_SizeDelta: {x: -580.19, y: 0}
+  m_AnchoredPosition: {x: 312.72, y: 0}
+  m_SizeDelta: {x: -625.44, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3202062533852822955
 CanvasRenderer:

@@ -1571,7 +1571,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.743402
+  orthographic size: 4.577262
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2052,34 +2052,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1129050688}
-    - target: {fileID: 214511495, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: GetInAttackRangeTiles
-      objectReference: {fileID: 0}
-    - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -236.70007
-      objectReference: {fileID: 0}
-    - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -94.58995
-      objectReference: {fileID: 0}
     - target: {fileID: 1250395655, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1129050688}
-    - target: {fileID: 1250395655, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SkipButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 1426426868, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -289.90002
-      objectReference: {fileID: 0}
-    - target: {fileID: 1825216523, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -289.90002
-      objectReference: {fileID: 0}
     - target: {fileID: 4301826496524189495, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2164,18 +2140,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4839114930682190827, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5204646703911164400, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1129050688}
-    - target: {fileID: 5204646703911164400, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: GetInAttackRangeTiles
-      objectReference: {fileID: 0}
     - target: {fileID: 6954156411138904518, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_Name
       value: CharacterStatUI (LeftPanel)
@@ -2184,9 +2152,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 7867075649884241357, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -288.49
+    - target: {fileID: 7160464350684333935, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
@@ -2786,14 +2754,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 134636116}
-    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CheckWin
-      objectReference: {fileID: 0}
-    - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: CheckLose
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
 --- !u!114 &1175337558909017924 stripped
