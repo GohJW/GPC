@@ -207,11 +207,15 @@ public class MapManager : MonoBehaviour
             item.HideTile();
             if (item.isAlly || item.isEnemy)
             {
-                    if (item.character.Burntimer > 0)
-                    {
-                        Burn(item.character);
-                        item.character.Burntimer--;
-                    }
+                if (item.character.Burntimer > 0)
+                {
+                    Burn(item.character);
+                    item.character.Burntimer--;
+                }
+                    if(item.character.Burntimer == 0)
+                {
+                    item.character.burnicon.SetActive(false);
+                }
                 if (item.character.GetComponent<SpriteRenderer>().enabled == true)
                 {
                     item.character.hasMoved = false;
@@ -308,6 +312,7 @@ public class MapManager : MonoBehaviour
         if (character.CharacterHP <= 0)
         {
             character.GetComponent<SpriteRenderer>().enabled = false;
+            character.burnicon.SetActive(false);
             character.activeTile.isEnemy = false;
             character.activeTile.isAlly = false;
         }

@@ -243,6 +243,7 @@ public class MouseController : MonoBehaviour
         if (Attacker.burn)
         {
             Attacked.Burntimer += 2;
+            Attacked.burnicon.SetActive(true);
         }
         foreach (OverlayTile item in inAttackRangeTiles)
         {
@@ -258,24 +259,26 @@ public class MouseController : MonoBehaviour
             HideCharacterUI();
         }else if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isBarrel)
         {
+            CurrentSelectedTile.character.animator.SetTrigger("Explode");
+            StartCoroutine(Delay((float) 0.5, Attacked));
             BarrelExplode(CurrentSelectedTile);
-            Attacked.GetComponent<SpriteRenderer>().enabled = false;
-            Attacked.gameObject.SetActive(false);
-            CurrentSelectedTile.isBarrel = false;
+            //Attacked.GetComponent<SpriteRenderer>().enabled = false;
+            //Attacked.gameObject.SetActive(false);
+            //CurrentSelectedTile.isBarrel = false;
             HideCharacterUI();
         }
     }
 
     private void BarrelExplode(OverlayTile Barrel)
     {
-        List<OverlayTile> explosion = attackrangefinder.GetTilesInAttackRange(Barrel, 1); 
+        List<OverlayTile> explosion = attackrangefinder.GetTilesInAttackRange(Barrel, 1);
         foreach (OverlayTile item in explosion)
         {
             if (item.isEnemy || item.isAlly || item.isBarrel)
             {
                 //item.character.damaged = true;
-                item.character.animator.SetTrigger("Damaged");
                 //StartCoroutine(DamagedAnimationDelay(item.character));
+                item.character.animator.SetTrigger("Damaged");
                 item.character.CharacterHP -= 20 * (1 - item.character.Defense/100);
                 if (item.character.CharacterHP <= 0)
                 {
@@ -407,5 +410,13 @@ public class MouseController : MonoBehaviour
                 return;
             }
         }
+    }
+
+    IEnumerator Delay(float x, CharacterInfo Attacked)
+    {
+        yield return new WaitForSeconds(x);
+        Attacked.GetComponent<SpriteRenderer>().enabled = false;
+        Attacked.gameObject.SetActive(false);
+        CurrentSelectedTile.isBarrel = false;
     }
 }

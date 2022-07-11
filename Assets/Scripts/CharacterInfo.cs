@@ -39,6 +39,7 @@ public class CharacterInfo : MonoBehaviour
 
 
     public Sprite characterSprite;
+    public GameObject burnicon;
     //public Rigidbody2D rb;
     //Vector2 movement;
     public Animator animator;
