@@ -111,11 +111,12 @@ MonoBehaviour:
   hasSelected: 0
   hasMoved: 0
   hasAttack: 0
-  characterName: Alien (Melee)
+  characterName: Alien
   SkillDescription: 
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
+  chardescription: Melee Alien, short range attacks
   Skillnumber: 1
   Skill1attackrange: 0
   Skill1attack: 0

@@ -23,18 +23,23 @@ public class CharacterInfo : MonoBehaviour
     public int Skill2cooldown = 0;
     public int Burntimer = 0;
 
+    public string chardescription;
+
     public int Skillnumber = 1;
     public int Skill1attackrange;
     public int Skill1attack;
     public string Skill1;
     public bool Skill1burn;
     public string Skill1Description;
+    //public string Skill1Details;
 
     public int Skill2attackrange;
     public int Skill2attack;
     public string Skill2;
     public bool Skill2burn;
     public string Skill2Description;
+    //public string Skill2Details;
+
 
 
 

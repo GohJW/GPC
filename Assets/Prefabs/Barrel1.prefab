@@ -115,6 +115,7 @@ MonoBehaviour:
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
+  chardescription: Goes boom, deals damage to adjacent tiles
   Skillnumber: 1
   Skill1attackrange: 0
   Skill1attack: 0

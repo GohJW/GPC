@@ -9,18 +9,25 @@ public class CharacterStatUIManager : MonoBehaviour
     public TMP_Text CharacterName;
     public TMP_Text Textbox1;
     public TMP_Text Textbox2;
+    public TMP_Text Skill1Detail;
+    public TMP_Text Skill2Detail;
     public GameObject SkipButton;
     public GameObject Skill1Button;
     public GameObject Skill2Button;
     public TMP_Text Cooldown;
     public TMP_Text Burn;
     public TMP_Text SkillDescription;
+    public TMP_Text Chardescription;
 
     private void Update()
     {
         CharacterName.text = currentSelectedTile.character.characterName;
+        Chardescription.text = currentSelectedTile.character.chardescription;
         Textbox1.text = "Health:" + currentSelectedTile.character.CharacterHP.ToString();
         Textbox2.text = "Defense:" + currentSelectedTile.character.Defense.ToString();
+        Skill1Detail.text = currentSelectedTile.character.Skill1 + "\nRange: " + currentSelectedTile.character.Skill1attackrange.ToString();
+        Skill2Detail.text = currentSelectedTile.character.Skill2 + "\nRange: " + currentSelectedTile.character.Skill2attackrange.ToString();
+
         if (currentSelectedTile.character.Burntimer > 0 && (currentSelectedTile.isAlly || currentSelectedTile.isEnemy))
         {
             Burn.gameObject.SetActive(true);
@@ -32,8 +39,11 @@ public class CharacterStatUIManager : MonoBehaviour
         }
         if (currentSelectedTile.isAlly)
         {
-            SkipButton.gameObject.SetActive(true); 
-            
+            SkipButton.gameObject.SetActive(true);
+            Skill1Detail.gameObject.SetActive(true);
+            Skill2Detail.gameObject.SetActive(true);
+
+
             if (!currentSelectedTile.character.hasMoved)
             {
                 Skill1Button.gameObject.SetActive(false);
@@ -92,6 +102,8 @@ public class CharacterStatUIManager : MonoBehaviour
             Skill2Button.gameObject.SetActive(false);
             Cooldown.gameObject.SetActive(false);
             SkillDescription.gameObject.SetActive(false);
+            Skill1Detail.gameObject.SetActive(false);
+            Skill2Detail.gameObject.SetActive(false);
         }
     }
 

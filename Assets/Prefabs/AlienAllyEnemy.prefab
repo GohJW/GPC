@@ -111,11 +111,12 @@ MonoBehaviour:
   hasSelected: 1
   hasMoved: 0
   hasAttack: 0
-  characterName: Bossman
+  characterName: Boss Alien
   SkillDescription: 
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
+  chardescription: Bossman, tougher than most aliens
   Skillnumber: 1
   Skill1attackrange: 2
   Skill1attack: 15

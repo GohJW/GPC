@@ -107,18 +107,19 @@ MonoBehaviour:
   Attack: 10
   burn: 0
   Defense: 30
-  hasSelected: 1
+  hasSelected: 0
   hasMoved: 0
   hasAttack: 0
-  characterName: Michelin
+  characterName: Chef
   SkillDescription: 
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
+  chardescription: Michelin, man of the kitchen
   Skillnumber: 1
   Skill1attackrange: 2
   Skill1attack: 5
-  Skill1: Cook
+  Skill1: Fry
   Skill1burn: 1
   Skill1Description: Cook the fool (Inficts Burn)
   Skill2attackrange: 1

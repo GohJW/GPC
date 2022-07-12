@@ -115,6 +115,7 @@ MonoBehaviour:
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
+  chardescription: Isaac, new to experimenting on aliens
   Skillnumber: 1
   Skill1attackrange: 2
   Skill1attack: 10
