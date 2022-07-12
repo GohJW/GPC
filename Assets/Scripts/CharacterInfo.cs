@@ -57,6 +57,7 @@ public class CharacterInfo : MonoBehaviour
             Attack = Skill1attack;
             burn = Skill1burn;
             SkillDescription = Skill1Description;
+            animator.SetInteger("Skill", 1);
 
         }
         if(Skillnumber == 2)
@@ -65,6 +66,8 @@ public class CharacterInfo : MonoBehaviour
             Attack = Skill2attack;
             burn = Skill2burn;
             SkillDescription = Skill2Description;
+            animator.SetInteger("Skill", 2);
+
 
         }
         if (Skill2cooldown < 0)
