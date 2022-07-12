@@ -9,5 +9,5 @@ public class Tutorial
     [TextArea(3, 10)]
     public string[] instructions;
 
-    public Image[] pictures;
+    public Sprite[] pictures;
 }

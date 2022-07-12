@@ -2056,18 +2056,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -266.82007
       objectReference: {fileID: 0}
-    - target: {fileID: 893913963, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -653.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 893913963, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 312.36
-      objectReference: {fileID: 0}
     - target: {fileID: 1250395655, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1129050688}
+    - target: {fileID: 1426426868, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -310.24
+      objectReference: {fileID: 0}
     - target: {fileID: 1825216523, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -310.24
@@ -2168,6 +2164,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 7160464350684333935, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7867075649884241357, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -309.08997
@@ -2754,6 +2754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 1175337557550418942, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1175337558792776161, guid: d4c27ecdc32247c43a999678485dd02f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2994,6 +2998,10 @@ PrefabInstance:
     - target: {fileID: 8270330719131659118, guid: 4f176002ea4c20744999281546a60fc0, type: 3}
       propertyPath: m_Name
       value: TurnUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270330719131659118, guid: 4f176002ea4c20744999281546a60fc0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f176002ea4c20744999281546a60fc0, type: 3}

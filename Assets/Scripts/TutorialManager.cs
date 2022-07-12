@@ -9,7 +9,7 @@ public class TutorialManager : MonoBehaviour
 {
 
     public TextMeshProUGUI instructionText;
-    public Image instructionPicture;
+    public GameObject instructionPicture;
 
     public Tutorial tutorial;
 
@@ -17,12 +17,12 @@ public class TutorialManager : MonoBehaviour
     public Button continueButton;
 
     private Queue<string> instructions;
-    private Queue<Image> pictures;
+    private Queue<Sprite> pictures;
 
     void Start()
     {
         instructions = new Queue<string>();
-        pictures = new Queue<Image>();
+        pictures = new Queue<Sprite>();
         playButton.gameObject.SetActive(false);
         StartTutorial(tutorial);
     }
@@ -37,7 +37,7 @@ public class TutorialManager : MonoBehaviour
             instructions.Enqueue(instruction);
         }
 
-        foreach (Image picture in tutorial.pictures)
+        foreach (Sprite picture in tutorial.pictures)
         {
             pictures.Enqueue(picture);
         }
@@ -67,8 +67,9 @@ public class TutorialManager : MonoBehaviour
             return;
         }
 
-        Image picture = pictures.Dequeue();
-        instructionPicture = picture;
+        Sprite picture = pictures.Dequeue();
+
+        instructionPicture.GetComponent<SpriteRenderer>().sprite = picture;
 
     }
 
