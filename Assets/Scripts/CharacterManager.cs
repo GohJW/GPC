@@ -11,7 +11,14 @@ public class CharacterManager : MonoBehaviour
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI selectText;
+    public TextMeshProUGUI HPText;
+    public TextMeshProUGUI ATKText;
+    public TextMeshProUGUI DEFText;
+    public TextMeshProUGUI RANGEText;
+    public TextMeshProUGUI SKILL1Text;
+    public TextMeshProUGUI SKILL2Text;
     public SpriteRenderer artworkSprite;
+    public TextMeshProUGUI selectedText;
 
     public Button selectButton;
     public Button playButton;
@@ -23,6 +30,7 @@ public class CharacterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        selectedIndex = 0;
         playButton.gameObject.SetActive(false);
         ResetCharacters();
 
@@ -76,6 +84,12 @@ public class CharacterManager : MonoBehaviour
             nameText.text = "Selected";
             nameText.color = Color.green;
         }
+        HPText.text = character.MaxHP.ToString();
+        ATKText.text = character.Attack.ToString();
+        DEFText.text = character.Defense.ToString();
+        RANGEText.text = character.movementrange.ToString();
+        SKILL1Text.text = character.Skill1;
+        SKILL2Text.text = character.Skill2;
 
     }
     private void ResetCharacters()
@@ -97,6 +111,7 @@ public class CharacterManager : MonoBehaviour
         {
             character.hasSelected = false;
             selectedIndex--;
+            selectedText.text = selectedIndex.ToString();
             selectedOptionIndex[selectedIndex] = -1;
             UpdateCharacter(selectedOption);
         }
@@ -134,6 +149,7 @@ public class CharacterManager : MonoBehaviour
             character.hasSelected = true;
             selectedOptionIndex[selectedIndex] = selectedOption;
             selectedIndex++;
+            selectedText.text = selectedIndex.ToString();
             UpdateCharacter(selectedOption);
         }
         if (selectedIndex == 3) 
