@@ -223,6 +223,7 @@ public class MouseController : MonoBehaviour
         Attacked.animator.SetTrigger("Damaged");
         //Attacker.attacking = true;
         Attacker.animator.SetTrigger("Attacking");
+        FindObjectOfType<AudioManager>().Play(Attacker.characterName + Attacker.Skillnumber);
 
         Attacked.CharacterHP -= Attacker.Attack * (1 - Attacked.Defense/100);
         Attacker.hasAttack = true;
