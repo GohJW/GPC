@@ -57,6 +57,7 @@ public class MouseController : MonoBehaviour
                         }
                         if (CurrentSelectedTile.isAlly)
                         {
+                          
                             if (character != null && character.Attack < 0 && inAttackRangeTiles.Contains(CurrentSelectedTile))
                             {
                                 Heal();
@@ -67,11 +68,13 @@ public class MouseController : MonoBehaviour
                             character.UpdateSkillinfo();
                             if (!character.hasMoved)
                             {
-                                GetInRangeTiles();
+                               FindObjectOfType<AudioManager>().Play("ButtonClick");
+                               GetInRangeTiles();
                             }
                             if (character.hasMoved && !character.hasAttack)
                             {
-                                GetInAttackRangeTiles();
+                               FindObjectOfType<AudioManager>().Play("ButtonClick");
+                               GetInAttackRangeTiles();
                             }
 
 
@@ -222,8 +225,8 @@ public class MouseController : MonoBehaviour
         //Attacked.damaged = true;
         Attacked.animator.SetTrigger("Damaged");
         //Attacker.attacking = true;
-        Attacker.animator.SetTrigger("Attacking");
         FindObjectOfType<AudioManager>().Play(Attacker.characterName + Attacker.Skillnumber);
+        Attacker.animator.SetTrigger("Attacking");     
 
         Attacked.CharacterHP -= Attacker.Attack * (1 - Attacked.Defense/100);
         Attacker.hasAttack = true;
@@ -347,6 +350,7 @@ public class MouseController : MonoBehaviour
     {
         CharacterInfo healer = character;
         CharacterInfo healed = CurrentSelectedTile.character;
+        FindObjectOfType<AudioManager>().Play(healer.characterName + healer.Skillnumber);
         healed.CharacterHP -= healer.Attack;
         if(healed.CharacterHP > healed.MaxHP)
         {

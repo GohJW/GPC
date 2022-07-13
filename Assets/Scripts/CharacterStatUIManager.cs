@@ -109,6 +109,7 @@ public class CharacterStatUIManager : MonoBehaviour
 
     public void Skill1()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClick");
         currentSelectedTile.character.Skillnumber = 1;
         currentSelectedTile.character.UpdateSkillinfo();
         currentSelectedTile.character.Attackrange = currentSelectedTile.character.Skill1attackrange;
@@ -118,6 +119,7 @@ public class CharacterStatUIManager : MonoBehaviour
 
     public void Skill2()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClick");
         currentSelectedTile.character.Skillnumber = 2;
         currentSelectedTile.character.UpdateSkillinfo();
         currentSelectedTile.character.Attackrange = currentSelectedTile.character.Skill2attackrange;
