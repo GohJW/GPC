@@ -104,7 +104,7 @@ MonoBehaviour:
   CharacterHP: 50
   MaxHP: 50
   Attackrange: 2
-  Attack: 10
+  Attack: 15
   burn: 0
   Defense: 30
   hasSelected: 1

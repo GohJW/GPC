@@ -32,6 +32,8 @@ public class TurnUIScript : MonoBehaviour
 
     public void ShowWin()
     {
+        FindObjectOfType<AudioManager>().ChangeVolume("Theme", (float)0.2);
+        FindObjectOfType<AudioManager>().Play("WinSound");
         StartCoroutine(Delay((float)1));
         EnemyTurn.GetComponent<TextMeshProUGUI>().enabled = false;
         PlayerTurn.GetComponent<TextMeshProUGUI>().enabled = false;
@@ -41,6 +43,8 @@ public class TurnUIScript : MonoBehaviour
     }
     public void ShowLose()
     {
+        FindObjectOfType<AudioManager>().ChangeVolume("Theme", (float)0.2);
+        FindObjectOfType<AudioManager>().Play("LoseSound");
         StartCoroutine(Delay((float)1));
         EnemyTurn.GetComponent<TextMeshProUGUI>().enabled = false;
         PlayerTurn.GetComponent<TextMeshProUGUI>().enabled = false;
@@ -56,6 +60,7 @@ public class TurnUIScript : MonoBehaviour
     public IEnumerator Delay(float x)
     {
         yield return new WaitForSeconds(x);
+        FindObjectOfType<AudioManager>().ChangeVolume("Theme", (float)0.5);
         Hide();
     }
 }

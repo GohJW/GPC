@@ -47,7 +47,73 @@ MonoBehaviour:
   sounds:
   - clip: {fileID: 8300000, guid: 5206b85e358095d4c9760c7e0f38b725, type: 3}
     name: Theme
-    volume: 0.503
+    volume: 0.5
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 588b5093715c52b4c81c097aeecf8844, type: 3}
+    name: Prisoner1
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: e0cfc20489e21074d9bff244c2f210a3, type: 3}
+    name: Prisoner2
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 32b757353e3516a408fc7102da09f5cb, type: 3}
+    name: Chef1
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 156f68815bf55d24f9bbf73e09a95f47, type: 3}
+    name: Chef2
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: f1644e25c7c1d7247a74a1fc7389a73b, type: 3}
+    name: Officer1
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 2bcd08ce3b267d145aca765eb204afc6, type: 3}
+    name: Officer2
+    volume: 0.85
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 5a2712acac3293642beebc7e9b707c70, type: 3}
+    name: Prisoner2
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 5a2712acac3293642beebc7e9b707c70, type: 3}
+    name: Prisoner2
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 6ff94a61f237a8040bca9a7b738a60e1, type: 3}
+    name: Burn
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 23e23b00a0b572e458a263896a1176c8, type: 3}
+    name: ButtonClick
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 4b244ca45d541454daae5526a45e3008, type: 3}
+    name: BarrelExplode
+    volume: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}

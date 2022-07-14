@@ -276,7 +276,6 @@ public class MouseController : MonoBehaviour
     private void BarrelExplode(OverlayTile Barrel)
     {
         List<OverlayTile> explosion = attackrangefinder.GetTilesInAttackRange(Barrel, 1);
-        FindObjectOfType<AudioManager>().Play("BarrelExplode");
         foreach (OverlayTile item in explosion)
         {
             if (item.isEnemy || item.isAlly || item.isBarrel)
@@ -292,6 +291,7 @@ public class MouseController : MonoBehaviour
                     item.isAlly = false;
                     if(item.isBarrel)
                     {
+                        FindObjectOfType<AudioManager>().Play("BarrelExplode");
                         BarrelExplode(item);
                         item.isBarrel = false;
                     }
@@ -422,6 +422,7 @@ public class MouseController : MonoBehaviour
     IEnumerator Delay(float x, CharacterInfo Attacked)
     {
         yield return new WaitForSeconds(x);
+        FindObjectOfType<AudioManager>().Play("BarrelExplode");
         Attacked.GetComponent<SpriteRenderer>().enabled = false;
         Attacked.gameObject.SetActive(false);
         CurrentSelectedTile.isBarrel = false;

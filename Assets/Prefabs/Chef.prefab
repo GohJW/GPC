@@ -103,8 +103,8 @@ MonoBehaviour:
   movementrange: 2
   CharacterHP: 50
   MaxHP: 50
-  Attackrange: 0
-  Attack: 10
+  Attackrange: 2
+  Attack: 5
   burn: 0
   Defense: 30
   hasSelected: 0

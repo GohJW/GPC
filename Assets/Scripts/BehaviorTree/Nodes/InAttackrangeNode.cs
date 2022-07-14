@@ -44,7 +44,7 @@ public class InAttackrangeNode : Node
         CharacterInfo Attacker = CurrentTile.character;
         CharacterInfo Attacked = ai.AllyTile.character;
 
-        GameObject.FindObjectOfType<AudioSource>().Play();
+        GameObject.FindObjectOfType<AudioManager>().Play(CurrentTile.character.characterName + CurrentTile.character.Attackrange);
         Attacked.animator.SetTrigger("Damaged");
         Attacker.animator.SetTrigger("Attacking");
 

@@ -67,6 +67,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextSentence () 
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClick");
        if (sentences.Count == 0)
         {
             EndDialogue();
