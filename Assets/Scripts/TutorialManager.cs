@@ -48,6 +48,7 @@ public class TutorialManager : MonoBehaviour
 
     public void DisplayNextInstruction()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClick");
         if (instructions.Count == 0)
         {
             EndTutorial();
@@ -81,6 +82,7 @@ public class TutorialManager : MonoBehaviour
 
     public void StartGame()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClick");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

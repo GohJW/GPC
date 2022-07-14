@@ -32,7 +32,7 @@ public class EnemyAi : MonoBehaviour
     {
         SetCurrentTileNode setCurrentTileNode = new SetCurrentTileNode(this, CurrentTile, CurrentTile.character);
         FindClosestAllyNode findClosestAllyNode = new FindClosestAllyNode(this, AllyTile, CurrentTile, OverlayContainer);
-        InAttackrangeNode attackrangeNode = new InAttackrangeNode(this, inAttackRange, CurrentTile, AllyTile);
+        InAttackrangeNode attackrangeNode = new InAttackrangeNode(this, inAttackRange, CurrentTile, AllyTile, animator);
         MoveNode moveNode = new MoveNode(this, CurrentTile, AllyTile, path, containerlist);
         SetAllyTileNode setAllyTileNode = new SetAllyTileNode(this, AllyTile, CurrentTile, OverlayContainer);
 
@@ -51,7 +51,7 @@ public class EnemyAi : MonoBehaviour
             topNode.Evaluate();
             if (CurrentTile.character.hasMoved && !CurrentTile.character.hasAttack)
             {
-                AttackNode = new InAttackrangeNode(this, inAttackRange, CurrentTile, AllyTile);
+                AttackNode = new InAttackrangeNode(this, inAttackRange, CurrentTile, AllyTile, animator);
                 AttackNode.Evaluate();
             }
         }

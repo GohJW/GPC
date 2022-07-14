@@ -49,6 +49,7 @@ public class CharacterManager : MonoBehaviour
 
     public void NextOption()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClick");
         selectedOption++;
 
         if(selectedOption == characterDB.CharacterCount)
@@ -62,6 +63,7 @@ public class CharacterManager : MonoBehaviour
 
     public void PreviousOption()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClick");
         selectedOption--;
         
         if(selectedOption < 0)
@@ -106,6 +108,7 @@ public class CharacterManager : MonoBehaviour
 
     public void DeselectCharacter()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClick");
         CharacterInfo character = characterDB.GetCharacter(selectedOption);
         if (character.hasSelected)
         {
@@ -143,6 +146,7 @@ public class CharacterManager : MonoBehaviour
 
     public void SelectCharacter()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClick");
         CharacterInfo character = characterDB.GetCharacter(selectedOption);
         if (selectedIndex < 3 && !character.hasSelected)
         {
@@ -167,6 +171,7 @@ public class CharacterManager : MonoBehaviour
 
     public void PlayGame()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClick");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -9,13 +9,15 @@ public class InAttackrangeNode : Node
     private List<OverlayTile> inAttackRange;
     private OverlayTile CurrentTile;
     private OverlayTile AllyTile;
+    private Animator animator;
 
-    public InAttackrangeNode(EnemyAi ai, List<OverlayTile> inAttackRange, OverlayTile currentTile, OverlayTile allyTile)
+    public InAttackrangeNode(EnemyAi ai, List<OverlayTile> inAttackRange, OverlayTile currentTile, OverlayTile allyTile, Animator animator)
     {
         this.ai = ai;
         this.inAttackRange = inAttackRange;
         CurrentTile = currentTile;
         AllyTile = allyTile;
+        this.animator = animator;
     }
 
     public override NodeState Evaluate()
@@ -42,6 +44,7 @@ public class InAttackrangeNode : Node
         CharacterInfo Attacker = CurrentTile.character;
         CharacterInfo Attacked = ai.AllyTile.character;
 
+        GameObject.FindObjectOfType<AudioSource>().Play();
         Attacked.animator.SetTrigger("Damaged");
         Attacker.animator.SetTrigger("Attacking");
 

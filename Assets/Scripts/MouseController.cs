@@ -276,6 +276,7 @@ public class MouseController : MonoBehaviour
     private void BarrelExplode(OverlayTile Barrel)
     {
         List<OverlayTile> explosion = attackrangefinder.GetTilesInAttackRange(Barrel, 1);
+        FindObjectOfType<AudioManager>().Play("BarrelExplode");
         foreach (OverlayTile item in explosion)
         {
             if (item.isEnemy || item.isAlly || item.isBarrel)
@@ -352,6 +353,7 @@ public class MouseController : MonoBehaviour
         CharacterInfo healed = CurrentSelectedTile.character;
         FindObjectOfType<AudioManager>().Play(healer.characterName + healer.Skillnumber);
         healed.CharacterHP -= healer.Attack;
+        healed.animator.SetTrigger("Healed");
         if(healed.CharacterHP > healed.MaxHP)
         {
             healed.CharacterHP = healed.MaxHP;

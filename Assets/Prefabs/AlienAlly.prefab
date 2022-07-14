@@ -121,7 +121,7 @@ MonoBehaviour:
   Skill1attack: 15
   Skill1: Zap
   Skill1burn: 0
-  Skill1Description: Alien guns = more damage
+  Skill1Description: Alien gun = more damage
   Skill2attackrange: 2
   Skill2attack: 20
   Skill2: Blast

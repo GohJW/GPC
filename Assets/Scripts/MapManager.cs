@@ -307,6 +307,7 @@ public class MapManager : MonoBehaviour
 
     public void Burn(CharacterInfo character)
     {
+        FindObjectOfType<AudioManager>().Play("Burn");
         character.CharacterHP -= 5;
         character.animator.SetTrigger("Damaged");
         if (character.CharacterHP <= 0)
