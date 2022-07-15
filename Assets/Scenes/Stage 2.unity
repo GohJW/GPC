@@ -198,6 +198,20 @@ MonoBehaviour:
   TurnNumber: 1
   characterDB: {fileID: 11400000, guid: 600c90972b48a7848a0b8e707457e7a4, type: 2}
   scenenumber: 2
+  obstaclepositions:
+  - {x: -3, y: -3, z: 0}
+  - {x: -1, y: -1, z: 0}
+  - {x: 2, y: -4, z: 0}
+  - {x: -5, y: 0, z: 0}
+  charspawnpositions:
+  - {x: -2, y: -5, z: 0}
+  - {x: -3, y: -5, z: 0}
+  - {x: -4, y: -5, z: 0}
+  mobpositions:
+  - {x: -3, y: 1, z: 0}
+  - {x: -4, y: 2, z: 0}
+  - {x: -3, y: -2, z: 0}
+  mobtype: 010000000200000003000000
 --- !u!1 &137949075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,7 +1777,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -266.8201
+      value: -266.82007
+      objectReference: {fileID: 0}
+    - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -94.58998
       objectReference: {fileID: 0}
     - target: {fileID: 1250395655, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1775,11 +1793,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1426426868, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -310.24002
+      value: -310.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426426868, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32.39998
       objectReference: {fileID: 0}
     - target: {fileID: 1825216523, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -310.24002
+      value: -310.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825216523, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51.64302
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826759531, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -65.39998
       objectReference: {fileID: 0}
     - target: {fileID: 4301826496524189495, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_Pivot.x
@@ -1887,7 +1917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7867075649884241357, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -309.09
+      value: -309.08997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}

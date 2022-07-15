@@ -198,6 +198,21 @@ MonoBehaviour:
   TurnNumber: 1
   characterDB: {fileID: 11400000, guid: 00c764953dd6b6f4fab85c3ca0378f79, type: 2}
   scenenumber: 4
+  obstaclepositions:
+  - {x: -4, y: -4, z: 0}
+  - {x: -5, y: 0, z: 0}
+  - {x: 1, y: -3, z: 0}
+  - {x: -1, y: -2, z: 0}
+  charspawnpositions:
+  - {x: -1, y: -5, z: 0}
+  - {x: 0, y: -5, z: 0}
+  - {x: 0, y: -4, z: 0}
+  mobpositions:
+  - {x: -5, y: 1, z: 0}
+  - {x: -4, y: 0, z: 0}
+  - {x: -4, y: 1, z: 0}
+  - {x: -3, y: -3, z: 0}
+  mobtype: 02000000010000000100000003000000
 --- !u!1 &137949075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,6 +1318,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -266.8201
       objectReference: {fileID: 0}
+    - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -94.59
+      objectReference: {fileID: 0}
     - target: {fileID: 1250395655, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1315,9 +1334,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -310.24002
       objectReference: {fileID: 0}
+    - target: {fileID: 1426426868, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32.399994
+      objectReference: {fileID: 0}
     - target: {fileID: 1825216523, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -310.24002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825216523, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51.643036
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826759531, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -65.399994
       objectReference: {fileID: 0}
     - target: {fileID: 4301826496524189495, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_Pivot.x

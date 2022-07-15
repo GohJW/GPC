@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using TMPro;
@@ -36,10 +37,15 @@ public class MapManager : MonoBehaviour
 
     public Dictionary<Vector2Int, OverlayTile> map;
     public Dictionary<Vector3Int, int> obstacles;
+    public Dictionary<Vector3Int, int> charspawns;
 
     public CharacterDatabase characterDB;
     [SerializeField]
     public int scenenumber;
+    public  Vector3Int[] obstaclepositions;
+    public Vector3Int[] charspawnpositions;
+    public Vector3Int[] mobpositions;
+    public int[] mobtype;
 
 
     private void Awake()
@@ -327,318 +333,237 @@ public class MapManager : MonoBehaviour
 
         //generate a list of vectors to place obstacles on Grid
         obstacles = new Dictionary<Vector3Int, int>();
-        obstacles.Add(new Vector3Int(-1, 0, 0), 1);
-        obstacles.Add(new Vector3Int(-4, -2, 0), 2);
-        obstacles.Add(new Vector3Int(-4, -1, 0), 3);
-        obstacles.Add(new Vector3Int(0, -2, 0), 4);
+        obstacles.Add(obstaclepositions[0], 1);
+        obstacles.Add(obstaclepositions[1], 2);
+        obstacles.Add(obstaclepositions[2], 3);
+        obstacles.Add(obstaclepositions[3], 4);
+
+        charspawns = new Dictionary<Vector3Int, int>();
+        charspawns.Add(charspawnpositions[0], 0);
+        charspawns.Add(charspawnpositions[1], 1);
+        charspawns.Add(charspawnpositions[2], 2);
+
+
+
 
         BoundsInt bounds = tileMap.cellBounds;
 
+
         //generate grid map
-        if (stagenumber == 1)
+        for (int y = bounds.min.y; y < bounds.max.y; y++)
         {
-            for (int y = bounds.min.y; y < bounds.max.y; y++)
+            for (int x = bounds.min.x; x < bounds.max.x; x++)
             {
-                for (int x = bounds.min.x; x < bounds.max.x; x++)
+                var tileLocation = new Vector3Int(x, y, 0);
+                var tileKey = new Vector2Int(x, y);
+                if (tileMap.HasTile(tileLocation))
                 {
-                    var tileLocation = new Vector3Int(x, y, 0);
-                    var tileKey = new Vector2Int(x, y);
-                    if (tileMap.HasTile(tileLocation))
+
+                    var overlayTile = Instantiate(overlaytilePrefab, overlayContainer.transform);
+                    var cellWorldPosition = tileMap.GetCellCenterWorld(tileLocation);
+
+                    overlayTile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z);
+                    overlayTile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
+                    overlayTile.gridLocation = tileLocation;
+                    map.Add(tileKey, overlayTile);
+
+                    if (obstacles.ContainsKey(overlayTile.gridLocation))
                     {
-
-                        var overlayTile = Instantiate(overlaytilePrefab, overlayContainer.transform);
-                        var cellWorldPosition = tileMap.GetCellCenterWorld(tileLocation);
-
-                        overlayTile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z);
-                        overlayTile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
-                        overlayTile.gridLocation = tileLocation;
-                        map.Add(tileKey, overlayTile);
-
-                        if (obstacles.ContainsKey(overlayTile.gridLocation))
-                        {
-                            PositionObstacleOntile(overlayTile, obstacles[overlayTile.gridLocation]);
-                            overlayTile.isObstacle = true;
-                        }
-
-                        if (overlayTile.gridLocation == new Vector3Int(-6, -6, 0))
-                        {
-                            SpawnCharacter(overlayTile, 0);
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(-6, -2, 0))
-                        {
-                            SpawnCharacter(overlayTile, 1);
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(-6, 2, 0))
-                        {
-                            SpawnCharacter(overlayTile, 2);
-                        }
-
-                        if (overlayTile.gridLocation == new Vector3Int(2, 0, 0))
-                        {
-                            character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isEnemy = true;
-                            character.hasAttack = true;
-                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(2, -2, 0))
-                        {
-                            character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isEnemy = true;
-                            character.hasAttack = true;
-                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
-
-                        }
-
-                        if (overlayTile.gridLocation == new Vector3Int(1, 0, 0))
-                        {
-                            character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isBarrel = true;
-                        }
-
+                        PositionObstacleOntile(overlayTile, obstacles[overlayTile.gridLocation]);
+                        overlayTile.isObstacle = true;
                     }
 
+                    if (charspawns.ContainsKey(overlayTile.gridLocation))
+                    {
+                        SpawnCharacter(overlayTile, charspawns[overlayTile.gridLocation]);
+                    }
+
+                    if(mobpositions.Contains(overlayTile.gridLocation))
+                    {
+                        for(int i = 0; i < mobpositions.Length; i++)
+                        {
+                            if (mobpositions[i] == overlayTile.gridLocation)
+                            {
+                                SpawnMob(overlayTile, mobtype[i]);
+                                break;
+                            }
+                        }
+                    }
+
+                    //if (stagenumber == 1)
+                    //{
+                    //    if (overlayTile.gridLocation == new Vector3Int(2, 0, 0))
+                    //    {
+                    //        character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isEnemy = true;
+                    //        character.hasAttack = true;
+                    //        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+                    //    }
+                    //    if (overlayTile.gridLocation == new Vector3Int(2, -2, 0))
+                    //    {
+                    //        character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isEnemy = true;
+                    //        character.hasAttack = true;
+                    //        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+
+                    //    }
+
+                    //    if (overlayTile.gridLocation == new Vector3Int(1, 0, 0))
+                    //    {
+                    //        character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isBarrel = true;
+                    //    }
+                    //}
+                    //if (stagenumber == 2)
+                    //{
+                    //    if (overlayTile.gridLocation == new Vector3Int(-3, 1, 0))
+                    //    {
+                    //        character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isEnemy = true;
+                    //        character.hasAttack = true;
+                    //        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+                    //    }
+                    //    if (overlayTile.gridLocation == new Vector3Int(-4, 2, 0))
+                    //    {
+                    //        character = Instantiate(EnemyRanged).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isEnemy = true;
+                    //        character.hasAttack = true;
+                    //        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+                    //    }
+
+                    //    if (overlayTile.gridLocation == new Vector3Int(-3, -2, 0))
+                    //    {
+                    //        character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isBarrel = true;
+                    //    }
+                    //}
+                    //if (stagenumber == 3)
+                    //{
+                    //    if (overlayTile.gridLocation == new Vector3Int(2, 0, 0))
+                    //    {
+                    //        character = Instantiate(EnemyRanged).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isEnemy = true;
+                    //        character.hasAttack = true;
+                    //        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+                    //    }
+                    //    if (overlayTile.gridLocation == new Vector3Int(1, -3, 0))
+                    //    {
+                    //        character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isEnemy = true;
+                    //        character.hasAttack = true;
+                    //        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+                    //    }
+                    //    if (overlayTile.gridLocation == new Vector3Int(-1, 1, 0))
+                    //    {
+                    //        character = Instantiate(EnemyRanged).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isEnemy = true;
+                    //        character.hasAttack = true;
+                    //        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+                    //    }
+
+                    //    if (overlayTile.gridLocation == new Vector3Int(-1, -1, 0))
+                    //    {
+                    //        character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isBarrel = true;
+                    //    }
+                    //    if (overlayTile.gridLocation == new Vector3Int(-1, -4, 0))
+                    //    {
+                    //        character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isBarrel = true;
+                    //    }
+                    //}
+                    //if(stagenumber == 4)
+                    //{
+                    //    if (overlayTile.gridLocation == new Vector3Int(-5, 1, 0))
+                    //    {
+                    //        character = Instantiate(EnemyRanged).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isEnemy = true;
+                    //        character.hasAttack = true;
+                    //        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+                    //    }
+                    //    if (overlayTile.gridLocation == new Vector3Int(-4, 0, 0))
+                    //    {
+                    //        character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isEnemy = true;
+                    //        character.hasAttack = true;
+                    //        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+                    //    }
+                    //    if (overlayTile.gridLocation == new Vector3Int(-4, 1, 0))
+                    //    {
+                    //        character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isEnemy = true;
+                    //        character.hasAttack = true;
+                    //        character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
+                    //    }
+
+                    //    if (overlayTile.gridLocation == new Vector3Int(-3, -3, 0))
+                    //    {
+                    //        character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
+                    //        PositionCharacterOntile(overlayTile);
+                    //        overlayTile.character = character;
+                    //        character.activeTile.isBarrel = true;
+                    //    }
+                    //}
+
                 }
+
             }
         }
-        if (stagenumber == 2)
+    }
+    private void SpawnMob(OverlayTile overlaytile, int mobtype)
+    {
+        if(mobtype == 1) //melee alien
         {
-            for (int y = bounds.min.y; y < bounds.max.y; y++)
-            {
-                for (int x = bounds.min.x; x < bounds.max.x; x++)
-                {
-                    var tileLocation = new Vector3Int(x, y, 0);
-                    var tileKey = new Vector2Int(x, y);
-                    if (tileMap.HasTile(tileLocation))
-                    {
-
-                        var overlayTile = Instantiate(overlaytilePrefab, overlayContainer.transform);
-                        var cellWorldPosition = tileMap.GetCellCenterWorld(tileLocation);
-
-                        overlayTile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z);
-                        overlayTile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
-                        overlayTile.gridLocation = tileLocation;
-                        map.Add(tileKey, overlayTile);
-
-                        if (obstacles.ContainsKey(overlayTile.gridLocation))
-                        {
-                            PositionObstacleOntile(overlayTile, obstacles[overlayTile.gridLocation]);
-                            overlayTile.isObstacle = true;
-                        }
-
-                        if (overlayTile.gridLocation == new Vector3Int(-2, -5, 0))
-                        {
-                            SpawnCharacter(overlayTile, 0);
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(-3, -5, 0))
-                        {
-                            SpawnCharacter(overlayTile, 1);
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(-4, -5, 0))
-                        {
-                            SpawnCharacter(overlayTile, 2);
-                        }
-
-                        if (overlayTile.gridLocation == new Vector3Int(-3, 1, 0))
-                        {
-                            character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isEnemy = true;
-                            character.hasAttack = true;
-                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(-4, 2, 0))
-                        {
-                            character = Instantiate(EnemyRanged).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isEnemy = true;
-                            character.hasAttack = true;
-                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
-                        }
-
-                        if (overlayTile.gridLocation == new Vector3Int(-3, -2, 0))
-                        {
-                            character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isBarrel = true;
-                        }
-
-                    }
-
-                }
-            }
+            character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
+            PositionCharacterOntile(overlaytile);
+            overlaytile.character = character;
+            character.activeTile.isEnemy = true;
+            character.hasAttack = true;
+            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
         }
-        if (stagenumber == 3)
+        if (mobtype == 2) //ranged alien
         {
-            for (int y = bounds.min.y; y < bounds.max.y; y++)
-            {
-                for (int x = bounds.min.x; x < bounds.max.x; x++)
-                {
-                    var tileLocation = new Vector3Int(x, y, 0);
-                    var tileKey = new Vector2Int(x, y);
-                    if (tileMap.HasTile(tileLocation))
-                    {
-
-                        var overlayTile = Instantiate(overlaytilePrefab, overlayContainer.transform);
-                        var cellWorldPosition = tileMap.GetCellCenterWorld(tileLocation);
-
-                        overlayTile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z);
-                        overlayTile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
-                        overlayTile.gridLocation = tileLocation;
-                        map.Add(tileKey, overlayTile);
-
-                        if (obstacles.ContainsKey(overlayTile.gridLocation))
-                        {
-                            PositionObstacleOntile(overlayTile, obstacles[overlayTile.gridLocation]);
-                            overlayTile.isObstacle = true;
-                        }
-
-                        if (overlayTile.gridLocation == new Vector3Int(-5, -5, 0))
-                        {
-                            SpawnCharacter(overlayTile, 0);
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(-4, -5, 0))
-                        {
-                            SpawnCharacter(overlayTile, 1);
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(-5, -4, 0))
-                        {
-                            SpawnCharacter(overlayTile, 2);
-                        }
-
-                        if (overlayTile.gridLocation == new Vector3Int(2, 0, 0))
-                        {
-                            character = Instantiate(EnemyRanged).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isEnemy = true;
-                            character.hasAttack = true;
-                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(1, -3, 0))
-                        {
-                            character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isEnemy = true;
-                            character.hasAttack = true;
-                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(-1, 1, 0))
-                        {
-                            character = Instantiate(EnemyRanged).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isEnemy = true;
-                            character.hasAttack = true;
-                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
-                        }
-
-                        if (overlayTile.gridLocation == new Vector3Int(-1, -1, 0))
-                        {
-                            character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isBarrel = true;
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(-1, -4, 0))
-                        {
-                            character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isBarrel = true;
-                        }
-                    }
-
-                }
-            }
+            character = Instantiate(EnemyRanged).GetComponent<CharacterInfo>();
+            PositionCharacterOntile(overlaytile);
+            overlaytile.character = character;
+            character.activeTile.isEnemy = true;
+            character.hasAttack = true;
+            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
         }
-        if (stagenumber == 4)
+        if (mobtype == 3) // explosive barrel
         {
-            for (int y = bounds.min.y; y < bounds.max.y; y++)
-            {
-                for (int x = bounds.min.x; x < bounds.max.x; x++)
-                {
-                    var tileLocation = new Vector3Int(x, y, 0);
-                    var tileKey = new Vector2Int(x, y);
-                    if (tileMap.HasTile(tileLocation))
-                    {
-
-                        var overlayTile = Instantiate(overlaytilePrefab, overlayContainer.transform);
-                        var cellWorldPosition = tileMap.GetCellCenterWorld(tileLocation);
-
-                        overlayTile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z);
-                        overlayTile.GetComponent<SpriteRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder + 1;
-                        overlayTile.gridLocation = tileLocation;
-                        map.Add(tileKey, overlayTile);
-
-                        if (obstacles.ContainsKey(overlayTile.gridLocation))
-                        {
-                            PositionObstacleOntile(overlayTile, obstacles[overlayTile.gridLocation]);
-                            overlayTile.isObstacle = true;
-                        }
-
-                        if (overlayTile.gridLocation == new Vector3Int(-1, -5, 0))
-                        {
-                            SpawnCharacter(overlayTile, 0);
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(0, -5, 0))
-                        {
-                            SpawnCharacter(overlayTile, 1);
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(0, -4, 0))
-                        {
-                            SpawnCharacter(overlayTile, 2);
-                        }
-
-                        if (overlayTile.gridLocation == new Vector3Int(-5, 1, 0))
-                        {
-                            character = Instantiate(EnemyRanged).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isEnemy = true;
-                            character.hasAttack = true;
-                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(-4, 0, 0))
-                        {
-                            character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isEnemy = true;
-                            character.hasAttack = true;
-                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
-                        }
-                        if (overlayTile.gridLocation == new Vector3Int(-4, 1, 0))
-                        {
-                            character = Instantiate(EnemyMelee).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isEnemy = true;
-                            character.hasAttack = true;
-                            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
-                        }
-
-                        if (overlayTile.gridLocation == new Vector3Int(-3, -3, 0))
-                        {
-                            character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
-                            PositionCharacterOntile(overlayTile);
-                            overlayTile.character = character;
-                            character.activeTile.isBarrel = true;
-                        }
-
-                    }
-
-                }
-            }
+            character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
+            PositionCharacterOntile(overlaytile);
+            overlaytile.character = character;
+            character.activeTile.isBarrel = true;
         }
     }
 }

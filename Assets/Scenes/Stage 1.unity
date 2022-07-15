@@ -198,6 +198,20 @@ MonoBehaviour:
   TurnNumber: 1
   characterDB: {fileID: 11400000, guid: abe0ad19683b33a41b1f6fca4f18f86a, type: 2}
   scenenumber: 1
+  obstaclepositions:
+  - {x: -1, y: 0, z: 0}
+  - {x: -4, y: -2, z: 0}
+  - {x: -4, y: -1, z: 0}
+  - {x: 0, y: -2, z: 0}
+  charspawnpositions:
+  - {x: -6, y: -2, z: 0}
+  - {x: -6, y: 2, z: 0}
+  - {x: -6, y: -6, z: 0}
+  mobpositions:
+  - {x: 2, y: 0, z: 0}
+  - {x: 2, y: -2, z: 0}
+  - {x: 1, y: 0, z: 0}
+  mobtype: 010000000100000003000000
 --- !u!1 &137949075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,10 +2066,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1129050688}
+    - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -266.82007
+      objectReference: {fileID: 0}
+    - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -94.58998
+      objectReference: {fileID: 0}
     - target: {fileID: 1250395655, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1129050688}
+    - target: {fileID: 1426426868, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32.39998
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825216523, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -310.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825216523, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51.64302
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826759531, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -65.39998
+      objectReference: {fileID: 0}
     - target: {fileID: 4301826496524189495, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2155,6 +2193,10 @@ PrefabInstance:
     - target: {fileID: 7160464350684333935, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867075649884241357, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -309.08997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
