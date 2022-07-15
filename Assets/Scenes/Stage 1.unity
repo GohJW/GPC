@@ -193,6 +193,7 @@ MonoBehaviour:
   EnemyMelee: {fileID: 4938640777943149458, guid: 62c1e79787c47c7429688f7c844de605, type: 3}
   EnemyRanged: {fileID: 3914229218513654148, guid: 4ca27482f7f48ac45bd70aed2a804743, type: 3}
   Barrel1: {fileID: 8229601432631751412, guid: 1f4b68cf5c588464997e50687234fe3c, type: 3}
+  Barrel2: {fileID: 8229601432631751412, guid: dd042ffb498aa6b449acd0820a358a19, type: 3}
   TurnUI: {fileID: 1406030881}
   TurnCounter: {fileID: 1820290232}
   TurnNumber: 1
@@ -2066,34 +2067,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1129050688}
-    - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -266.82007
-      objectReference: {fileID: 0}
-    - target: {fileID: 595948070, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -94.58998
-      objectReference: {fileID: 0}
     - target: {fileID: 1250395655, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1129050688}
-    - target: {fileID: 1426426868, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -32.39998
-      objectReference: {fileID: 0}
-    - target: {fileID: 1825216523, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -310.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 1825216523, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -51.64302
-      objectReference: {fileID: 0}
-    - target: {fileID: 1826759531, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -65.39998
-      objectReference: {fileID: 0}
     - target: {fileID: 4301826496524189495, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2190,14 +2167,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 7160464350684333935, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7867075649884241357, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -309.08997
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5b8eea8534de1b48baa620ad673cf2e, type: 3}
 --- !u!223 &1423211978 stripped

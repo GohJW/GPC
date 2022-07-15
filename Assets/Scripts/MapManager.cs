@@ -27,6 +27,7 @@ public class MapManager : MonoBehaviour
     public GameObject EnemyMelee;
     public GameObject EnemyRanged;
     public GameObject Barrel1;
+    public GameObject Barrel2;
 
     private CharacterInfo character;
 
@@ -322,6 +323,7 @@ public class MapManager : MonoBehaviour
             character.burnicon.SetActive(false);
             character.activeTile.isEnemy = false;
             character.activeTile.isAlly = false;
+            character.gameObject.SetActive(false);
         }
     }
 
@@ -561,6 +563,13 @@ public class MapManager : MonoBehaviour
         if (mobtype == 3) // explosive barrel
         {
             character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
+            PositionCharacterOntile(overlaytile);
+            overlaytile.character = character;
+            character.activeTile.isBarrel = true;
+        }
+        if (mobtype == 4) // acid barrel
+        {
+            character = Instantiate(Barrel2).GetComponent<CharacterInfo>();
             PositionCharacterOntile(overlaytile);
             overlaytile.character = character;
             character.activeTile.isBarrel = true;

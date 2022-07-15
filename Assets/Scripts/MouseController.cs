@@ -280,10 +280,19 @@ public class MouseController : MonoBehaviour
         {
             if (item.isEnemy || item.isAlly || item.isBarrel)
             {
-                //item.character.damaged = true;
-                //StartCoroutine(DamagedAnimationDelay(item.character));
-                item.character.animator.SetTrigger("Damaged");
-                item.character.CharacterHP -= 20 * (1 - item.character.Defense/100);
+                if(Barrel.character.characterName == ("Acid Barrel"))
+                {
+                    item.character.animator.SetTrigger("Damaged");
+                    item.character.CharacterHP -= 5 * (1 - item.character.Defense / 100);
+                    item.character.Burntimer += 2;
+                    item.character.burnicon.SetActive(true);
+
+                }
+                else 
+                {
+                    item.character.animator.SetTrigger("Damaged");
+                    item.character.CharacterHP -= 20 * (1 - item.character.Defense / 100);
+                }
                 if (item.character.CharacterHP <= 0)
                 {
                     item.character.GetComponent<SpriteRenderer>().enabled = false;
