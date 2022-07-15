@@ -839,6 +839,7 @@ MonoBehaviour:
   SKILL2Text: {fileID: 487619504}
   artworkSprite: {fileID: 409555065}
   selectedText: {fileID: 1510373257}
+  audiomanager: {fileID: 928901320941861557, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
   selectButton: {fileID: 1509881453}
   playButton: {fileID: 1431781121}
 --- !u!212 &409555065

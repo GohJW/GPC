@@ -6,6 +6,10 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
     public static AudioManager instance;
+    public bool Stage2Played;
+    public bool Stage3Played;
+    public bool Stage4Played;
+
     // Start is called before the first frame update
     void Awake()
     {

@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &928901320941861556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928901320941861558}
+  - component: {fileID: 928901320941861557}
+  m_Layer: 0
+  m_Name: AudioManager & StageTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928901320941861558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928901320941861556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6279969, y: -1.7313095, z: 526.4026}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &928901320941861557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928901320941861556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30eeba93a350c0c41993afda31f17c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - clip: {fileID: 8300000, guid: 5206b85e358095d4c9760c7e0f38b725, type: 3}
+    name: Theme
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 588b5093715c52b4c81c097aeecf8844, type: 3}
+    name: Prisoner1
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: e0cfc20489e21074d9bff244c2f210a3, type: 3}
+    name: Prisoner2
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 32b757353e3516a408fc7102da09f5cb, type: 3}
+    name: Chef1
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 156f68815bf55d24f9bbf73e09a95f47, type: 3}
+    name: Chef2
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: f1644e25c7c1d7247a74a1fc7389a73b, type: 3}
+    name: Officer1
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 2bcd08ce3b267d145aca765eb204afc6, type: 3}
+    name: Officer2
+    volume: 0.85
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 3d049ce022d7b64419170f87b4f1b226, type: 3}
+    name: Scientist1
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: c0bad57dc9401774c986eda8aa273cfa, type: 3}
+    name: Scientist2
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 89e70dd1dee4c0f4081dcecd3a079523, type: 3}
+    name: Gardener1
+    volume: 0.85
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: a29ba964b8c34e3429e3908eb98ab24b, type: 3}
+    name: Gardener2
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 588b5093715c52b4c81c097aeecf8844, type: 3}
+    name: Alien1
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1bd24966dcd74fc4992b50eae1ae2ae2, type: 3}
+    name: Alien2
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 2710a4e2f31d5cd4f967fde2f5769ac1, type: 3}
+    name: WinSound
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: f4495b8d48d3a224a9729d15112164d1, type: 3}
+    name: LoseSound
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 6ff94a61f237a8040bca9a7b738a60e1, type: 3}
+    name: Burn
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 23e23b00a0b572e458a263896a1176c8, type: 3}
+    name: ButtonClick
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 4b244ca45d541454daae5526a45e3008, type: 3}
+    name: BarrelExplode
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  Stage2Played: 0
+  Stage3Played: 0
+  Stage4Played: 0

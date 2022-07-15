@@ -20,6 +20,8 @@ public class CharacterManager : MonoBehaviour
     public SpriteRenderer artworkSprite;
     public TextMeshProUGUI selectedText;
 
+    public AudioManager audiomanager;
+
     public Button selectButton;
     public Button playButton;
 
@@ -30,11 +32,12 @@ public class CharacterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        selectedIndex = 0;
+        audiomanager = FindObjectOfType<AudioManager>();
+        SaveCheck(audiomanager);
         playButton.gameObject.SetActive(false);
         ResetCharacters();
 
-        if(!PlayerPrefs.HasKey("selectedOption"))
+        if (!PlayerPrefs.HasKey("selectedOption"))
         {
             selectedOption = 0;
         }
@@ -44,7 +47,7 @@ public class CharacterManager : MonoBehaviour
             Load();
         }
 
-         UpdateCharacter(selectedOption);
+        UpdateCharacter(selectedOption);
     }
 
     public void NextOption()
@@ -52,7 +55,7 @@ public class CharacterManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("ButtonClick");
         selectedOption++;
 
-        if(selectedOption == characterDB.CharacterCount)
+        if (selectedOption == characterDB.CharacterCount)
         {
             selectedOption = 0;
         }
@@ -65,8 +68,8 @@ public class CharacterManager : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("ButtonClick");
         selectedOption--;
-        
-        if(selectedOption < 0)
+
+        if (selectedOption < 0)
         {
             selectedOption = characterDB.CharacterCount - 1;
         }
@@ -77,11 +80,11 @@ public class CharacterManager : MonoBehaviour
 
     private void UpdateCharacter(int selectedOption)
     {
-       CharacterInfo character = characterDB.GetCharacter(selectedOption);
-       artworkSprite.sprite = character.characterSprite;
-       nameText.text = character.characterName;
-       nameText.color = Color.white;
-       if (character.hasSelected)
+        CharacterInfo character = characterDB.GetCharacter(selectedOption);
+        artworkSprite.sprite = character.characterSprite;
+        nameText.text = character.characterName;
+        nameText.color = Color.white;
+        if (character.hasSelected)
         {
             nameText.text = "Selected";
             nameText.color = Color.green;
@@ -96,9 +99,9 @@ public class CharacterManager : MonoBehaviour
     }
     private void ResetCharacters()
     {
-        foreach(CharacterInfo character in characterDB.character)
+        foreach (CharacterInfo character in characterDB.character)
         {
-           character.hasSelected = false;
+            character.hasSelected = false;
         }
         for (int i = 0; i < 3; i++)
         {
@@ -156,7 +159,7 @@ public class CharacterManager : MonoBehaviour
             selectedText.text = selectedIndex.ToString();
             UpdateCharacter(selectedOption);
         }
-        if (selectedIndex == 3) 
+        if (selectedIndex == 3)
         {
             selectButton.gameObject.SetActive(false);
             playButton.gameObject.SetActive(true);
@@ -173,5 +176,21 @@ public class CharacterManager : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("ButtonClick");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void SaveCheck(AudioManager audiomanager)
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            audiomanager.Stage2Played = true;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            audiomanager.Stage3Played = true;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 8)
+        {
+            audiomanager.Stage4Played = true;
+        }
     }
 }

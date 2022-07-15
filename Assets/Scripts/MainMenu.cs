@@ -16,4 +16,10 @@ public class MainMenu : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("ButtonClick");
         Application.Quit();
     }
+
+    public void Stages()
+    {
+        FindObjectOfType<AudioManager>().Play("ButtonClick");
+        SceneManager.LoadScene("StageSelection");
+    }
 }
