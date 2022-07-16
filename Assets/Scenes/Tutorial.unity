@@ -1246,7 +1246,7 @@ MonoBehaviour:
       Look out for interactable objects like barrels that can explode
       and deal damage to it''s surroundings.'
     pictures:
-    - {fileID: 21300000, guid: 1c8907f3e8d04ac469c70a02188c58c6, type: 3}
+    - {fileID: 21300000, guid: 6c895c68915113f408da98429b0056e2, type: 3}
     - {fileID: 21300000, guid: 586694589a021ce4697e27bdb7729f92, type: 3}
     - {fileID: 21300000, guid: 09afd8fae16b59841845619c3d9a3fc3, type: 3}
     - {fileID: 21300000, guid: 8644ea192d7efec43bd3d1304ab96d68, type: 3}

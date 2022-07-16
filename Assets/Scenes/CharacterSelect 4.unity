@@ -1719,6 +1719,7 @@ MonoBehaviour:
   SKILL2Text: {fileID: 886868932}
   artworkSprite: {fileID: 825261806}
   selectedText: {fileID: 681109847}
+  audiomanager: {fileID: 0}
   selectButton: {fileID: 1187676571}
   playButton: {fileID: 561925976}
 --- !u!212 &825261806
@@ -3364,8 +3365,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541473194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 208.6, y: -25.07, z: -797.59283}
-  m_LocalScale: {x: 42.73463, y: 42.73463, z: 42.73463}
+  m_LocalPosition: {x: 207, y: -21.7, z: -797.59283}
+  m_LocalScale: {x: 32.478317, y: 32.478317, z: 32.478317}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 619146742}
@@ -3412,7 +3413,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1c8907f3e8d04ac469c70a02188c58c6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5768094cae6f3144b8ce84872ecad009, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
