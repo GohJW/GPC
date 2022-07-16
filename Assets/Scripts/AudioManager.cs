@@ -6,9 +6,11 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
     public static AudioManager instance;
+    public AudioMixerGroup MasterVolume;
     public bool Stage2Played;
     public bool Stage3Played;
     public bool Stage4Played;
+    public AudioMixer AudioMixer;
 
     // Start is called before the first frame update
     void Awake()
@@ -32,6 +34,7 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = MasterVolume;
 
         }
     }
@@ -49,4 +52,10 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.volume = value;
     }
+
+    //public void SetVolume(float slidervalue)
+    //{
+    //    Slider.
+    //    AudioMixer.SetFloat("Master", Mathf.Log10(slidervalue) * 20);
+    //}
 }
