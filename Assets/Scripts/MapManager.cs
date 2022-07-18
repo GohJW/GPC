@@ -574,5 +574,13 @@ public class MapManager : MonoBehaviour
             overlaytile.character = character;
             character.activeTile.isBarrel = true;
         }
+        if(mobtype == 5)// Alien head
+        {
+            character = Instantiate(Barrel1).GetComponent<CharacterInfo>();
+            PositionCharacterOntile(overlaytile);
+            overlaytile.character = character;
+            character.activeTile.isObstacle = true;
+            character.hasAttack = true;
+        }
     }
 }
