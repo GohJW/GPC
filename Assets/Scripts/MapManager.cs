@@ -581,6 +581,7 @@ public class MapManager : MonoBehaviour
             overlaytile.character = character;
             character.activeTile.isObstacle = true;
             character.hasAttack = true;
+            character.GetComponent<EnemyAi>().OverlayContainer = overlayContainer;
         }
     }
 }

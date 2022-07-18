@@ -35,11 +35,18 @@ public class EnemyAi : MonoBehaviour
         InAttackrangeNode attackrangeNode = new InAttackrangeNode(this, inAttackRange, CurrentTile, AllyTile, animator);
         MoveNode moveNode = new MoveNode(this, CurrentTile, AllyTile, path, containerlist);
         SetAllyTileNode setAllyTileNode = new SetAllyTileNode(this, AllyTile, CurrentTile, OverlayContainer);
+        AttackAllNode attackAllNode = new AttackAllNode(this, CurrentTile, AllyTile, animator);
 
         Sequence AttackrangeSequence = new Sequence(new List<Node> { setCurrentTileNode, attackrangeNode }) ;
         Sequence moveSequence = new Sequence(new List<Node> { findClosestAllyNode, moveNode, setCurrentTileNode, setAllyTileNode, findClosestAllyNode});
-
-        topNode = new Selector(new List<Node> { attackrangeNode, moveSequence});
+        if (CurrentTile.character.characterName == "Left Weapon" || CurrentTile.character.characterName == "Right Weapon" || CurrentTile.character.characterName == "AlienHead")
+        {
+            topNode = new Selector(new List<Node> { attackAllNode });
+        }
+        else
+        {
+            topNode = new Selector(new List<Node> { attackrangeNode, moveSequence });
+        }
     }
 
     void Update()

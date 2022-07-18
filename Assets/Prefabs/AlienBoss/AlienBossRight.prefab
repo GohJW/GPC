@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 8549249471983278934}
   - component: {fileID: 6510612023197929310}
   - component: {fileID: 3434766186165918701}
+  - component: {fileID: 4715699410936116487}
   m_Layer: 0
   m_Name: AlienBossRight
   m_TagString: Untagged
@@ -187,19 +188,19 @@ MonoBehaviour:
   movementrange: 0
   CharacterHP: 30
   MaxHP: 30
-  Attackrange: 0
+  Attackrange: 2
   Attack: 10
   burn: 1
   Defense: 0
   hasSelected: 0
   hasMoved: 0
   hasAttack: 0
-  characterName: RightWeapon
+  characterName: Right Weapon
   SkillDescription: 
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
-  chardescription: Damage and Burns
+  chardescription: Damage and Burns, destroy to expose boss
   Skillnumber: 1
   Skill1attackrange: 0
   Skill1attack: 0
@@ -234,3 +235,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4715699410936116487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881254454199067783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8a3fdfab3ca034292b9dd25526370f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentTile: {fileID: 0}
+  AllyTile: {fileID: 0}
+  OverlayContainer: {fileID: 0}
+  inAttackRange: []
+  inRange: []
+  path: []

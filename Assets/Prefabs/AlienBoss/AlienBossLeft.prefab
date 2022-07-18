@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4735684779166460042}
   - component: {fileID: 3768077743086931534}
   - component: {fileID: 5133064611989932996}
+  - component: {fileID: 8338153742499766765}
   m_Layer: 0
   m_Name: AlienBossLeft
   m_TagString: Untagged
@@ -103,7 +104,7 @@ MonoBehaviour:
   movementrange: 0
   CharacterHP: 30
   MaxHP: 30
-  Attackrange: 0
+  Attackrange: 1
   Attack: 20
   burn: 0
   Defense: 0
@@ -115,7 +116,7 @@ MonoBehaviour:
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
-  chardescription: High Damage
+  chardescription: High Damage, destroy to expose boss
   Skillnumber: 1
   Skill1attackrange: 0
   Skill1attack: 0
@@ -150,6 +151,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8338153742499766765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6994404080633438141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8a3fdfab3ca034292b9dd25526370f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentTile: {fileID: 0}
+  AllyTile: {fileID: 0}
+  OverlayContainer: {fileID: 0}
+  inAttackRange: []
+  inRange: []
+  path: []
 --- !u!1 &7337967661065822911
 GameObject:
   m_ObjectHideFlags: 0

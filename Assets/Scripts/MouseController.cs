@@ -261,7 +261,12 @@ public class MouseController : MonoBehaviour
             Attacked.gameObject.SetActive(false);
             CurrentSelectedTile.isEnemy = false;
             HideCharacterUI();
-        }else if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isBarrel)
+            if (Attacked.characterName == "Left Weapon" || Attacked.characterName == "Right Weapon")
+            {
+                GameObject.Find("AlienBossHead(Clone)").GetComponent<AlienBossScript>().CheckWeapons();
+            }
+        }
+        else if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isBarrel)
         {
             CurrentSelectedTile.character.animator.SetTrigger("Explode");
             StartCoroutine(Delay((float) 0.5, Attacked));
