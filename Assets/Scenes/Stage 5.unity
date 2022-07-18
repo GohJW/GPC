@@ -184,10 +184,10 @@ MonoBehaviour:
   overlaytilePrefab: {fileID: 4635019341595453394, guid: a2910e87e9f95d44aa1fca7943d32980, type: 3}
   overlayContainer: {fileID: 1748086853}
   obstacleContainer: {fileID: 745084920}
-  obstaclePrefab1: {fileID: 1002025919230482344, guid: 981f7d58c99a40f4bb7260e29baa13d7, type: 3}
-  obstaclePrefab2: {fileID: 1002025919230482344, guid: 44d0c57dfc69fef4d858bfd4ed5b7f9f, type: 3}
-  obstaclePrefab3: {fileID: 1002025919230482344, guid: 44d0c57dfc69fef4d858bfd4ed5b7f9f, type: 3}
-  obstaclePrefab4: {fileID: 1002025919230482344, guid: 981f7d58c99a40f4bb7260e29baa13d7, type: 3}
+  obstaclePrefab1: {fileID: 4873257352821483164, guid: 80112b13ae6feea4d84b1daf97faed1a, type: 3}
+  obstaclePrefab2: {fileID: 4873257352821483164, guid: aab42690be96166478912fbc1b7fa267, type: 3}
+  obstaclePrefab3: {fileID: 4873257352821483164, guid: 4989d8c8fdbeb204a8c4c3598b1b92af, type: 3}
+  obstaclePrefab4: {fileID: 4873257352821483164, guid: aab42690be96166478912fbc1b7fa267, type: 3}
   CharacterPrefab1: {fileID: 2194246102877866239, guid: 6fdad203d7b070a45860ab6893a57ab7, type: 3}
   CharacterPrefab2: {fileID: 7641212942601949390, guid: 14fd8bff47eeadf44999d19ac983f444, type: 3}
   EnemyMelee: {fileID: 3914229218513654148, guid: 4ca27482f7f48ac45bd70aed2a804743, type: 3}
@@ -200,20 +200,20 @@ MonoBehaviour:
   characterDB: {fileID: 11400000, guid: 00c764953dd6b6f4fab85c3ca0378f79, type: 2}
   scenenumber: 4
   obstaclepositions:
-  - {x: -4, y: -4, z: 0}
-  - {x: -5, y: 0, z: 0}
-  - {x: 1, y: -3, z: 0}
-  - {x: -1, y: -2, z: 0}
+  - {x: -3, y: -2, z: 0}
+  - {x: -1, y: 0, z: 0}
+  - {x: 2, y: -2, z: 0}
+  - {x: 1, y: -2, z: 0}
   charspawnpositions:
   - {x: -1, y: -5, z: 0}
-  - {x: 0, y: -5, z: 0}
-  - {x: 0, y: -4, z: 0}
+  - {x: 0, y: -1, z: 0}
+  - {x: 0, y: 2, z: 0}
   mobpositions:
-  - {x: -5, y: 1, z: 0}
-  - {x: -4, y: 0, z: 0}
+  - {x: -6, y: 2, z: 0}
   - {x: -4, y: 1, z: 0}
-  - {x: -3, y: -3, z: 0}
-  - {x: -2, y: 0, z: 0}
+  - {x: -4, y: -3, z: 0}
+  - {x: 0, y: -2, z: 0}
+  - {x: -1, y: 1, z: 0}
   mobtype: 0200000001000000010000000300000004000000
 --- !u!1 &137949075
 GameObject:
@@ -1588,7 +1588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &803561383
 MonoBehaviour:
   m_ObjectHideFlags: 0
