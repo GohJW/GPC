@@ -190,8 +190,8 @@ MonoBehaviour:
   obstaclePrefab4: {fileID: 4873257352821483164, guid: 25ccab5af0149a943ba9f1a4c6371142, type: 3}
   CharacterPrefab1: {fileID: 2194246102877866239, guid: 6fdad203d7b070a45860ab6893a57ab7, type: 3}
   CharacterPrefab2: {fileID: 7641212942601949390, guid: 14fd8bff47eeadf44999d19ac983f444, type: 3}
-  EnemyMelee: {fileID: 3914229218513654148, guid: 4ca27482f7f48ac45bd70aed2a804743, type: 3}
-  EnemyRanged: {fileID: 4938640777943149458, guid: 87899da2c4d07ff4d913ec9b2d57798c, type: 3}
+  EnemyMelee: {fileID: 4938640777943149458, guid: 62c1e79787c47c7429688f7c844de605, type: 3}
+  EnemyRanged: {fileID: 3914229218513654148, guid: 4ca27482f7f48ac45bd70aed2a804743, type: 3}
   Barrel1: {fileID: 8229601432631751412, guid: 1f4b68cf5c588464997e50687234fe3c, type: 3}
   Barrel2: {fileID: 8229601432631751412, guid: dd042ffb498aa6b449acd0820a358a19, type: 3}
   TurnUI: {fileID: 1406030881}

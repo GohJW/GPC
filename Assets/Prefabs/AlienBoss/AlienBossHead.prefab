@@ -187,12 +187,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
   movementrange: 0
-  CharacterHP: 50
-  MaxHP: 50
+  CharacterHP: 80
+  MaxHP: 80
   Attackrange: 3
   Attack: 20
   burn: 0
-  Defense: 10
+  Defense: 40
   hasSelected: 0
   hasMoved: 0
   hasAttack: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   moving: 0
   Skill2cooldown: 0
   Burntimer: 0
-  chardescription: 
+  chardescription: The 'head' of the alien ship
   Skillnumber: 1
   Skill1attackrange: 0
   Skill1attack: 0
