@@ -34,6 +34,7 @@ public class CharacterManager : MonoBehaviour
     {
         audiomanager = FindObjectOfType<AudioManager>();
         SaveCheck(audiomanager);
+        SaveSystem.SaveStage(audiomanager);
         playButton.gameObject.SetActive(false);
         ResetCharacters();
 
@@ -192,5 +193,22 @@ public class CharacterManager : MonoBehaviour
         {
             audiomanager.Stage4Played = true;
         }
+        else if (SceneManager.GetActiveScene().buildIndex == 10)
+        {
+            audiomanager.Stage5Played = true;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 12)
+        {
+            audiomanager.Stage6Played = true;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 14)
+        {
+            audiomanager.Stage7Played = true;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 16)
+        {
+            audiomanager.Stage8Played = true;
+        }
+
     }
 }

@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
-    public static SaveManager instance;
- 
+
     public Button Stage2Button;
     public Button Stage3Button;
     public Button Stage4Button;
@@ -20,6 +19,7 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
+        DataLoad(audiomanager);
         audiomanager = FindObjectOfType<AudioManager>();
         if (audiomanager.Stage2Played == false)
         {
@@ -116,4 +116,16 @@ public class SaveManager : MonoBehaviour
         SceneManager.LoadScene("CharacterSelect 8");
     }
 
+    public void DataLoad(AudioManager audiomanager)
+    {
+        StageData data = SaveSystem.LoadStage();
+        audiomanager.Stage2Played = data.Stage2Played;
+        audiomanager.Stage3Played = data.Stage3Played;
+        audiomanager.Stage4Played = data.Stage4Played;
+        audiomanager.Stage5Played = data.Stage5Played;
+        audiomanager.Stage6Played = data.Stage6Played;
+        audiomanager.Stage7Played = data.Stage7Played;
+        audiomanager.Stage8Played = data.Stage8Played;
+
+    }
 }
