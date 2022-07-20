@@ -8,7 +8,8 @@ public class MainMenu : MonoBehaviour
 {
     public Slider slider;
     public AudioManager AudioManager;
-   public void PlayGame()
+
+    public void PlayGame()
     {
         FindObjectOfType<AudioManager>().Play("ButtonClick");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

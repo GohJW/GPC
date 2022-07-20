@@ -19,8 +19,8 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
-        DataLoad(audiomanager);
         audiomanager = FindObjectOfType<AudioManager>();
+        DataLoad(audiomanager);
         if (audiomanager.Stage2Played == false)
         {
             Stage2Button.interactable = false;

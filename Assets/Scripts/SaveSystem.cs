@@ -31,6 +31,7 @@ public static class SaveSystem
         }
         else
         {
+            Debug.Log("null");
             return null;
         }
     }
