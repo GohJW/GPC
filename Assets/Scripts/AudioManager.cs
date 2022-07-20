@@ -10,6 +10,10 @@ public class AudioManager : MonoBehaviour
     public bool Stage2Played;
     public bool Stage3Played;
     public bool Stage4Played;
+    public bool Stage5Played;
+    public bool Stage6Played;
+    public bool Stage7Played;
+    public bool Stage8Played;
     public AudioMixer AudioMixer;
 
     // Start is called before the first frame update

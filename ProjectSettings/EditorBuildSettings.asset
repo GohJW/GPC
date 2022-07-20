@@ -36,6 +36,30 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage 4.unity
     guid: fe0994a5802005347bd0193d41c02f5d
   - enabled: 1
+    path: Assets/Scenes/CharacterSelect 5.unity
+    guid: cf53a9320b5d1f24788bf9d0b38532e3
+  - enabled: 1
+    path: Assets/Scenes/Stage 5.unity
+    guid: ce57204afccb38143aceaaaf87cbe77e
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelect 6.unity
+    guid: 7477d6ba838e68445b40ba726b27cf30
+  - enabled: 1
+    path: Assets/Scenes/Stage 6.unity
+    guid: 504e6ae241d5cad44a905d44d1204a02
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelect 7.unity
+    guid: ef1406154e2cd4c4193de5600647ab79
+  - enabled: 1
+    path: Assets/Scenes/Stage 7.unity
+    guid: e53e32f5d01fd934cbb5f4a334a02afe
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelect 8.unity
+    guid: b68f6a0d37ca2514d94071967c2721c1
+  - enabled: 1
+    path: Assets/Scenes/Stage 8.unity
+    guid: 2b3afe5882612004d933a5175787db35
+  - enabled: 1
     path: Assets/Scenes/StageSelection.unity
     guid: 1ca7a6fede0411e4e9ec0ed4e2cfdc5e
   m_configObjects: {}

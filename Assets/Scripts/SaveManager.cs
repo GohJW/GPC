@@ -11,6 +11,10 @@ public class SaveManager : MonoBehaviour
     public Button Stage2Button;
     public Button Stage3Button;
     public Button Stage4Button;
+    public Button Stage5Button;
+    public Button Stage6Button;
+    public Button Stage7Button;
+    public Button Stage8Button;
 
     public AudioManager audiomanager;
 
@@ -22,17 +26,55 @@ public class SaveManager : MonoBehaviour
             Stage2Button.interactable = false;
             Stage3Button.interactable = false;
             Stage4Button.interactable = false;
+            Stage5Button.interactable = false;
+            Stage6Button.interactable = false;
+            Stage7Button.interactable = false;
+            Stage8Button.interactable = false;
         }
 
         else if (audiomanager.Stage3Played == false)
         {
             Stage3Button.interactable = false;
             Stage4Button.interactable = false;
+            Stage5Button.interactable = false;
+            Stage6Button.interactable = false;
+            Stage7Button.interactable = false;
+            Stage8Button.interactable = false;
         }
 
-        else if (audiomanager.Stage2Played == false)
+        else if (audiomanager.Stage4Played == false)
         {
             Stage4Button.interactable = false;
+            Stage5Button.interactable = false;
+            Stage6Button.interactable = false;
+            Stage7Button.interactable = false;
+            Stage8Button.interactable = false;
+        }
+
+        else if (audiomanager.Stage5Played == false)
+        {
+            Stage5Button.interactable = false;
+            Stage6Button.interactable = false;
+            Stage7Button.interactable = false;
+            Stage8Button.interactable = false;
+        }
+
+        else if (audiomanager.Stage6Played == false)
+        {
+            Stage6Button.interactable = false;
+            Stage7Button.interactable = false;
+            Stage8Button.interactable = false;
+        }
+
+        else if (audiomanager.Stage7Played == false)
+        {
+            Stage7Button.interactable = false;
+            Stage8Button.interactable = false;
+        }
+
+        else if (audiomanager.Stage8Played == false)
+        {
+            Stage8Button.interactable = false;
         }
     }
 
@@ -56,6 +98,22 @@ public class SaveManager : MonoBehaviour
     public void Stage4()
     {
         SceneManager.LoadScene("CharacterSelect 4");
+    }
+    public void Stage5()
+    {
+        SceneManager.LoadScene("CharacterSelect 5");
+    }
+    public void Stage6()
+    {
+        SceneManager.LoadScene("CharacterSelect 6");
+    }
+    public void Stage7()
+    {
+        SceneManager.LoadScene("CharacterSelect 7");
+    }
+    public void Stage8()
+    {
+        SceneManager.LoadScene("CharacterSelect 8");
     }
 
 }

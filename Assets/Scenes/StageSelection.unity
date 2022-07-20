@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 57076346}
   - component: {fileID: 57076345}
   m_Layer: 5
-  m_Name: Boss Stage Level
+  m_Name: Stage 4 Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,6 +667,10 @@ MonoBehaviour:
   Stage2Button: {fileID: 175507953}
   Stage3Button: {fileID: 73091020}
   Stage4Button: {fileID: 57076345}
+  Stage5Button: {fileID: 586998641}
+  Stage6Button: {fileID: 542061794}
+  Stage7Button: {fileID: 1027301006}
+  Stage8Button: {fileID: 1314521344}
   audiomanager: {fileID: 0}
 --- !u!4 &425443657
 Transform:
@@ -696,7 +700,7 @@ GameObject:
   - component: {fileID: 542061795}
   - component: {fileID: 542061794}
   m_Layer: 5
-  m_Name: Stage 2 Button (1)
+  m_Name: Stage 6 Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -769,7 +773,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 425443656}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
-        m_MethodName: Stage2
+        m_MethodName: Stage6
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -799,8 +803,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 8f7ed44adf541cc478daba350dc58f93, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -830,7 +834,7 @@ GameObject:
   - component: {fileID: 586998642}
   - component: {fileID: 586998641}
   m_Layer: 5
-  m_Name: Stage 1 Button (1)
+  m_Name: Stage 5 Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -903,7 +907,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 425443656}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
-        m_MethodName: Stage1
+        m_MethodName: Stage5
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -933,8 +937,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 84d2e4476d8985a4081208e8e6408859, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -986,8 +990,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -58.39}
+  m_SizeDelta: {x: 0, y: -116.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626525388
 MonoBehaviour:
@@ -1009,10 +1013,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Stage 3
+  m_text: Stage 7
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: acbd04960ab71d84f8b0339ad2f39579, type: 2}
+  m_sharedMaterial: {fileID: 6592389228900203552, guid: acbd04960ab71d84f8b0339ad2f39579, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1042,7 +1046,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1637,7 +1641,7 @@ GameObject:
   - component: {fileID: 1027301007}
   - component: {fileID: 1027301006}
   m_Layer: 5
-  m_Name: Stage 3 Button (1)
+  m_Name: Stage 7 Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1710,7 +1714,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 425443656}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
-        m_MethodName: Stage3
+        m_MethodName: Stage7
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1740,8 +1744,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e6ce0590bbf10b34ca012650e38465b1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1793,8 +1797,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -57.53}
+  m_SizeDelta: {x: 0, y: -115.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1041010225
 MonoBehaviour:
@@ -1816,10 +1820,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Stage 2
+  m_text: Stage 6
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: acbd04960ab71d84f8b0339ad2f39579, type: 2}
+  m_sharedMaterial: {fileID: 6592389228900203552, guid: acbd04960ab71d84f8b0339ad2f39579, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1849,7 +1853,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2063,8 +2067,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -56.25}
+  m_SizeDelta: {x: 0, y: -112.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1163135609
 MonoBehaviour:
@@ -2086,10 +2090,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Stage 1
+  m_text: Stage 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: acbd04960ab71d84f8b0339ad2f39579, type: 2}
+  m_sharedMaterial: {fileID: 6592389228900203552, guid: acbd04960ab71d84f8b0339ad2f39579, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2119,7 +2123,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2260,7 +2264,7 @@ GameObject:
   - component: {fileID: 1314521345}
   - component: {fileID: 1314521344}
   m_Layer: 5
-  m_Name: Boss Stage Level (1)
+  m_Name: Stage 8 Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2333,7 +2337,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 425443656}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
-        m_MethodName: Stage4
+        m_MethodName: Stage8
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2483,8 +2487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -58.48}
+  m_SizeDelta: {x: 0, y: -116.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1500204025
 MonoBehaviour:
@@ -2506,10 +2510,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mini Boss
+  m_text: Stage 8
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: acbd04960ab71d84f8b0339ad2f39579, type: 2}
+  m_sharedMaterial: {fileID: 6592389228900203552, guid: acbd04960ab71d84f8b0339ad2f39579, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2539,7 +2543,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
