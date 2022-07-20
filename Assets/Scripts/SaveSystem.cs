@@ -16,7 +16,7 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static StageData LoadStage()
+    public static StageData LoadStage(AudioManager audiomanager)
     {
         string path = Application.persistentDataPath + "/player.fun";
         if (!File.Exists(path))
@@ -31,8 +31,7 @@ public static class SaveSystem
         }
         else
         {
-            Debug.Log("null");
-            return null;
+            return new StageData(audiomanager);
         }
     }
 }

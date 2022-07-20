@@ -118,7 +118,7 @@ public class SaveManager : MonoBehaviour
 
     public void DataLoad(AudioManager audiomanager)
     {
-        StageData data = SaveSystem.LoadStage();
+        StageData data = SaveSystem.LoadStage(audiomanager);
         audiomanager.Stage2Played = data.Stage2Played;
         audiomanager.Stage3Played = data.Stage3Played;
         audiomanager.Stage4Played = data.Stage4Played;
