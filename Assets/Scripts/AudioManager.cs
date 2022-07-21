@@ -57,9 +57,14 @@ public class AudioManager : MonoBehaviour
         s.source.volume = value;
     }
 
-    //public void SetVolume(float slidervalue)
-    //{
-    //    Slider.
-    //    AudioMixer.SetFloat("Master", Mathf.Log10(slidervalue) * 20);
-    //}
+    public void ResetLevels()
+    {
+        Stage2Played = false;
+        Stage3Played = false;
+        Stage4Played = false;
+        Stage5Played = false;
+        Stage6Played = false;
+        Stage7Played = false;
+        Stage8Played = false;
+    }
 }

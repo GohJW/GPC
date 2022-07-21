@@ -25,7 +25,7 @@ public class CharacterManager : MonoBehaviour
     public Button selectButton;
     public Button playButton;
 
-    private int selectedOption = 0;
+    public int selectedOption = 0;
     private int selectedIndex = 0;
     public static int[] selectedOptionIndex = new int[3];
 
@@ -33,20 +33,20 @@ public class CharacterManager : MonoBehaviour
     void Start()
     {
         audiomanager = FindObjectOfType<AudioManager>();
-        SaveCheck(audiomanager);
+        SaveCheck(audiomanager);    
         SaveSystem.SaveStage(audiomanager);
         playButton.gameObject.SetActive(false);
         ResetCharacters();
 
-        if (!PlayerPrefs.HasKey("selectedOption"))
-        {
-            selectedOption = 0;
-        }
+        //if (!PlayerPrefs.HasKey("selectedOption"))
+        //{
+        //    selectedOption = 0;
+        //}
 
-        else
-        {
-            Load();
-        }
+        //else
+        //{
+        //    Load();
+        //}
 
         UpdateCharacter(selectedOption);
     }

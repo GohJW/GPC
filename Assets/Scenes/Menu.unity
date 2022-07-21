@@ -1833,8 +1833,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2650800127
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.6156863}
+    rgba: 2080374783
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.48235294}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2056,7 +2056,7 @@ PrefabInstance:
       objectReference: {fileID: 24300002, guid: 96e2fed091778604295d6342e1c50ce7, type: 2}
     - target: {fileID: 928901320941861557, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
       propertyPath: Stage2Played
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 928901320941861557, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
       propertyPath: sounds.Array.size

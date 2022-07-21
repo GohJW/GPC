@@ -167,6 +167,7 @@ MonoBehaviour:
   audiomanager: {fileID: 928901320941861557, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
   selectButton: {fileID: 938887716}
   playButton: {fileID: 936261511}
+  selectedOption: 0
 --- !u!212 &21943769
 SpriteRenderer:
   m_ObjectHideFlags: 0
