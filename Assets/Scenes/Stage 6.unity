@@ -1588,7 +1588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &803561383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2709,61 +2709,23 @@ MonoBehaviour:
   dialogue:
     names:
     - Gardener
-    - Gardener
-    - Prisoner
-    - Prisoner
-    - Gardener
-    - Gardener
-    - Gardener
-    - Officer
-    - Gardener
-    - Scientist
-    - Prisoner
-    - 
-    - Officer
-    - Officer
-    - Prisoner
+    - Alien
+    - Alien
     - Chef
     - Chef
-    - Gardener
-    - Prisoner
-    - Scientist
-    - Scientist
-    - Prisoner
-    - 
     - Officer
-    - Gardener
-    - Officer
+    - Prisoner
     - 
     sentences:
-    - Phew!
-    - I thought it was definitely over for me there.
-    - "All\u2019s good my dude."
-    - Welcome to the squad.
-    - Squad?
-    - 1,2,3 and 4.
-    - Yall a band or something?
-    - Well The Beatles just saved you there, least you could do  is thank us.
-    - "Thank you guys\u2026"
-    - Hmm, alien blood on your scissors, that could be a useful sample...
-    - Man you gotta stop with those experiments of yours.
-    - As the group catches their breath, something ahead caught the eye of Officer
-      Jeffords
-    - Everyone, stop.
-    - "Something up ahead doesn\u2019t look normal."
-    - What part of an alien invasion looks normal to you??
-    - "He\u2019s right."
-    - There's an alien up ahead that gives off a totally different aura.
-    - That guy's definitely built different.
-    - Ok are we done here?
-    - "Hehehe\u2026"
-    - The experiments I can do with that special alien.
-    - Dude, you need therapy.
-    - As their bickering continue, the aliens seem to notice their prescence
-    - Alright One Direction, prepare for the fight of your lives.
-    - One Direction? The band size increased again...
-    - "This guy ain\u2019t gonna go down as easily as the rest."
-    - The group walks out the main gate and confronts the special alien
+    - How many more fights do we have to do?
+    - We are just getting started.
+    - The real boss is at the top of this spaceship.
+    - All this fighting is really making me hungry.
+    - Anyone up for some Makani Bean Stew?
+    - "That's disgusting\u2026"
+    - "Let\u2019s have a feast when we are out, let us eat up and press on for now."
+    - "After having a quick bite of the Chef\u2019s legendary Makani Bean Stew, they
+      charged forward\u2026"
   cursor: {fileID: 1129050687}
   animator: {fileID: 496867994}
   EndButton: {fileID: 1301272355}
