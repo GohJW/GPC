@@ -1649,7 +1649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de027b5f58d11e4a9312d290af20f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDB: {fileID: 11400000, guid: 9fc807726e544224c88d8317d0edfbac, type: 2}
+  characterDB: {fileID: 11400000, guid: 00c764953dd6b6f4fab85c3ca0378f79, type: 2}
   nameText: {fileID: 954746159}
   selectText: {fileID: 1272797605}
   HPText: {fileID: 563665260}
@@ -1663,6 +1663,7 @@ MonoBehaviour:
   audiomanager: {fileID: 0}
   selectButton: {fileID: 1187676571}
   playButton: {fileID: 561925976}
+  selectedOption: 0
 --- !u!212 &825261806
 SpriteRenderer:
   m_ObjectHideFlags: 0
