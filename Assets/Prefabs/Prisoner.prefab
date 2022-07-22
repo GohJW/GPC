@@ -107,7 +107,7 @@ MonoBehaviour:
   Attack: 20
   burn: 0
   Defense: 40
-  hasSelected: 1
+  hasSelected: 0
   hasMoved: 0
   hasAttack: 0
   characterName: Prisoner
@@ -123,7 +123,7 @@ MonoBehaviour:
   Skill1burn: 0
   Skill1Description: Catch these hands!
   Skill2attackrange: 1
-  Skill2attack: 50
+  Skill2attack: 40
   Skill2: Kick
   Skill2burn: 0
   Skill2Description: Catch these walking hands!

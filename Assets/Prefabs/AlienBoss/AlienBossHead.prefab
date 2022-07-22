@@ -187,12 +187,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
   movementrange: 0
-  CharacterHP: 80
-  MaxHP: 80
+  CharacterHP: 60
+  MaxHP: 60
   Attackrange: 3
   Attack: 20
   burn: 0
-  Defense: 40
+  Defense: 30
   hasSelected: 0
   hasMoved: 0
   hasAttack: 0

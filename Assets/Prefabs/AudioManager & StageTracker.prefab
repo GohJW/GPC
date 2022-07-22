@@ -111,6 +111,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1bd24966dcd74fc4992b50eae1ae2ae2, type: 3}
+    name: Defector1
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1aceffce07983704cb6d1ef65b526afd, type: 3}
+    name: Defector2
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 588b5093715c52b4c81c097aeecf8844, type: 3}
     name: Alien1
     volume: 0.6
@@ -119,6 +131,24 @@ MonoBehaviour:
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 1bd24966dcd74fc4992b50eae1ae2ae2, type: 3}
     name: Alien2
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1bd24966dcd74fc4992b50eae1ae2ae2, type: 3}
+    name: Left Weapon1
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1bd24966dcd74fc4992b50eae1ae2ae2, type: 3}
+    name: Right Weapon2
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1bd24966dcd74fc4992b50eae1ae2ae2, type: 3}
+    name: AlienHead3
     volume: 0.6
     pitch: 1
     loop: 0
@@ -153,6 +183,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  MasterVolume: {fileID: 24300002, guid: 96e2fed091778604295d6342e1c50ce7, type: 2}
   Stage2Played: 0
   Stage3Played: 0
   Stage4Played: 0
+  Stage5Played: 0
+  Stage6Played: 0
+  Stage7Played: 0
+  Stage8Played: 0
+  AudioMixer: {fileID: 24100000, guid: 96e2fed091778604295d6342e1c50ce7, type: 2}
