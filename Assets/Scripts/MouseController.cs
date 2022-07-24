@@ -231,7 +231,29 @@ public class MouseController : MonoBehaviour
         Attacked.CharacterHP -= Attacker.Attack * (1 - Attacked.Defense/100);
         Attacker.hasAttack = true;
 
-        if( Attacker.Attack == Attacker.Skill2attack && Attacker.Skill2cooldown == 0)
+        if (Attacked.CharacterHP <= 0 && CurrentSelectedTile.isEnemy)
+        {
+            Attacked.GetComponent<SpriteRenderer>().enabled = false;
+            Attacked.gameObject.SetActive(false);
+            CurrentSelectedTile.isEnemy = false;
+            HideCharacterUI();
+            if (Attacked.characterName == "Left Weapon" || Attacked.characterName == "Right Weapon")
+            {
+                GameObject.Find("AlienBossHead(Clone)").GetComponent<AlienBossScript>().CheckWeapons();
+            }
+        }
+        else if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isBarrel)
+        {
+            CurrentSelectedTile.character.animator.SetTrigger("Explode");
+            StartCoroutine(Delay((float)0.5, Attacked));
+            BarrelExplode(CurrentSelectedTile);
+            //Attacked.GetComponent<SpriteRenderer>().enabled = false;
+            //Attacked.gameObject.SetActive(false);
+            //CurrentSelectedTile.isBarrel = false;
+            HideCharacterUI();
+        }
+
+        if ( Attacker.Attack == Attacker.Skill2attack && Attacker.Skill2cooldown == 0)
         {
             Attacker.Skill2cooldown += 3;
             if(Attacker.Skill2 == "Hose" || Attacker.Skill2 == "Blast")
@@ -255,27 +277,7 @@ public class MouseController : MonoBehaviour
         }
         inAttackRangeTiles.Clear();
        
-        if (Attacked.CharacterHP <= 0 && CurrentSelectedTile.isEnemy)
-        {
-            Attacked.GetComponent<SpriteRenderer>().enabled = false;
-            Attacked.gameObject.SetActive(false);
-            CurrentSelectedTile.isEnemy = false;
-            HideCharacterUI();
-            if (Attacked.characterName == "Left Weapon" || Attacked.characterName == "Right Weapon")
-            {
-                GameObject.Find("AlienBossHead(Clone)").GetComponent<AlienBossScript>().CheckWeapons();
-            }
-        }
-        else if (CurrentSelectedTile.character.CharacterHP <= 0 && CurrentSelectedTile.isBarrel)
-        {
-            CurrentSelectedTile.character.animator.SetTrigger("Explode");
-            StartCoroutine(Delay((float) 0.5, Attacked));
-            BarrelExplode(CurrentSelectedTile);
-            //Attacked.GetComponent<SpriteRenderer>().enabled = false;
-            //Attacked.gameObject.SetActive(false);
-            //CurrentSelectedTile.isBarrel = false;
-            HideCharacterUI();
-        }
+       
     }
 
     private void BarrelExplode(OverlayTile Barrel)
