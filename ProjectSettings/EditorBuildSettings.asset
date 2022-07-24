@@ -60,6 +60,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage 8.unity
     guid: 2b3afe5882612004d933a5175787db35
   - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 5717f6cac95f2804eb10b8ddb0e3ac8c
+  - enabled: 1
     path: Assets/Scenes/StageSelection.unity
     guid: 1ca7a6fede0411e4e9ec0ed4e2cfdc5e
   m_configObjects: {}

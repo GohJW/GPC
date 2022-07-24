@@ -1594,7 +1594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &803561383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2682,7 +2682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2134777765
 Transform:
   m_ObjectHideFlags: 0
@@ -2738,7 +2738,7 @@ MonoBehaviour:
     - "My thoughts exactly, I\u2019m literally wearing a farmer's hat."
     - Well, it was nice meeting everyone.
     - "Let\u2019s hit him with everything we\u2019ve got."
-    - "We definitely can\u2019t die here, this guy is a walking experiment"
+    - "We definitely can\u2019t die here, this guy is a walking experiment."
     - "Let\u2019s get him!"
     - "Faced with the strongest foe, the band forged on once more against their toughest
       opponent yet\u2026"

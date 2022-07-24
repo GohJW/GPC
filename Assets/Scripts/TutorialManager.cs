@@ -85,4 +85,10 @@ public class TutorialManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("ButtonClick");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void EndGame()
+    {
+        FindObjectOfType<AudioManager>().Play("ButtonClick");
+        SceneManager.LoadScene("Menu");
+    }
 }
