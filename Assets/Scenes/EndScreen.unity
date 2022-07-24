@@ -258,63 +258,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136792353}
   m_CullTransparentMesh: 1
---- !u!1001 &270845844
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 928901320941861556, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
-      propertyPath: m_Name
-      value: AudioManager & StageTracker
-      objectReference: {fileID: 0}
-    - target: {fileID: 928901320941861558, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 928901320941861558, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.6279969
-      objectReference: {fileID: 0}
-    - target: {fileID: 928901320941861558, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.7313095
-      objectReference: {fileID: 0}
-    - target: {fileID: 928901320941861558, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 526.4026
-      objectReference: {fileID: 0}
-    - target: {fileID: 928901320941861558, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 928901320941861558, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 928901320941861558, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 928901320941861558, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 928901320941861558, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 928901320941861558, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 928901320941861558, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 017c7e70d19f6d9458bf56992fab2632, type: 3}
 --- !u!1 &277930532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,10 +1141,9 @@ MonoBehaviour:
       Thanks to his good behaviour
       and contribution to society, Mr. Grapes was awarded early release.
 
+
       Thank
       you for playing!'
-    - Thanks to his good behaviour and contribution to society, Mr. Grapes was awarded
-      early release.
     pictures: []
   playButton: {fileID: 285912371}
   continueButton: {fileID: 681108157}
