@@ -23,13 +23,16 @@ We hope to make a turn-based strategy game that is both entertaining and engagin
 
 # SCOPE
 We are creating a Turn-based strategy game, similar to games like Fire Emblem. Our players control a variety of characters  with different skills, with the goal of clearing the different stages that we create with their own creative strategies.
+![Screenshot 2022-09-12 143812](https://user-images.githubusercontent.com/88386360/189590979-91e23dca-b533-4922-96cf-dde44f1967b7.png)
 
 ## Features
 ### Storyline
 An alien invasion occurs in the year 2022. Prisoners are released to fight off the aliens and defend the country. Each prisoner is paired up with a policeman to fight together and fend off the aliens. Along the way, they meet other survivors to fight alongside them.
+![image4](https://user-images.githubusercontent.com/88386360/189591019-1e00e4e7-f037-4bfb-b6a0-bd5646b4d6bb.png)
 
 ### Gameplay
 The game consists of 8 levels in total, 3 normal stages(city) and 1 mini-boss stage(ufo fight), followed by another 3 stages(inside ufo) and the final boss(the boss alien). We have 6 classes to choose from, in each stage users select 3 classes to attempt to clear the stage. Each class will have 3 different abilities, 2 basic abilities and 1 special ability that needs to be charged. 
+![Screenshot 2022-09-12 143619](https://user-images.githubusercontent.com/88386360/189591035-b65272dc-0cbe-47f5-b921-c5a5dd17f5eb.png)
 
 
 Our 6 classes are:
@@ -57,6 +60,8 @@ Our 6 classes are:
    - Pew (basic attack; ranged)
    - blast pack (arcing, dmg + knockback)
    - Laser(special; charge a laser that hits all enemies in a line)
+
+![Screenshot 2022-09-12 143515](https://user-images.githubusercontent.com/88386360/189591044-8f0d1d48-a9c6-4481-a59f-69959a4ae614.png)
 
 Our 4 types of enemies are:
 - Melee Alien
