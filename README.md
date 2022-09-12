@@ -21,15 +21,19 @@ We hope to make a turn-based strategy game that is both entertaining and engagin
 - As a player, they can come up with different strategies and routes to clear each stage with the different classes and skills of our playable characters.
 - As a game developer who wants to learn about the way users play the game, I want to be able to identify the strategies players use in order to clear each stage.
 
-# SCOPE
+# Scope
 We are creating a Turn-based strategy game, similar to games like Fire Emblem. Our players control a variety of characters  with different skills, with the goal of clearing the different stages that we create with their own creative strategies.
+![Screenshot 2022-09-12 143812](https://user-images.githubusercontent.com/88386360/189588720-4edcd9ee-c7dc-4dc2-9521-29486790e455.png)
+
 
 ## Features
 ### Storyline
 An alien invasion occurs in the year 2022. Prisoners are released to fight off the aliens and defend the country. Each prisoner is paired up with a policeman to fight together and fend off the aliens. Along the way, they meet other survivors to fight alongside them.
+![image4](https://user-images.githubusercontent.com/88386360/189588750-4a03adaa-4035-4ad5-8cbd-f8151123b366.png)
 
 ### Gameplay
 The game consists of 8 levels in total, 3 normal stages(city) and 1 mini-boss stage(ufo fight), followed by another 3 stages(inside ufo) and the final boss(the boss alien). We have 6 classes to choose from, in each stage users select 3 classes to attempt to clear the stage. Each class will have 3 different abilities, 2 basic abilities and 1 special ability that needs to be charged. 
+![Screenshot 2022-09-12 143619](https://user-images.githubusercontent.com/88386360/189588774-63acbba5-05ff-4067-aff0-cf9e960cecd2.png)
 
 
 Our 6 classes are:
@@ -57,6 +61,9 @@ Our 6 classes are:
    - Pew (basic attack; ranged)
    - blast pack (arcing, dmg + knockback)
    - Laser(special; charge a laser that hits all enemies in a line)
+
+![Screenshot 2022-09-12 143515](https://user-images.githubusercontent.com/88386360/189588975-d3c6c9a7-5ac2-4a28-8187-d28248d8ef60.png)
+
 
 Our 4 types of enemies are:
 - Melee Alien
